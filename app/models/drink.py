@@ -1,5 +1,4 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-from datetime import datetime
 from sqlalchemy.sql import func
 
 class Drink(db.Model):
@@ -9,11 +8,11 @@ class Drink(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     abv = db.Column(db.Integer, nullable=False)
     ibu = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(255), nullable=False)
-    drinkImgUrl = db.Column(db.String(255))
+    drink_img_url = db.Column(db.String(255))
     createdAt = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
     updatedAt = db.Column(db.DateTime(timezone=True), onupdate=func.now(), nullable=False)
 
