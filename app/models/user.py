@@ -22,6 +22,9 @@ class User(db.Model, UserMixin):
     # One-to-Many relationship with Drink model
     drinks = db.relationship('Drink', back_populates='user')
 
+    # One-to-Many relationship with Drink model
+    user_reviews = db.relationship('Review', back_populates='user')
+
     @property
     def password(self):
         return self.hashed_password
