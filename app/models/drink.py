@@ -1,5 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
+from sqlalchemy.sql import func
 
 class Drink(db.Model):
     __tablename__ = 'drinks'
@@ -13,8 +14,8 @@ class Drink(db.Model):
     ibu = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(255), nullable=False)
     drinkImgUrl = db.Column(db.String(255))
-    createdAt = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-    updatedAt = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+    createdAt = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
+    updatedAt = db.Column(db.DateTime(timezone=True), onupdate=func.now(), nullable=False)
 
     user = db.relationship('User', back_populates='drinks')
 
