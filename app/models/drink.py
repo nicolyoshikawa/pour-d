@@ -13,19 +13,19 @@ class Drink(db.Model):
     ibu = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(255), nullable=False)
     drink_img_url = db.Column(db.String(255))
-    createdAt = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
-    updatedAt = db.Column(db.DateTime(timezone=True), onupdate=func.now(), nullable=False)
+    created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
+    updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now(), nullable=False)
 
     user = db.relationship('User', back_populates='drinks')
 
     def to_dict(self):
         return {
             'id': self.id,
-            'userId': self.userId,
+            'user_id': self.user_id,
             'abv': self.abv,
             'ibu': self.ibu,
             'description': self.description,
-            'drinkImgUrl': self.drinkImgUrl,
-            'createdAt': self.createdAt.isoformat(),
-            'updatedAt': self.updatedAt.isoformat()
+            'drink_img_url': self.drink_img_url,
+            'created_at': self.created_at.isoformat(),
+            'updated_at': self.updated_at.isoformat()
         }
