@@ -3,6 +3,14 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 
+# Create the association table
+friends = db.Table(
+    "friends",
+    db.Column("user_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
+    db.Column("friend_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
+    db.Column("status", db.String(20), nullable=False, default='pending')
+)
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -19,6 +27,16 @@ class User(db.Model, UserMixin):
     user_img_url = db.Column(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now(), nullable=False)
+
+    # Many-to-Many relationship for friends + status
+    friends = db.relationship(
+        "User",
+        secondary=friends,
+        primaryjoin=(friends.c.user_id == id),
+        secondaryjoin=(friends.c.friend_id == id),
+        backref=db.backref("user_friends", lazy="dynamic"),
+        lazy="dynamic"
+    )
 
     # One-to-Many relationship with Drink model
     drinks = db.relationship('Drink', back_populates='user')
