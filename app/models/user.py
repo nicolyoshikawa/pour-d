@@ -3,7 +3,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 
-# Create the association table
 friends = db.Table(
     "friends",
     db.Column("user_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
