@@ -14,7 +14,7 @@ class Review(db.Model):
     drink_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('drinks.id')), nullable=False)
     review_img_url = db.Column(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
-    updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now(), nullable=False)
+    updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
 
     user = db.relationship('User', back_populates='user_reviews')
     drink = db.relationship('Drink', back_populates='drink_reviews')
