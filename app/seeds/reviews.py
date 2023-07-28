@@ -29,7 +29,6 @@ def seed_reviews():
             drink_id=random.choice(drink_ids),
             review_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png'
         )
-
         db.session.add(review)
     db.session.commit()
 
@@ -39,5 +38,5 @@ def undo_reviews():
         db.session.execute('TRUNCATE reviews RESTART IDENTITY CASCADE;')
     else:
         db.session.execute(text("DELETE FROM reviews"))
-    
+
     db.session.commit()
