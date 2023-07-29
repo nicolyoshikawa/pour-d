@@ -7,29 +7,28 @@ from .auth_routes import validation_errors_to_error_messages
 
 drink_routes = Blueprint("drink", __name__)
 
-@drink_routes.route("/")
 
 # GET ALL DRINKS
+@drink_routes.route("/")
 def drinks():
     drinks = Drink.query.all()
     return {'drinks': [drink.to_dict() for drink in drinks]}
 
-@drink_routes.route("/<int:id>")
-
 # GET SINGLE DRINK BY ID
+@drink_routes.route("/<int:id>")
 def drink(id):
     drink = Drink.query.get(id)
     return drink.to_dict()
 
+# CREATE A NEW DRINK
 @drink_routes.route("/", methods=["POST"])
 @login_required
-
-# CREATE A NEW DRINK
 def new_drink():
     form = DrinkForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         drink = Drink(
+            name=form.data["name"],
             abv=form.data["abv"],
             ibu=form.data["ibu"],
             description=form.data["description"],
@@ -41,10 +40,9 @@ def new_drink():
         return drink.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+# EDIT A DRINK
 @drink_routes.route("/<int:id>", methods=["PUT"])
 @login_required
-
-# EDIT A DRINK
 def edit_drink(id):
     drink = Drink.query.get(id)
     owner = drink.user_id
@@ -52,6 +50,7 @@ def edit_drink(id):
         form = DrinkForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
+            drink.name = form.data["name"],
             drink.abv = form.data["abv"],
             drink.ibu = form.data["ibu"],
             drink.description = form.data["description"],
@@ -61,10 +60,9 @@ def edit_drink(id):
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     return {'errors': ['Unauthorized']}
 
+# DELETE A DRINK
 @drink_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
-
-# DELETE A DRINK
 def delete_drink(id):
     drink = Drink.query.get(id)
     owner = drink.user_id

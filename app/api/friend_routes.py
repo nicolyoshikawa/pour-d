@@ -1,28 +1,46 @@
 from flask import Blueprint, redirect, url_for, render_template
-from flask_login import login_required
-from app.models import User
+from flask_login import login_required, current_user
+from app.models import Friend, db
 
 friend_routes = Blueprint("friends", __name__)
+user = current_user.id
 
 # A logged in user can add a friend.
-@friend_routes.route("/request/targetId", methods=["POST"])
+@friend_routes.route("/request/<int:targetId>", methods=["POST"])
 @login_required
-def addFriend():
-    pass
+def addFriend(targetId):
+    new_req = Friend(
+        user_id=user,
+        friend_id=targetId,
+        status="pending"
+    )
+    db.session.add(new_req)
+    db.session.commit()
+    return {"message": "Friend request sent"}
 
 # A logged in user can accept a friend request.
-@friend_routes.route("/accept/targetId", methods=["PUT"])
+@friend_routes.route("/accept/<int:requestId>", methods=["PUT"])
 @login_required
-def acceptFriend():
-    pass
+def acceptFriend(requestId):
+    request = Friend.query.get(requestId)
+    request.status = "friends"
+    db.session.commit()
+    return {"message": "Request accepted"}
+
 # A logged in user can reject a friend request.
-@friend_routes.route("/reject/targetId", methods=["DELETE"])
+@friend_routes.route("/reject/<int:requestId>", methods=["DELETE"])
 @login_required
-def rejectFriend():
-    pass
+def rejectFriend(requestId):
+    request = Friend.query.get(requestId)
+    db.session.delete(request)
+    db.session.commit()
+    return {"message": "Request rejected"}
 
 # A logged in user can delete a friend.
-@friend_routes.route("/remove/targetId", methods=["DELETE"])
+@friend_routes.route("/remove/<int:targetId>", methods=["DELETE"])
 @login_required
-def deleteFriend():
-    pass
+def deleteFriend(targetId):
+    friend = Friend.query.all().filter(Friend.user_id == user and Friend.friend_id == targetId)
+    db.session.delete(friend)
+    db.session.commit()
+    return {"message": "Friend removed"}
