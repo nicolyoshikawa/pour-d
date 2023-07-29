@@ -38,7 +38,7 @@ def new_drink():
         return drink.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@drink_routes.route("/", methods=["GET"])
+@drink_routes.route("/", methods=["PUT"])
 @login_required
 
 # EDIT A DRINK
@@ -48,19 +48,17 @@ def edit_drink(id):
     if current_user.id == owner:
         form = DrinkForm()
         if form.validate_on_submit():
-            drink = Drink(
-                abv=form.data["abv"],
-                ibu=form.data["ibu"],
-                description=form.data["description"],
-                drink_image_url=form.data["logo"]
-            )
-            db.session.delete(drink)
-            db.session.add(drink)
+            drink.abv = form.data["abv"],
+            drink.ibu = form.data["ibu"],
+            drink.description = form.data["description"],
+            drink.drink_image_url = form.data["logo"]
             db.session.commit()
             return drink.to_dict()
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     return {'errors': ['Unauthorized']}
 
+@drink_routes.route("/", methods=["DELETE"])
+@login_required
 # DELETE A DRINK
 def delete_drink(id):
     drink = Drink.query.get(id)
