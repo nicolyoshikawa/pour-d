@@ -3,12 +3,12 @@ from flask_login import login_required, current_user
 from app.models import Friend, db
 
 friend_routes = Blueprint("friends", __name__)
-user = current_user.id
 
 # A logged in user can add a friend.
 @friend_routes.route("/request/<int:targetId>", methods=["POST"])
 @login_required
 def addFriend(targetId):
+    user = current_user.id
     new_req = Friend(
         user_id=user,
         friend_id=targetId,
@@ -40,6 +40,7 @@ def rejectFriend(requestId):
 @friend_routes.route("/remove/<int:targetId>", methods=["DELETE"])
 @login_required
 def deleteFriend(targetId):
+    user = current_user.id
     friend = Friend.query.all().filter(Friend.user_id == user and Friend.friend_id == targetId)
     db.session.delete(friend)
     db.session.commit()
