@@ -25,7 +25,7 @@ class User(db.Model, UserMixin):
     birthday = db.Column(db.Date, nullable=False)
     user_img_url = db.Column(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
-    updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now(), nullable=False)
+    updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
 
     # Many-to-Many relationship for friends + status
     friends = db.relationship(
