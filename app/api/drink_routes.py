@@ -1,5 +1,6 @@
+
 from flask import Blueprint
-from app.models import Drink, db
+from app.models import User, Drink, db
 from flask_login import login_required, current_user
 from app.forms.drink_form import DrinkForm
 from .auth_routes import validation_errors_to_error_messages
@@ -59,6 +60,7 @@ def edit_drink(id):
 
 @drink_routes.route("/", methods=["DELETE"])
 @login_required
+
 # DELETE A DRINK
 def delete_drink(id):
     drink = Drink.query.get(id)
@@ -68,3 +70,15 @@ def delete_drink(id):
         db.session.commit()
         return {"message": "Drink successfully deleted"}
     return {'errors': ['Unauthorized']}
+
+# A logged in user can create a checkin/review for a drink.
+@bp.route('/<int:id>/reviews', methods=["POST"])
+@login_required
+def createAReview():
+    pass
+
+# Users can read a checkin/review for a drink.
+@bp.route('/<int:id>/reviews/<int:id>', methods=["GET"])
+def getAReviewForADrink():
+    pass
+
