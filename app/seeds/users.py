@@ -104,8 +104,6 @@ def seed_users():
         user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
     )
 
-    # Add more users here as needed
-
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
