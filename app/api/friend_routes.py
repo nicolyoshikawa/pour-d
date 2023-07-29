@@ -15,6 +15,7 @@ def addFriend():
 @login_required
 def acceptFriend():
     pass
+
 # A logged in user can reject a friend request.
 @friend_routes.route("/reject/targetId", methods=["DELETE"])
 @login_required
