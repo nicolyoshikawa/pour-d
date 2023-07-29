@@ -4,7 +4,7 @@ from app.models import db, Review
 from auth_routes import validation_errors_to_error_messages
 from app.forms.review_form import ReviewForm
 
-review_routes = Blueprint("reviews", __name__, url_prefix="/api/reviews")
+review_routes = Blueprint("reviews", __name__)
 
 # A logged in user can update one of their own reviews.
 @review_routes.route("/<int:id>", methods=["PUT"])
