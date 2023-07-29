@@ -1,8 +1,9 @@
 
 from flask import Blueprint, request
-from app.models import User, Drink, db
+from app.models import User, Drink, db, Review
 from flask_login import login_required, current_user
 from app.forms.drink_form import DrinkForm
+from app.forms.review_form import ReviewForm
 from .auth_routes import validation_errors_to_error_messages
 
 drink_routes = Blueprint("drink", __name__)
@@ -75,10 +76,25 @@ def delete_drink(id):
 # A logged in user can create a checkin/review for a drink.
 @drink_routes.route('/<int:id>/reviews', methods=["POST"])
 @login_required
-def createAReview():
-    pass
+def createAReview(id):
+    form = ReviewForm()
+    drink_id = id
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        review = Review(
+            content= form.data["content"],
+            stars= form.data["stars"],
+            user_id= current_user.id,
+            drink_id= drink_id,
+            review_img_url= form.data["review_img_url"]
+        )
+        db.session.add(review)
+        db.session.commit()
+        return review.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # Users can read a checkin/review for a drink.
 @drink_routes.route('/<int:id>/reviews/<int:review_id>', methods=["GET"])
-def getAReviewForADrink():
-    pass
+def getAReviewForADrink(id, review_id):
+    review = Review.query.all().filter(Review.drink_id == id and Review.id == review_id)
+    return review.to_dict()
