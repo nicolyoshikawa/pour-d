@@ -32,14 +32,15 @@ def new_drink():
             abv=form.data["abv"],
             ibu=form.data["ibu"],
             description=form.data["description"],
-            drink_image_url=form.data["logo"]
+            drink_image_url=form.data["logo"],
+            user_id = current_user.id
         )
         db.session.add(drink)
         db.session.commit()
         return drink.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@drink_routes.route("/", methods=["PUT"])
+@drink_routes.route("/<int:id>", methods=["PUT"])
 @login_required
 
 # EDIT A DRINK
@@ -58,7 +59,7 @@ def edit_drink(id):
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     return {'errors': ['Unauthorized']}
 
-@drink_routes.route("/", methods=["DELETE"])
+@drink_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
 
 # DELETE A DRINK
@@ -72,13 +73,12 @@ def delete_drink(id):
     return {'errors': ['Unauthorized']}
 
 # A logged in user can create a checkin/review for a drink.
-@bp.route('/<int:id>/reviews', methods=["POST"])
+@drink_routes.route('/<int:id>/reviews', methods=["POST"])
 @login_required
 def createAReview():
     pass
 
 # Users can read a checkin/review for a drink.
-@bp.route('/<int:id>/reviews/<int:id>', methods=["GET"])
+@drink_routes.route('/<int:id>/reviews/<int:reviewId>', methods=["GET"])
 def getAReviewForADrink():
     pass
-
