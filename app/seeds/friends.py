@@ -1,12 +1,10 @@
 from app.models import db, environment, SCHEMA, User
 from sqlalchemy.sql import text
 
-def seed_user_relationships():
-    user_ids = [1, 2, 3] # Number of users
-    
-    user1 = User.query.get(user_ids[0])
-    user2 = User.query.get(user_ids[1])
-    user3 = User.query.get(user_ids[2])
+def seed_friends():  
+    user1 = User.query.get(1) # UserId
+    user2 = User.query.get(2) # UserId
+    user3 = User.query.get(3) # UserId
 
     # User1 is friends w/ User2
     user1.friends.append(user2, status='friends')
@@ -20,10 +18,10 @@ def seed_user_relationships():
     db.session.add(user3)
     db.session.commit()
 
-def undo_user_relationships():
+def undo_friends():
     if environment == "production":
-        db.session.execute('TRUNCATE friends RESTART IDENTITY CASCADE;')
+        db.session.execute(f"TRUNCATE table {SCHEMA}.friends RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM users"))
+        db.session.execute(text("DELETE FROM friends"))
 
     db.session.commit()
