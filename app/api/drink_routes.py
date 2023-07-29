@@ -80,14 +80,14 @@ def createAReview(id):
     form = ReviewForm()
     drink_id = id
     form['csrf_token'].data = request.cookies['csrf_token']
-    review = Review.query.all().filter(Review.drink_id == id and Review.user_id == current_user.id)
+
     drink = Drink.query.get(id)
-
-    if review:
-        return {'errors': "User already has a review for this drink"}, 403
-
     if not drink:
         return {'errors': "Drink could not be found"}, 404
+
+    review = Review.query.all().filter(Review.drink_id == id and Review.user_id == current_user.id)
+    if review:
+        return {'errors': "User already has a review for this drink"}, 403
 
     if form.validate_on_submit():
         review = Review(
@@ -99,6 +99,7 @@ def createAReview(id):
         )
         db.session.add(review)
         db.session.commit()
+
         return review.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
@@ -106,4 +107,6 @@ def createAReview(id):
 @drink_routes.route('/<int:id>/reviews/<int:review_id>', methods=["GET"])
 def getAReviewForADrink(id, review_id):
     review = Review.query.all().filter(Review.drink_id == id and Review.id == review_id)
+    if not review:
+        return {'errors': "Review could not be found"}, 404
     return review.to_dict()
