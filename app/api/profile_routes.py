@@ -2,7 +2,7 @@ from flask import Blueprint, redirect, url_for, render_template
 from flask_login import login_required
 from app.models import User
 
-profile_routes = Blueprint("profile", __name__, url_prefix="/currentUser")
+profile_routes = Blueprint("profile", __name__, url_prefix="/api/currentUser")
 
 # Get the current user that is logged in.
 @profile_routes.route("/session", methods=["GET"])
