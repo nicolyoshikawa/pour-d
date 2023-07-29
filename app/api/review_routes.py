@@ -1,7 +1,7 @@
 from flask import Blueprint, redirect, url_for, render_template
 from flask_login import login_required, current_user
 from app.models import db, Review
-from auth_routes import validation_errors_to_error_messages
+from .auth_routes import validation_errors_to_error_messages
 from app.forms.review_form import ReviewForm
 
 review_routes = Blueprint("reviews", __name__)
