@@ -80,6 +80,15 @@ def createAReview(id):
     form = ReviewForm()
     drink_id = id
     form['csrf_token'].data = request.cookies['csrf_token']
+    review = Review.query.all().filter(Review.drink_id == id and Review.user_id == current_user.id)
+    drink = Drink.query.get(id)
+
+    if review:
+        return {'errors': "User already has a review for this drink"}, 403
+
+    if not drink:
+        return {'errors': "Drink could not be found"}, 404
+
     if form.validate_on_submit():
         review = Review(
             content= form.data["content"],
