@@ -1,5 +1,5 @@
 
-from flask import Blueprint
+from flask import Blueprint, request
 from app.models import User, Drink, db
 from flask_login import login_required, current_user
 from app.forms.drink_form import DrinkForm
@@ -27,6 +27,7 @@ def drink(id):
 # CREATE A NEW DRINK
 def new_drink():
     form = DrinkForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         drink = Drink(
             abv=form.data["abv"],
@@ -49,6 +50,7 @@ def edit_drink(id):
     owner = drink.user_id
     if current_user.id == owner:
         form = DrinkForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
             drink.abv = form.data["abv"],
             drink.ibu = form.data["ibu"],
