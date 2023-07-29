@@ -7,7 +7,7 @@ from flask_login import LoginManager
 from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
-# from .api.drink_routes import drink_routes
+from .api.drink_routes import drink_routes
 from .api.friend_routes import friend_routes
 from .api.profile_routes import profile_routes
 from .api.review_routes import review_routes

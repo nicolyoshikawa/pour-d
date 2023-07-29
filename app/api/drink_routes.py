@@ -72,13 +72,13 @@ def delete_drink(id):
     return {'errors': ['Unauthorized']}
 
 # A logged in user can create a checkin/review for a drink.
-@bp.route('/<int:id>/reviews', methods=["POST"])
+@drink_routes.route('/<int:id>/reviews', methods=["POST"])
 @login_required
 def createAReview():
     pass
 
 # Users can read a checkin/review for a drink.
-@bp.route('/<int:id>/reviews/<int:id>', methods=["GET"])
+@drink_routes.route('/<int:id>/reviews/<int:review_id>', methods=["GET"])
 def getAReviewForADrink():
     pass
 
