@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 7d3ab546cde1
+Revision ID: 38fa663a18e2
 Revises: 
-Create Date: 2023-07-29 10:18:36.028610
+Create Date: 2023-07-29 11:25:27.316471
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '7d3ab546cde1'
+revision = '38fa663a18e2'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -35,6 +35,7 @@ def upgrade():
     )
     op.create_table('drinks',
     sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('name', sa.String(length=50), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('abv', sa.Integer(), nullable=False),
     sa.Column('ibu', sa.Integer(), nullable=False),
@@ -43,7 +44,8 @@ def upgrade():
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('name')
     )
     op.create_table('friends',
     sa.Column('user_id', sa.Integer(), nullable=False),
