@@ -32,10 +32,11 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
-# app.register_blueprint(drink_routes)
+app.register_blueprint(drink_routes, url_prefix="/api/drinks")
 app.register_blueprint(friend_routes, url_prefix="/api/friend")
 app.register_blueprint(profile_routes, url_prefix="/api/currentUser")
 app.register_blueprint(review_routes, url_prefix="/api/reviews")
+
 db.init_app(app)
 Migrate(app, db)
 
