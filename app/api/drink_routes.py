@@ -1,5 +1,5 @@
 
-from flask import Blueprint
+from flask import Blueprint, request
 from app.models import User, Drink, db
 from flask_login import login_required, current_user
 from app.forms.drink_form import DrinkForm
@@ -27,19 +27,21 @@ def drink(id):
 # CREATE A NEW DRINK
 def new_drink():
     form = DrinkForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         drink = Drink(
             abv=form.data["abv"],
             ibu=form.data["ibu"],
             description=form.data["description"],
-            drink_image_url=form.data["logo"]
+            drink_image_url=form.data["logo"],
+            user_id = current_user.id
         )
         db.session.add(drink)
         db.session.commit()
         return drink.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@drink_routes.route("/", methods=["PUT"])
+@drink_routes.route("/<int:id>", methods=["PUT"])
 @login_required
 
 # EDIT A DRINK
@@ -48,6 +50,7 @@ def edit_drink(id):
     owner = drink.user_id
     if current_user.id == owner:
         form = DrinkForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
             drink.abv = form.data["abv"],
             drink.ibu = form.data["ibu"],
@@ -58,7 +61,7 @@ def edit_drink(id):
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     return {'errors': ['Unauthorized']}
 
-@drink_routes.route("/", methods=["DELETE"])
+@drink_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
 
 # DELETE A DRINK
@@ -81,4 +84,3 @@ def createAReview():
 @drink_routes.route('/<int:id>/reviews/<int:review_id>', methods=["GET"])
 def getAReviewForADrink():
     pass
-

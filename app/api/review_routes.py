@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, url_for, render_template
+from flask import Blueprint, redirect, url_for, request
 from flask_login import login_required, current_user
 from app.models import db, Review
 from .auth_routes import validation_errors_to_error_messages
@@ -13,6 +13,7 @@ def update_review(id):
     review = Review.query.get(id)
     if current_user.id == review.user_id:
         form = ReviewForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
             updated_data = Review()
             form.populate_obj(updated_data)
