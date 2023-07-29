@@ -1,15 +1,36 @@
 from app.models import db, User, environment, SCHEMA
 from sqlalchemy.sql import text
-
+from datetime import date
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password')
+        username='Demo',
+        email='demo@aa.io',
+        password='password',
+        first_name='Demo',
+        last_name='User',
+        birthday=date(1990, 1, 1),
+        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+    )
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
+        username='marnie',
+        email='marnie@aa.io',
+        password='password',
+        first_name='Marnie',
+        last_name='User2',
+        birthday=date(1990, 1, 2),
+        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+    )
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+        username='bobbie',
+        email='bobbie@aa.io',
+        password='password',
+        first_name='Bobbie',
+        last_name='User3',
+        birthday=date(1990, 1, 3),
+        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+    )
 
     db.session.add(demo)
     db.session.add(marnie)

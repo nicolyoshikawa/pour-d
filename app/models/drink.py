@@ -14,7 +14,7 @@ class Drink(db.Model):
     description = db.Column(db.String(255), nullable=False)
     drink_img_url = db.Column(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
-    updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now(), nullable=False)
+    updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
 
     user = db.relationship('User', back_populates='drinks')
     drink_reviews = db.relationship('Review', back_populates='drink')
