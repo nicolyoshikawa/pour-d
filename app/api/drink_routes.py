@@ -81,6 +81,6 @@ def createAReview():
     pass
 
 # Users can read a checkin/review for a drink.
-@drink_routes.route('/<int:id>/reviews/<int:reviewId>', methods=["GET"])
+@drink_routes.route('/<int:id>/reviews/<int:review_id>', methods=["GET"])
 def getAReviewForADrink():
     pass
