@@ -1,6 +1,6 @@
 from flask import Blueprint, redirect, url_for, render_template, jsonify
 from flask_login import login_required, current_user
-from app.models import User, Drink, Review
+from app.models import User, Drink, Review, Friend
 
 profile_routes = Blueprint("profile", __name__)
 
@@ -29,14 +29,13 @@ def getCurrentUserReviews():
 @profile_routes.route("/pending", methods=["GET"])
 @login_required
 def getCurrentUserFriendRequests():
-    user = User.query.get(current_user.id)
-    pending = user.friends.query.all().filter(user.friends.status == "pending")
-    return pending.to_dict()
+    find_friends = Friend.query.all()
+    return [request.to_dict() for request in find_friends if request.friend_id == current_user.id and request.status == "pending"]
 
 # A logged in user can view their friend's activity.
 @profile_routes.route("/friend-activity", methods=["GET"])
 @login_required
 def getCurrentUserFriendActivity():
-    user = User.query.get(current_user.id)
-    user_friends = user.friends.query.all().filter(user.friends.status == "friends")
-    return user_friends.to_dict()
+    find_friends = Friend.query.all()
+    friend_list = [request.to_dict() for request in find_friends if (request.friend_id == current_user.id or request.user_id == current_user.id) and request.status == "friends"]
+    return friend_list
