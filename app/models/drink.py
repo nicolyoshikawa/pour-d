@@ -8,6 +8,7 @@ class Drink(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False, unique=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     abv = db.Column(db.Integer, nullable=False)
     ibu = db.Column(db.Integer, nullable=False)
@@ -22,6 +23,7 @@ class Drink(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
+            'name' : self.name,
             'user_id': self.user_id,
             'abv': self.abv,
             'ibu': self.ibu,

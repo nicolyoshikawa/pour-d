@@ -2,13 +2,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from sqlalchemy.sql import func
-
-friends = db.Table(
-    "friends",
-    db.Column("user_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
-    db.Column("friend_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
-    db.Column("status", db.String(20), nullable=False, default='pending')
-)
+from .friend import Friend
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -27,21 +21,15 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
 
-    # Many-to-Many relationship for friends + status
-    friends = db.relationship(
-        "User",
-        secondary=friends,
-        primaryjoin=(friends.c.user_id == id),
-        secondaryjoin=(friends.c.friend_id == id),
-        backref=db.backref("user_friends", lazy="dynamic"),
-        lazy="dynamic"
-    )
-
     # One-to-Many relationship with Drink model
     drinks = db.relationship('Drink', back_populates='user')
 
     # One-to-Many relationship with Review model
     user_reviews = db.relationship('Review', back_populates='user')
+
+    # Many-to-Many relationship with Friend model
+    friends = db.relationship('Friend', foreign_keys=[Friend.user_id], back_populates='user')
+    friend_of = db.relationship('Friend', foreign_keys=[Friend.friend_id], back_populates='friend')
 
     @property
     def password(self):

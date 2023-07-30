@@ -1,5 +1,5 @@
-from .db import db
+from .db import db, environment, SCHEMA
 from .user import User
 from .drink import Drink
 from .review import Review
-from .db import environment, SCHEMA
+from .friend import Friend
