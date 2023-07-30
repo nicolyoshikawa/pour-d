@@ -1,9 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, TextAreaField, SubmitField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, URL
 
 class ReviewForm(FlaskForm):
     content = TextAreaField("Description", validators=[DataRequired(), Length(min=0, max=500)])
     stars = IntegerField("Stars", validators=[DataRequired(), Length(min=1, max=5)])
-    review_img_url = StringField("Review Image", validators=[Length(max=255)])
+    review_img_url = StringField("Review Image", validators=[Length(max=255), URL()])
     submit = SubmitField("Create review")
