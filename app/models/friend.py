@@ -9,3 +9,10 @@ class Friend(db.Model):
 
     user = db.relationship('User', foreign_keys=[user_id], back_populates='friends')
     friend = db.relationship('User', foreign_keys=[friend_id], back_populates='friend_of')
+
+    def to_dict(self):
+        return {
+            'user_id': self.user_id,
+            'friend_id': self.friend_id,
+            'status': self.status
+        }
