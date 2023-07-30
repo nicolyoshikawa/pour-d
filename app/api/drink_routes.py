@@ -1,6 +1,5 @@
-
 from flask import Blueprint, request
-from app.models import User, Drink, db, Review
+from app.models import User, Drink, Review, db
 from flask_login import login_required, current_user
 from app.forms.drink_form import DrinkForm
 from app.forms.review_form import ReviewForm
@@ -21,7 +20,6 @@ def drink(id):
     drink = Drink.query.get(id)
     if not drink:
         return {'errors': "Drink could not be found"}, 404
-
     return drink.to_dict()
 
 # CREATE A NEW DRINK
@@ -36,7 +34,7 @@ def new_drink():
             abv=form.data["abv"],
             ibu=form.data["ibu"],
             description=form.data["description"],
-            drink_image_url=form.data["logo"],
+            drink_img_url=form.data["drink_img_url"],
             user_id = current_user.id
         )
         db.session.add(drink)
@@ -51,17 +49,16 @@ def edit_drink(id):
     drink = Drink.query.get(id)
     if not drink:
         return {'errors': "Drink could not be found"}, 404
-
     owner = drink.user_id
     if current_user.id == owner:
         form = DrinkForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
-            drink.name = form.data["name"],
-            drink.abv = form.data["abv"],
-            drink.ibu = form.data["ibu"],
-            drink.description = form.data["description"],
-            drink.drink_image_url = form.data["logo"]
+            drink.name = form.data["name"]
+            drink.abv = form.data["abv"]
+            drink.ibu = form.data["ibu"]
+            drink.description = form.data["description"]
+            drink.drink_img_url = form.data["drink_img_url"]
             db.session.commit()
             return drink.to_dict()
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
@@ -74,7 +71,6 @@ def delete_drink(id):
     drink = Drink.query.get(id)
     if not drink:
         return {'errors': "Drink could not be found"}, 404
-
     owner = drink.user_id
     if current_user.id == owner:
         db.session.delete(drink)
