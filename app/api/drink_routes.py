@@ -1,7 +1,8 @@
 from flask import Blueprint, request
-from app.models import User, Drink, db
+from app.models import User, Drink, Review, db
 from flask_login import login_required, current_user
 from app.forms.drink_form import DrinkForm
+from app.forms.review_form import ReviewForm
 from .auth_routes import validation_errors_to_error_messages
 
 drink_routes = Blueprint("drink", __name__)
@@ -31,7 +32,7 @@ def new_drink():
             abv=form.data["abv"],
             ibu=form.data["ibu"],
             description=form.data["description"],
-            drink_img_url=form.data["logo"],
+            drink_img_url=form.data["drink_img_url"],
             user_id = current_user.id
         )
         db.session.add(drink)
@@ -53,7 +54,7 @@ def edit_drink(id):
             drink.abv = form.data["abv"]
             drink.ibu = form.data["ibu"]
             drink.description = form.data["description"]
-            drink.drink_image_url = form.data["logo"]
+            drink.drink_img_url = form.data["drink_img_url"]
             db.session.commit()
             return drink.to_dict()
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
