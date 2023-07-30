@@ -11,12 +11,20 @@ review_routes = Blueprint("reviews", __name__)
 @login_required
 def update_review(id):
     review = Review.query.get(id)
+    if not review:
+        return {'errors': "Review could not be found"}, 404
+
     if current_user.id == review.user_id:
         form = ReviewForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
-            updated_data = Review()
-            form.populate_obj(updated_data)
+            if form.data["content"] != review.content:
+                review.content = form.data["content"]
+            if form.data["stars"] != review.stars:
+                review.stars = form.data["stars"]
+            if form.data["review_img_url"] != review.review_img_url:
+                review.review_img_url = form.data["review_img_url"]
+
             db.session.commit()
             return review.to_dict()
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
@@ -27,10 +35,13 @@ def update_review(id):
 @login_required
 def delete_review(id):
     review = Review.query.get(id)
+    if not review:
+        return {'errors': "Review could not be found"}, 404
+
     if current_user.id == review.user_id:
         db.session.delete(review)
         db.session.commit()
-        return { "message": "Review successfully deleted"}
+        return { "message": "Review successfully deleted"}, 200
     return {'errors': ['Unauthorized']}
 
 # A logged in user can read a list of checkins/reviews.

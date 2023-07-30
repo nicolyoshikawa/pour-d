@@ -1,6 +1,6 @@
 from flask import Blueprint, redirect, url_for, render_template
 from flask_login import login_required, current_user
-from app.models import Friend, db
+from app.models import Friend, db, User
 
 friend_routes = Blueprint("friends", __name__)
 
@@ -8,6 +8,10 @@ friend_routes = Blueprint("friends", __name__)
 @friend_routes.route("/request/<int:targetId>", methods=["POST"])
 @login_required
 def addFriend(targetId):
+    target_exists = User.query.all().filter(User.id == targetId)
+    if not target_exists:
+        return {'errors': "Friend could not be found"}, 404
+    
     user_id = current_user.id
     new_request = Friend(
         user_id=user_id,
@@ -24,13 +28,13 @@ def addFriend(targetId):
 def acceptFriend(targetId):
     user_id = current_user.id
     friend_id = targetId
-    friendship = Friend.query.get((friend_id, user_id))
+    request = Friend.query.get((friend_id, user_id))
 
     # Check if the friendship request exists
-    if not friendship:
-        return {"message": "Friend request not found"}, 404
+    if not request:
+        return {'errors': "Friend request could not be found"}, 404
 
-    friendship.status = "friends"
+    request.status = "friends"
     db.session.commit()
     return {"message": "Request accepted"}
 
@@ -40,13 +44,13 @@ def acceptFriend(targetId):
 def rejectFriend(targetId):
     user_id = current_user.id
     friend_id = targetId
-    friendship = Friend.query.get((friend_id, user_id))
+    request = Friend.query.get((friend_id, user_id))
 
     # Check if the friendship request exists
-    if not friendship:
-        return {"message": "Friend request not found"}, 404
+    if not request:
+        return {'errors': "Friend request could not be found"}, 404
 
-    db.session.delete(friendship)
+    db.session.delete(request)
     db.session.commit()
     return {"message": "Request rejected"}
 
@@ -60,7 +64,7 @@ def deleteFriend(targetId):
 
     # Check if the friendship exists
     if not friendship:
-        return {"message": "Friend not found"}, 404
+        return {'errors': "Friend could not be found"}, 404
 
     db.session.delete(friendship)
     db.session.commit()
