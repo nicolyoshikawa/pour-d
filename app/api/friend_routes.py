@@ -28,7 +28,9 @@ def addFriend(targetId):
 @friend_routes.route("/accept/<int:targetId>", methods=["PUT"])
 @login_required
 def acceptFriend(targetId):
-    request = Friend.query.filter_by(user_id=targetId, friend_id=current_user.id, status="pending").first()
+    request = Friend.query.filter_by(user_id=targetId,
+                                     friend_id=current_user.id,
+                                     status="pending").first()
 
     # Check if the friendship request exists
     if not request:
@@ -42,7 +44,9 @@ def acceptFriend(targetId):
 @friend_routes.route("/reject/<int:targetId>", methods=["DELETE"])
 @login_required
 def rejectFriend(targetId):
-    request = Friend.query.filter_by(user_id=targetId, friend_id=current_user.id, status="pending").first()
+    request = Friend.query.filter_by(user_id=targetId,
+                                     friend_id=current_user.id,
+                                     status="pending").first()
 
     # Check if the friendship request exists
     if not request:
