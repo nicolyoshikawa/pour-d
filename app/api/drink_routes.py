@@ -18,6 +18,8 @@ def drinks():
 @drink_routes.route("/<int:id>")
 def drink(id):
     drink = Drink.query.get(id)
+    if not drink:
+        return {'errors': "Drink could not be found"}, 404
     return drink.to_dict()
 
 # CREATE A NEW DRINK
@@ -45,6 +47,8 @@ def new_drink():
 @login_required
 def edit_drink(id):
     drink = Drink.query.get(id)
+    if not drink:
+        return {'errors': "Drink could not be found"}, 404
     owner = drink.user_id
     if current_user.id == owner:
         form = DrinkForm()
@@ -65,6 +69,8 @@ def edit_drink(id):
 @login_required
 def delete_drink(id):
     drink = Drink.query.get(id)
+    if not drink:
+        return {'errors': "Drink could not be found"}, 404
     owner = drink.user_id
     if current_user.id == owner:
         db.session.delete(drink)
