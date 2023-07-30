@@ -1,6 +1,6 @@
 from flask import Blueprint, redirect, url_for, render_template
 from flask_login import login_required, current_user
-from app.models import Friend, db
+from app.models import Friend, db, User
 
 friend_routes = Blueprint("friends", __name__)
 
@@ -9,6 +9,10 @@ friend_routes = Blueprint("friends", __name__)
 @login_required
 def addFriend(targetId):
     user = current_user.id
+    target_exists = User.query.all().filter(User.id == targetId)
+    if not target_exists:
+        return {'errors': "Friend could not be found"}, 404
+
     new_req = Friend(
         user_id=user,
         friend_id=targetId,
@@ -23,6 +27,9 @@ def addFriend(targetId):
 @login_required
 def acceptFriend(requestId):
     request = Friend.query.get(requestId)
+    if not request:
+        return {'errors': "Friend request could not be found"}, 404
+
     request.status = "friends"
     db.session.commit()
     return {"message": "Request accepted"}
@@ -32,6 +39,9 @@ def acceptFriend(requestId):
 @login_required
 def rejectFriend(requestId):
     request = Friend.query.get(requestId)
+    if not request:
+        return {'errors': "Friend request could not be found"}, 404
+
     db.session.delete(request)
     db.session.commit()
     return {"message": "Request rejected"}
@@ -42,6 +52,9 @@ def rejectFriend(requestId):
 def deleteFriend(targetId):
     user = current_user.id
     friend = Friend.query.all().filter(Friend.user_id == user and Friend.friend_id == targetId)
+    if not friend:
+        return {'errors': "Friend could not be found"}, 404
+
     db.session.delete(friend)
     db.session.commit()
     return {"message": "Friend removed"}
