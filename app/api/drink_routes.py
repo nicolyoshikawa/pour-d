@@ -90,7 +90,7 @@ def createAReview(id):
     if not drink:
         return {'errors': "Drink could not be found"}, 404
 
-    review = Review.query.all().filter(Review.drink_id == id and Review.user_id == current_user.id)
+    review = Review.query.filter(Review.drink_id == id, Review.user_id == current_user.id).first()
     if review:
         return {'errors': "User already has a review for this drink"}, 403
 
@@ -109,9 +109,18 @@ def createAReview(id):
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # Users can read a checkin/review for a drink.
-@drink_routes.route('/<int:id>/reviews/<int:review_id>', methods=["GET"])
-def getAReviewForADrink(id, review_id):
-    review = Review.query.all().filter(Review.drink_id == id and Review.id == review_id)
-    if not review:
+# @drink_routes.route('/<int:id>/reviews/<int:review_id>', methods=["GET"])
+# def getAReviewForADrink(id, review_id):
+    # review = Review.query.all().filter(Review.drink_id == id and Review.id == review_id)
+    # drink = Drink.query.get(id)
+    # if not review:
+    #     return {'errors': "Review could not be found"}, 404
+    # return review.to_dict()
+
+# View all reviews for a drink
+@drink_routes.route('/<int:id>/reviews', methods=["GET"])
+def getAllReviewsForADrink(id):
+    reviews = Review.query.filter(Review.drink_id == id).all()
+    if not reviews:
         return {'errors': "Review could not be found"}, 404
-    return review.to_dict()
+    return {'reviews': [review.to_dict() for review in reviews]}
