@@ -7,6 +7,10 @@ from flask_login import LoginManager
 from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
+from .api.drink_routes import drink_routes
+from .api.friend_routes import friend_routes
+from .api.profile_routes import profile_routes
+from .api.review_routes import review_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -28,6 +32,11 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
+app.register_blueprint(drink_routes, url_prefix="/api/drinks")
+app.register_blueprint(friend_routes, url_prefix="/api/friend")
+app.register_blueprint(profile_routes, url_prefix="/api/currentUser")
+app.register_blueprint(review_routes, url_prefix="/api/reviews")
+
 db.init_app(app)
 Migrate(app, db)
 
@@ -85,7 +94,8 @@ def react_root(path):
         return app.send_from_directory('public', 'favicon.ico')
     return app.send_static_file('index.html')
 
-
+# displays home page when a url passed in is not found
 @app.errorhandler(404)
 def not_found(e):
-    return app.send_static_file('index.html')
+    # return app.send_static_file('index.html')
+    return {'errors':["Page not found"]}, 404

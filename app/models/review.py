@@ -1,34 +1,32 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from sqlalchemy.sql import func
 
-class Drink(db.Model):
-    __tablename__ = 'drinks'
+class Review(db.Model):
+    __tablename__ = 'reviews'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False, unique=True)
+    content = db.Column(db.String(500), nullable=False)
+    stars = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    abv = db.Column(db.Integer, nullable=False)
-    ibu = db.Column(db.Integer, nullable=False)
-    description = db.Column(db.String(255), nullable=False)
-    drink_img_url = db.Column(db.String(255))
+    drink_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('drinks.id')), nullable=False)
+    review_img_url = db.Column(db.String(255))
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
 
-    user = db.relationship('User', back_populates='drinks')
-    drink_reviews = db.relationship('Review', back_populates='drink')
+    user = db.relationship('User', back_populates='user_reviews')
+    drink = db.relationship('Drink', back_populates='drink_reviews')
 
     def to_dict(self):
         return {
             'id': self.id,
-            'name' : self.name,
+            'content': self.content,
+            'stars': self.stars,
             'user_id': self.user_id,
-            'abv': self.abv,
-            'ibu': self.ibu,
-            'description': self.description,
-            'drink_img_url': self.drink_img_url,
+            'drink_id': self.drink_id,
+            'review_img_url': self.review_img_url,
             'created_at': self.created_at.isoformat(),
             'updated_at': self.updated_at.isoformat()
         }
