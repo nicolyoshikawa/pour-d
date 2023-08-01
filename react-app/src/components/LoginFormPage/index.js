@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
 import "./LoginForm.css";
+import logo from "../../assets/logo.png";
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -24,7 +25,9 @@ function LoginFormPage() {
   return (
     <div className="login-page-container">
       <div className="login-form-container">
-        <h1>Log In</h1>
+        <div className="login-form-logo">
+          <img src={logo} alt="Logo" />
+        </div>
         <form onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => (
