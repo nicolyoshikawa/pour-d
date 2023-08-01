@@ -6,6 +6,16 @@ from app.forms.review_form import ReviewForm
 
 review_routes = Blueprint("reviews", __name__)
 
+@review_routes.route('/<int:id>', methods=["GET"])
+def getASpecificReview(id):
+    """
+    Users can read a checkin/review for a drink.
+    """
+    review = Review.query.get(id)
+    if not review:
+        return {'errors': "Review could not be found"}, 404
+    return review.to_dict()
+
 @review_routes.route("/<int:id>", methods=["PUT"])
 @login_required
 def update_review(id):
@@ -53,13 +63,3 @@ def get_reviews():
     """
     reviews = Review.query.all()
     return {'reviews': [review.to_dict() for review in reviews]}
-
-@review_routes.route('/<int:id>', methods=["GET"])
-def getASpecificReview(id):
-    """
-    Users can read a checkin/review for a drink.
-    """
-    review = Review.query.get(id)
-    if not review:
-        return {'errors': "Review could not be found"}, 404
-    return review.to_dict()
