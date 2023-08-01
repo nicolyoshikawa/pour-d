@@ -1,10 +1,14 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
+
 
 class Friend(db.Model):
     __tablename__ = 'friends'
 
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
-    friend_id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), primary_key=True)
+    friend_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), primary_key=True)
     status = db.Column(db.String(20), nullable=False, default='pending')
 
     user = db.relationship('User', foreign_keys=[user_id], back_populates='friends')
