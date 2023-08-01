@@ -114,6 +114,10 @@ def new_drink():
     CREATE A NEW DRINK
     """
     form = DrinkForm()
+
+    drink_name_exists = Drink.query.filter(Drink.name == form.data["name"]).all()
+    if drink_name_exists:
+        return {'errors': "A drink with that name already exisits"}, 401
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         drink = Drink(
