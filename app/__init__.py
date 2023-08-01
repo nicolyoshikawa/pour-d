@@ -97,4 +97,5 @@ def react_root(path):
 # displays home page when a url passed in is not found
 @app.errorhandler(404)
 def not_found(e):
-    return app.send_static_file('index.html')
+    # return app.send_static_file('index.html')
+    return {'errors':["Page not found"]}, 404
