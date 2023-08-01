@@ -8,24 +8,30 @@ from .auth_routes import validation_errors_to_error_messages
 drink_routes = Blueprint("drink", __name__)
 
 
-# GET ALL DRINKS
 @drink_routes.route("/")
 def drinks():
+    """
+    GET ALL DRINKS
+    """
     drinks = Drink.query.all()
     return {'drinks': [drink.to_dict() for drink in drinks]}
 
-# GET SINGLE DRINK BY ID
 @drink_routes.route("/<int:id>")
 def drink(id):
+    """
+    GET SINGLE DRINK BY ID
+    """
     drink = Drink.query.get(id)
     if not drink:
         return {'errors': "Drink could not be found"}, 404
     return drink.to_dict()
 
-# CREATE A NEW DRINK
 @drink_routes.route("/", methods=["POST"])
 @login_required
 def new_drink():
+    """
+    CREATE A NEW DRINK
+    """
     form = DrinkForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -42,10 +48,12 @@ def new_drink():
         return drink.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-# EDIT A DRINK
 @drink_routes.route("/<int:id>", methods=["PUT"])
 @login_required
 def edit_drink(id):
+    """
+    EDIT A DRINK
+    """
     drink = Drink.query.get(id)
     if not drink:
         return {'errors': "Drink could not be found"}, 404
@@ -64,10 +72,12 @@ def edit_drink(id):
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     return {'errors': ['Unauthorized']}
 
-# DELETE A DRINK
 @drink_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
 def delete_drink(id):
+    """
+    DELETE A DRINK
+    """
     drink = Drink.query.get(id)
     if not drink:
         return {'errors': "Drink could not be found"}, 404
@@ -78,10 +88,12 @@ def delete_drink(id):
         return {"message": "Drink successfully deleted"}
     return {'errors': ['Unauthorized']}
 
-# A logged in user can create a checkin/review for a drink.
 @drink_routes.route('/<int:id>/reviews', methods=["POST"])
 @login_required
 def createAReview(id):
+    """
+    A logged in user can create a checkin/review for a drink.
+    """
     form = ReviewForm()
     drink_id = id
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -117,9 +129,11 @@ def createAReview(id):
     #     return {'errors': "Review could not be found"}, 404
     # return review.to_dict()
 
-# View all reviews for a drink
 @drink_routes.route('/<int:id>/reviews', methods=["GET"])
 def getAllReviewsForADrink(id):
+    """
+    View all reviews for a drink
+    """
     reviews = Review.query.filter(Review.drink_id == id).all()
     if not reviews:
         return {'errors': "Review could not be found"}, 404
