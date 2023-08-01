@@ -6,10 +6,12 @@ from app.forms.review_form import ReviewForm
 
 review_routes = Blueprint("reviews", __name__)
 
-# A logged in user can update one of their own reviews.
 @review_routes.route("/<int:id>", methods=["PUT"])
 @login_required
 def update_review(id):
+    """
+    A logged in user can update one of their own reviews.
+    """
     review = Review.query.get(id)
     if not review:
         return {'errors': "Review could not be found"}, 404
@@ -28,10 +30,12 @@ def update_review(id):
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     return {'errors': ['Unauthorized']}
 
-# A logged in user can delete one of their own reviews, removing it from the list of visible reviews without causing a refresh/redirect.
 @review_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
 def delete_review(id):
+    """
+    A logged in user can delete one of their own reviews, removing it from the list of visible reviews without causing a refresh/redirect.
+    """
     review = Review.query.get(id)
     if not review:
         return {'errors': "Review could not be found"}, 404
@@ -42,15 +46,19 @@ def delete_review(id):
         return { "message": "Review successfully deleted"}, 200
     return {'errors': ['Unauthorized']}
 
-# Users can read a list of checkins/reviews.
 @review_routes.route("/", methods=["GET"])
 def get_reviews():
+    """
+    Users can read a list of checkins/reviews.
+    """
     reviews = Review.query.all()
     return {'reviews': [review.to_dict() for review in reviews]}
 
-# Users can read a checkin/review for a drink.
 @review_routes.route('/<int:id>', methods=["GET"])
 def getASpecificReview(id):
+    """
+    Users can read a checkin/review for a drink.
+    """
     review = Review.query.get(id)
     if not review:
         return {'errors': "Review could not be found"}, 404
