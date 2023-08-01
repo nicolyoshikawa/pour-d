@@ -1,0 +1,18 @@
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://assets.untappd.com/assets/v3/images/beer-login-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+  
+.login-form-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+  
