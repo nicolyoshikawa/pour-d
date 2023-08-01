@@ -19,7 +19,9 @@ def addFriend(targetId):
 
     request_exists = Friend.query.filter_by(friend_id=targetId,
                                      user_id=current_user.id).first()
-    if request_exists:
+    request_exists_otherway = Friend.query.filter_by(user_id=targetId,
+                                     friend_id=current_user.id).first()
+    if request_exists or request_exists_otherway:
         return {'errors': "Friend request already exists/already friends"}, 400
 
     new_request = Friend(
