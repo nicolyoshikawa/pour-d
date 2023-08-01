@@ -17,13 +17,11 @@ def update_review(id):
     if current_user.id == review.user_id:
         form = ReviewForm()
         form['csrf_token'].data = request.cookies['csrf_token']
+
         if form.validate_on_submit():
-            if form.data["content"] != review.content:
-                review.content = form.data["content"]
-            if form.data["stars"] != review.stars:
-                review.stars = form.data["stars"]
-            if form.data["review_img_url"] != review.review_img_url:
-                review.review_img_url = form.data["review_img_url"]
+            review.content = form.data["content"]
+            review.stars = form.data["stars"]
+            review.review_img_url = form.data["review_img_url"]
 
             db.session.commit()
             return review.to_dict()
@@ -44,9 +42,16 @@ def delete_review(id):
         return { "message": "Review successfully deleted"}, 200
     return {'errors': ['Unauthorized']}
 
-# A logged in user can read a list of checkins/reviews.
+# Users can read a list of checkins/reviews.
 @review_routes.route("/", methods=["GET"])
-@login_required
 def get_reviews():
     reviews = Review.query.all()
     return {'reviews': [review.to_dict() for review in reviews]}
+
+# Users can read a checkin/review for a drink.
+@review_routes.route('/<int:id>', methods=["GET"])
+def getASpecificReview(id):
+    review = Review.query.get(id)
+    if not review:
+        return {'errors': "Review could not be found"}, 404
+    return review.to_dict()
