@@ -102,9 +102,9 @@ def createAReview(id):
     if not drink:
         return {'errors': "Drink could not be found"}, 404
 
-    review = Review.query.filter(Review.drink_id == id, Review.user_id == current_user.id).first()
-    if review:
-        return {'errors': "User already has a review for this drink"}, 403
+    # review = Review.query.filter(Review.drink_id == id, Review.user_id == current_user.id).first()
+    # if review:
+    #     return {'errors': "User already has a review for this drink"}, 403
 
     if form.validate_on_submit():
         review = Review(
@@ -120,7 +120,7 @@ def createAReview(id):
         return review.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-# Users can read a checkin/review for a drink.
+# View a review for a drink
 # @drink_routes.route('/<int:id>/reviews/<int:review_id>', methods=["GET"])
 # def getAReviewForADrink(id, review_id):
     # review = Review.query.all().filter(Review.drink_id == id and Review.id == review_id)
