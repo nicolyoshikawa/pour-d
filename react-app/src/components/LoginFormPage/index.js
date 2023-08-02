@@ -34,22 +34,36 @@ function LoginFormPage() {
               <li key={idx}>{error}</li>
             ))}
           </ul>
-          <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type="submit">Log In</button>
+          <div className="login-form-input-container">
+            <i className="fa-solid fa-user" style={{ color: "#c7c7c7" }}></i>
+            <input
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="login-form-input-container">
+            <i className="fa-solid fa-lock" style={{ color: "#c7c7c7" }}></i>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="login-button">
+            Sign In
+          </button>
+          <button type="button" className="demo-login-button">
+            Demo Login
+          </button>
         </form>
+        <div className="login-form-signup">
+          New around here? <span>Sign up!</span>
+        </div>
       </div>
     </div>
   );
