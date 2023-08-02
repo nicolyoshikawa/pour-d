@@ -47,7 +47,7 @@ def getCurrentUserFriendActivity():
     A logged in user can view their friend's activity.
     """
     find_friends = Friend.query.all()
-    all_friends = [request.to_dict() for request in find_friends if request.friend_id == current_user.id or request.user_id == current_user.id and request.status == "friends"]
+    all_friends = [request.to_dict() for request in find_friends if (request.friend_id == current_user.id or request.user_id == current_user.id) and request.status == "friends"]
     user_ids = [friend["user_id"] for friend in all_friends if friend["user_id"] != current_user.id]
     friend_ids = [friend["friend_id"] for friend in all_friends if friend["friend_id"] != current_user.id]
     ids = user_ids + friend_ids
