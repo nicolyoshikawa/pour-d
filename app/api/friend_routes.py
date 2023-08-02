@@ -12,11 +12,18 @@ def addFriend(targetId):
     """
     if current_user.id == targetId:
         return {'errors': "Cannot add yourself as a friend"}, 400
-    
+
     target_user = User.query.get(targetId)
     if not target_user:
         return {'errors': "Friend could not be found"}, 404
-    
+
+    request_exists = Friend.query.filter_by(friend_id=targetId,
+                                     user_id=current_user.id).first()
+    request_exists_otherway = Friend.query.filter_by(user_id=targetId,
+                                     friend_id=current_user.id).first()
+    if request_exists or request_exists_otherway:
+        return {'errors': "Friend request already exists/already friends"}, 400
+
     new_request = Friend(
         user=current_user,
         friend=target_user,
