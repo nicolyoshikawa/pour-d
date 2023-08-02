@@ -11,9 +11,9 @@ function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 
 	return (
-		<ul>
+		<ul className='navBar'>
 			<li>
-				<NavLink exact to="/">Pour'd</NavLink>
+				<NavLink exact to="/">Pour'd Logo</NavLink>
 			</li>
 			{isLoaded && !sessionUser && (
 				<>
@@ -34,13 +34,17 @@ function Navigation({ isLoaded }){
 			{isLoaded && sessionUser && (
 				<>
 					<li>
-						<NavLink exact to="/">Top Beers</NavLink>
+						<NavLink exact to="/beer">Beer List</NavLink>
+					</li>
+					<li>
+						<NavLink exact to="/beer/top_rated">Top Beers</NavLink>
 					</li>
 					<li>
 						<ProfileButton user={sessionUser} />
 					</li>
 					<li>
-						Search Bar
+						{/* <input type='text' placeholder='Find a beer...'></input> */}
+						Search bar coming soon
 					</li>
 				</>
 			)}
