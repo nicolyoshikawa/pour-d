@@ -72,10 +72,19 @@
   width: 100%;
 }
 
+.login-form-container button:hover {
+    background-color: rgba(0, 0, 0, 0.80);
+  }
+
 .login-form-container button.demo-login-button {
   margin: 10px 0;
   background-color: #8a4500;
 }
+
+.login-form-container button.demo-login-button:hover {
+    margin: 10px 0;
+    background-color: #8a4500d0;
+  }
 
 .login-form-signup {
   border-top: 1px solid #dddddd;
@@ -85,7 +94,12 @@
   font-size: 20px;
 }
 
-.login-form-signup span {
+.login-form-signup a {
   color: #8a4500;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.login-form-signup a:hover {
+  color: #8a4500d0
 }
