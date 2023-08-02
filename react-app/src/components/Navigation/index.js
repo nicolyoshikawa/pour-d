@@ -2,6 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import OpenModalButton from "../OpenModalButton";
+import LoginFormModal from "../LoginFormModal";
+import SignupFormModal from "../SignupFormModal";
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
@@ -10,12 +13,36 @@ function Navigation({ isLoaded }){
 	return (
 		<ul>
 			<li>
-				<NavLink exact to="/">Home</NavLink>
+				<NavLink exact to="/">Pour'd</NavLink>
 			</li>
-			{isLoaded && (
-				<li>
-					<ProfileButton user={sessionUser} />
-				</li>
+			{isLoaded && !sessionUser && (
+				<>
+					<li>
+						<OpenModalButton
+							buttonText="SIGN IN"
+							modalComponent={<LoginFormModal />}
+						/>
+					</li>
+					<li>
+						<OpenModalButton
+						buttonText="CREATE AN ACCOUNT"
+						modalComponent={<SignupFormModal />}
+						/>
+					</li>
+				</>
+			)}
+			{isLoaded && sessionUser && (
+				<>
+					<li>
+						<NavLink exact to="/">Top Beers</NavLink>
+					</li>
+					<li>
+						<ProfileButton user={sessionUser} />
+					</li>
+					<li>
+						Search Bar
+					</li>
+				</>
 			)}
 		</ul>
 	);
