@@ -62,7 +62,7 @@ function LoginFormPage() {
           </button>
         </form>
         <div className="login-form-signup">
-          New around here? <span>Sign up!</span>
+          New around here? <a href="/signup">Sign up!</a>
         </div>
       </div>
     </div>
