@@ -3,23 +3,23 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url(https://assets.untappd.com/assets/v3/images/beer-login-bg.jpg);
+    background-image: url(../../assets/hero-img.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
   }
   
-  .login-form-container {
+.login-form-container {
     background-color: rgba(255, 255, 255);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-  }
+}
   
-  .login-form-logo {
+.login-form-logo {
     margin: 0 auto 20px;
-  }
+}
   
-  .login-form-logo img {
+.login-form-logo img {
     width: 250px;
-  }
+}
