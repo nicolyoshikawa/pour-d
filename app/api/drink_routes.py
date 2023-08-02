@@ -14,7 +14,7 @@ def getAllReviewsForADrink(id):
     """
     reviews = Review.query.filter(Review.drink_id == id).all()
     if not reviews:
-        return {'errors': "Review could not be found"}, 404
+        return {'errors': "Reviews could not be found"}, 404
     return {'reviews': [review.to_dict() for review in reviews]}
 
 @drink_routes.route('/<int:id>/reviews', methods=["POST"])
@@ -72,6 +72,9 @@ def edit_drink(id):
     if current_user.id == owner:
         form = DrinkForm()
         form['csrf_token'].data = request.cookies['csrf_token']
+        drink_name_exists = Drink.query.filter(Drink.name == form.data["name"]).all()
+        if drink_name_exists:
+            return {'errors': "A drink with that name already exisits"}, 401
         if form.validate_on_submit():
             drink.name = form.data["name"]
             drink.abv = form.data["abv"]
@@ -114,6 +117,10 @@ def new_drink():
     CREATE A NEW DRINK
     """
     form = DrinkForm()
+
+    drink_name_exists = Drink.query.filter(Drink.name == form.data["name"]).all()
+    if drink_name_exists:
+        return {'errors': "A drink with that name already exisits"}, 401
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         drink = Drink(
