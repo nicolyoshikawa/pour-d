@@ -49,16 +49,16 @@ function ProfileButton({ user }) {
             {/* <li>{user.username}</li>
             <li>{user.email}</li> */}
             <li>
-              <NavLink exact to="/">Check-in History</NavLink>
+              <NavLink exact to="/checkins">Check-in History</NavLink>
             </li>
             <li>
-              <NavLink exact to="/">Friends</NavLink>
+              <NavLink exact to="/friends">Friends</NavLink>
             </li>
             <li>
-              <NavLink exact to="/">My Profile</NavLink>
+              <NavLink exact to="/my-profile">My Profile</NavLink>
             </li>
             <li>
-              <NavLink exact to="/">Edit Profile</NavLink>
+              <NavLink exact to="/edit-profile">Edit Profile</NavLink>
             </li>
             <li>
               <button onClick={handleLogout}>Log Out</button>

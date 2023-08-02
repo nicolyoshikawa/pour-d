@@ -28,6 +28,24 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route exact path="/beer/top-rated">
+            <p>Top Beers to come</p>
+          </Route>
+          <Route exact path="/beer">
+            <p>Beer List Page</p>
+          </Route>
+          <Route exact path="/friends">
+            <p>Friends</p>
+          </Route>
+          <Route exact path="/my-profile">
+            <p>My Profile</p>
+          </Route>
+          <Route exact path="/edit-profile">
+            <p>Edit Profile</p>
+          </Route>
+          <Route exact path="/checkins">
+            <p>Check-ins</p>
+          </Route>
         </Switch>
       )}
     </>

@@ -1,5 +1,7 @@
 .profile-dropdown {
   position: absolute;
+  list-style-type: none;
+  background-color: darkgray;
 }
 
 .hidden {
@@ -7,7 +9,7 @@
 }
 
 .navBar {
-  background-color: yellow;
+  /* background-color: yellow; */
   list-style-type: none;
   display: flex;
   justify-content: space-between;
