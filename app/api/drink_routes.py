@@ -35,6 +35,10 @@ def createAReview(id):
     # if review:
     #     return {'errors': "User already has a review for this drink"}, 403
 
+    own_drink = Drink.query.filter(Drink.user_id == current_user.id).first()
+    if own_drink:
+        return {'errors': "Cannot create a review for a drink that you created"}, 400
+
     if form.validate_on_submit():
         review = Review(
             content= form.data["content"],
