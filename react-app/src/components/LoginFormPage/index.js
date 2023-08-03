@@ -18,7 +18,6 @@ function LoginFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
-    console.log(data);
     data ? setErrors(data) : history.push("/home")
   };
 
