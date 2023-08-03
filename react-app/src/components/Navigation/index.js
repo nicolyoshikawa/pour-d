@@ -12,27 +12,16 @@ function Navigation({ isLoaded }){
 
 	return (
 		<ul className='navBar'>
-			<li>
-				<NavLink exact to="/">Pour'd Logo</NavLink>
-			</li>
-			{/* {isLoaded && !sessionUser && (
-				<>
-					<li>
-						<OpenModalButton
-							buttonText="SIGN IN"
-							modalComponent={<LoginFormModal />}
-						/>
-					</li>
-					<li>
-						<OpenModalButton
-						buttonText="CREATE AN ACCOUNT"
-						modalComponent={<SignupFormModal />}
-						/>
-					</li>
-				</>
-			)} */}
+			{!sessionUser && (
+				<li>
+					<NavLink exact to="/">Pour'd Logo</NavLink>
+				</li>
+			)}
 			{isLoaded && sessionUser && (
 				<>
+					<li>
+						<NavLink exact to="/home">Pour'd Logo</NavLink>
+					</li>
 					<li>
 						<NavLink exact to="/drinks">Drinks List</NavLink>
 					</li>
