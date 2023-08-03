@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useParams } from 'react-router-dom';
-import DrinkTile from './DrinkTile';
+// import DrinkTile from './DrinkTile';
+import Reviews from "../Reviews";
 import * as drinkActions from "../../store/drinks";
 import './Drinks.css';
 
@@ -20,9 +21,16 @@ const DrinkDetail = () => {
     return (
         <>
             {isLoaded && (
-                <div>
-                    Drink Detail
-                </div>
+                <>
+                    <div>
+                        <img key={drink.id} src={`${drink?.drink_img_url}`} alt={drink.description} title={drink.name} />
+                    </div>
+                    <div>Name: {drink.name}</div>
+                    <div>ABV: {drink.abv}</div>
+                    <div>IBU: {drink.ibu}</div>
+                    <div>Description: {drink.description}</div>
+                    <Reviews/>
+                </>
             )}
         </>
     )
