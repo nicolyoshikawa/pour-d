@@ -38,7 +38,7 @@
   margin: 0px;
   margin-top: -10px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 4px;
 }
 
@@ -97,7 +97,10 @@
 
 .signup-form-input-group-names {
   display: flex;
-  flex-wrap: wrap;
+}
+
+.signup-form-input-container-name {
+  justify-content: space-between;
 }
 
 .signup-form-input-container-name input {
@@ -123,6 +126,10 @@
   margin: 10px 0;
 }
 
+.signup-form-container button.signup-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 .signup-form-login {
   border-top: 1px solid #dddddd;
   font-weight: bold;
@@ -138,5 +145,5 @@
 }
 
 .signup-form-login a:hover {
-  text-decoration: underline;
+  color: #8a4500d0;
 }
