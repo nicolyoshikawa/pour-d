@@ -1,17 +1,24 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import './Beer.css';
+import BeerTile from './BeerTile';
+import * as drinkActions from "../../store/drinks";
 
 function AllBeer(){
+    const dispatch = useDispatch();
+    const allDrinks = useSelector(state => Object.values(state.drinks));
 
-	return (
+    useEffect(()=> {
+        dispatch(drinkActions.loadAllDrinks());
+    },[dispatch]);
+
+    return(
         <>
-            <li>
-                Beer List
-            </li>
+            <div>
+                {allDrinks.map(el => (<BeerTile key={el.id} drink={el}/>))}
+            </div>
         </>
-	);
+    )
 }
 
 export default AllBeer;
