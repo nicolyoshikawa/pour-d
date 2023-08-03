@@ -35,7 +35,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/drinks/top-rated">
-            <p>Top Beers to come</p>
+            <p>Top Drinks to come</p>
           </Route>
           <Route exact path="/drinks">
             <DrinksListPage/>
