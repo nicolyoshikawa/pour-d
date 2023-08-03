@@ -21,11 +21,9 @@ export default function LandingPage() {
     // Redirect to homepage if user is logged in
     useEffect(() => {
         if (sessionUser) {
-            history.push("/home")
+          history.push("/home");
         }
-
-        return history.push("/")
-    }, [])
+      }, [sessionUser, history]);
 
     return (
         <>

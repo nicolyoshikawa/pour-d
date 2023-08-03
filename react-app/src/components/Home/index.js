@@ -5,10 +5,12 @@ import { logout } from "../../store/session";
 export default function Home() {
     const dispatch = useDispatch()
     const history = useHistory()
-    const logoutUser = () => {
-        history.push("/")
-        return dispatch(logout())
-    }
+    
+    const logoutUser = async () => {
+        await dispatch(logout());
+        history.push("/");
+      };
+    
     return (
         <div>
             <button onClick={logoutUser}>
