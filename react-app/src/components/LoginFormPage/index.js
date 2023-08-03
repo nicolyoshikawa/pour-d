@@ -22,9 +22,9 @@ function LoginFormPage() {
     data ? setErrors(data) : history.push("/home")
   };
 
-  const handleDemoLogin = async () => {
-    const data = await dispatch(login("demo@aa.io", "password"));
-    data ? setErrors(data) : history.push("/home")
+  const handleDemoLogin = async (e) => {
+    e.preventDefault();
+    return await dispatch(login("demo@aa.io", "password"));
   };
 
   return (
