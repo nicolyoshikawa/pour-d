@@ -1,25 +1,105 @@
 .login-page-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url(https://assets.untappd.com/assets/v3/images/beer-login-bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(../../assets/hero-img.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.login-form-container {
+  background-color: rgba(255, 255, 255);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-form-logo {
+  margin: auto;
+}
+
+.login-form-logo img {
+  width: 300px;
+}
+
+.login-form-container {
+  padding: 20px 50px;
+}
+
+.login-form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form-input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.login-form-input-container i {
+  margin: 0px 8px;
+}
+
+.login-form-input-container input {
+  box-sizing: border-box;
+  border: none;
+  border-left: 1px solid #cccccc;
+  padding: 4px 8px;
+  font-size: 16px;
+  margin: 6px 0px;
+  width: 100%;
+}
+
+.login-form-input-container input:focus {
+  outline: none;
+}
+
+.login-form-container button {
+  background-color: black;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  width: 100%;
+}
+
+.login-form-container button:hover {
+    background-color: rgba(0, 0, 0, 0.80);
   }
-  
-  .login-form-container {
-    background-color: rgba(255, 255, 255);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
+
+.login-form-container button.demo-login-button {
+  margin: 10px 0;
+  background-color: #8a4500;
+}
+
+.login-form-container button.demo-login-button:hover {
+    margin: 10px 0;
+    background-color: #8a4500d0;
   }
-  
-  .login-form-logo {
-    margin: 0 auto 20px;
-  }
-  
-  .login-form-logo img {
-    width: 250px;
-  }
+
+.login-form-signup {
+  border-top: 1px solid #dddddd;
+  font-weight: bold;
+  padding-top: 10px;
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.login-form-signup a {
+  color: #8a4500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.login-form-signup a:hover {
+  color: #8a4500d0
+}
