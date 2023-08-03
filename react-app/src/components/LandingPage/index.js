@@ -1,9 +1,19 @@
 import "./LandingPage.css"
 import logo_white from "../../assets/logo_white.png"
 import app_example from "../../assets/app_example.png"
-import { NavLink } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { login } from "../../store/session"
+import SearchBar from "./SearchBar"
 
 export default function LandingPage() {
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const demoLogin = () => {
+        history.push("/home")
+        return dispatch(login("demo@aa.io", "password"))
+    }
+
     return (
         <div className="hero">
             <div className="landing-btns">
@@ -18,11 +28,9 @@ export default function LandingPage() {
                             CREATE AN ACCOUNT
                         </button>
                     </NavLink>
-                    <NavLink to="/signup">
-                        <button>
+                        <button onClick={demoLogin}>
                             DEMO LOGIN
                         </button>
-                    </NavLink>
                 </div>
             </div>
             <div className="hero-content">
