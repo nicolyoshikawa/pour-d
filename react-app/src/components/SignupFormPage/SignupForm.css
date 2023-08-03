@@ -97,7 +97,11 @@
 
 .signup-form-input-group-names {
   display: flex;
-  flex-wrap: wrap;
+
+}
+
+.signup-form-input-container-name  {
+    justify-content: space-between;
 }
 
 .signup-form-input-container-name input {
@@ -106,6 +110,7 @@
   padding: 6px;
   font-size: 16px;
   margin: 6px 0px;
+
 }
 
 .signup-form-container button {
