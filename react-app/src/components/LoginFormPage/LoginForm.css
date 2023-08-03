@@ -20,12 +20,18 @@
   margin: auto;
 }
 
+.login-form-logo-slogan a {
+    text-decoration: none;
+    color: black;
+}
+
 .login-form-logo-slogan img {
   width: 300px;
 }
 
 .login-form-logo-slogan p {
     margin: 0px;
+    margin-top: -10px;
 }
 
 .login-form-container {
