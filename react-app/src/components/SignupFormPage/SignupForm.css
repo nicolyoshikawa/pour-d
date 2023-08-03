@@ -20,6 +20,15 @@
   margin: auto;
 }
 
+.signup-form-logo-slogan a {
+    text-decoration: none;
+    color: black;
+}
+
+.signup-form-logo-slogan a:hover { /* global style has hover color */
+    color: black
+}
+
 .signup-form-logo-slogan img {
   width: 300px;
 }
@@ -27,6 +36,9 @@
 .signup-form-logo-slogan p {
     margin: 0px;
     margin-top: -10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
 }
 
 .signup-form-container {
