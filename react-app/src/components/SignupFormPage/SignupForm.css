@@ -16,12 +16,16 @@
   text-align: center;
 }
 
-.signup-form-logo {
+.signup-form-logo-slogan {
   margin: auto;
 }
 
-.signup-form-logo img {
+.signup-form-logo-slogan img {
   width: 300px;
+}
+
+.signup-form-logo-slogan p {
+    margin: 0px;
 }
 
 .signup-form-container {

@@ -16,12 +16,16 @@
   text-align: center;
 }
 
-.login-form-logo {
+.login-form-logo-slogan {
   margin: auto;
 }
 
-.login-form-logo img {
+.login-form-logo-slogan img {
   width: 300px;
+}
+
+.login-form-logo-slogan p {
+    margin: 0px;
 }
 
 .login-form-container {
