@@ -6,22 +6,24 @@ import { NavLink } from "react-router-dom"
 export default function LandingPage() {
     return (
         <div className="hero">
-            <div className="login-signup">
-                <NavLink to="/login">
-                    <button>
-                        LOG IN
-                    </button>
-                </NavLink>
-                <NavLink to="/signup">
-                    <button>
-                        CREATE AN ACCOUNT
-                    </button>
-                </NavLink>
-                <NavLink to="/signup">
-                    <button>
-                        DEMO LOGIN
-                    </button>
-                </NavLink>
+            <div className="landing-btns">
+                <div className="login-signup">
+                    <NavLink to="/login">
+                        <button>
+                            LOG IN
+                        </button>
+                    </NavLink>
+                    <NavLink to="/signup">
+                        <button>
+                            CREATE AN ACCOUNT
+                        </button>
+                    </NavLink>
+                    <NavLink to="/signup">
+                        <button>
+                            DEMO LOGIN
+                        </button>
+                    </NavLink>
+                </div>
             </div>
             <div className="hero-content">
                 <img src={logo_white} alt="logo"/>
