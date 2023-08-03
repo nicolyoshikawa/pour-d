@@ -15,7 +15,7 @@ function Navigation({ isLoaded }){
 			<li>
 				<NavLink exact to="/">Pour'd Logo</NavLink>
 			</li>
-			{isLoaded && !sessionUser && (
+			{/* {isLoaded && !sessionUser && (
 				<>
 					<li>
 						<OpenModalButton
@@ -30,7 +30,7 @@ function Navigation({ isLoaded }){
 						/>
 					</li>
 				</>
-			)}
+			)} */}
 			{isLoaded && sessionUser && (
 				<>
 					<li>
