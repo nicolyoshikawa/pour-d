@@ -6,6 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
+import BeerListPage from "./components/BeerListPage"
 
 function App() {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ function App() {
             <p>Top Beers to come</p>
           </Route>
           <Route exact path="/beer">
-            <p>Beer List Page</p>
+            <BeerListPage/>
           </Route>
           <Route exact path="/friends">
             <p>Friends</p>
