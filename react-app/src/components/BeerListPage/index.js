@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import './Beer.css';
 import BeerTile from './BeerTile';
 import * as drinkActions from "../../store/drinks";
+import './Beer.css';
 
 function AllBeer(){
     const dispatch = useDispatch();

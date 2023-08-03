@@ -5,7 +5,7 @@ const BeerTile = ({drink}) => {
     return (
         <>
             <div>
-                <Link to={`/drinks/${drink.id}`}>
+                <Link to={`/beer/${drink.id}`}>
                     <img key={drink.id} src={`${drink?.drink_img_url}`} alt={drink.description} title={drink.name} />
                 </Link>
                 <div>
