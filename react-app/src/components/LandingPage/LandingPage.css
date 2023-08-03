@@ -5,7 +5,7 @@
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: auto;
-    grid-template-areas: "btns btns"
+    grid-template-areas: ". btns"
     ". image"
     "txt image"
     ". image";
