@@ -2,4 +2,75 @@
     width: 100%;
     height: 90vh;
     background-image: url(../../assets/hero-img.jpeg);
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    grid-template-areas: "btns btns"
+    ". image"
+    "txt image"
+    ". image";
+}
+
+.landing-btns {
+    grid-area: btns;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.hero button {
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid white;
+    border-radius: 3px;
+    color: white;
+    font-size: 12pt;
+    padding: 15px;
+    margin: 20px 10px 20px 10px;
+    cursor: pointer;
+}
+
+.hero-content {
+    grid-area: txt;
+    max-width: 40vw;
+    justify-self: flex-end;
+}
+
+.hero-content img {
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.slogan {
+    color: white;
+    text-align: center;
+    font-size: 8pt;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0;
+    letter-spacing: 3px;
+}
+
+.divider {
+    color: #ffc000;
+    font-size: 40pt;
+    font-weight: 200;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: -20px;
+    letter-spacing: -12px;
+}
+
+.hero-content h1 {
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    font-size: 32pt;
+}
+
+.app-example, .app-example img {
+    grid-area: image;
+    max-width: 40vw;
+    justify-self: flex-start;
 }
