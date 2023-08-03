@@ -10,22 +10,36 @@
 
 .signup-form-container {
   background-color: rgba(255, 255, 255);
-  padding: 20px;
+  padding: 20px 50px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.signup-form-logo {
+.signup-form-logo-slogan {
   margin: auto;
 }
 
-.signup-form-logo img {
+.signup-form-logo-slogan a {
+  text-decoration: none;
+  color: black;
+}
+
+.signup-form-logo-slogan a:hover {
+  /* global style has hover color */
+  color: black;
+}
+
+.signup-form-logo-slogan img {
   width: 300px;
 }
 
-.signup-form-container {
-  padding: 20px 50px;
+.signup-form-logo-slogan p {
+  margin: 0px;
+  margin-top: -10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
 }
 
 .signup-form-container form {
@@ -34,13 +48,34 @@
   align-items: center;
 }
 
+.signup-form-required-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
+}
+
+.signup-form-password-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 12px 0px 4px 0px;
+}
+
+.signup-form-input-group {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
 .signup-form-input-container {
   display: flex;
   align-items: center;
   border: 1px solid #cccccc;
   border-radius: 4px;
-  margin-bottom: 10px;
-  width: 100%;
+  flex-basis: 46%;
+  box-sizing: border-box;
+  padding: 0 2px;
 }
 
 .signup-form-input-container i {
@@ -48,10 +83,9 @@
 }
 
 .signup-form-input-container input {
-  box-sizing: border-box;
   border: none;
   border-left: 1px solid #cccccc;
-  padding: 4px 8px;
+  padding: 0px 8px;
   font-size: 16px;
   margin: 6px 0px;
   width: 100%;
@@ -59,6 +93,19 @@
 
 .signup-form-input-container input:focus {
   outline: none;
+}
+
+.signup-form-input-group-names {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.signup-form-input-container-name input {
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 6px;
+  font-size: 16px;
+  margin: 6px 0px;
 }
 
 .signup-form-container button {

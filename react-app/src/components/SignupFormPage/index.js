@@ -12,6 +12,8 @@ function SignupFormPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
@@ -31,8 +33,11 @@ function SignupFormPage() {
   return (
     <div className="signup-page-container">
       <div className="signup-form-container">
-        <div className="signup-form-logo">
-          <img src={logo} alt="Logo" />
+        <div className="signup-form-logo-slogan">
+          <a href="/">
+            <img src={logo} alt="Logo" />
+            <p>DRINK SOCIALLY</p>
+          </a>
         </div>
         <form onSubmit={handleSubmit}>
           <ul>
@@ -40,45 +45,75 @@ function SignupFormPage() {
               <li key={idx}>{error}</li>
             ))}
           </ul>
-          <div className="signup-form-input-container">
-            <i className="fa-solid fa-user" style={{ color: "#c7c7c7" }}></i>
-            <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
+          <p className="signup-form-required-text">
+            All fields below are required unless specified
+          </p>
+          <div className="signup-form-input-group">
+            <div className="signup-form-input-container">
+              <i className="fa-solid fa-user" style={{ color: "#c7c7c7" }}></i>
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </div>
+            <div className="signup-form-input-container">
+              <i className="fa-solid fa-envelope" style={{ color: "#c7c7c7" }}></i>
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
           </div>
-          <div className="signup-form-input-container">
-            <i className="fa-solid fa-envelope" style={{ color: "#c7c7c7" }}></i>
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+          <p className="signup-form-password-text">
+            Avoid using common words and include a mix of letters and numbers.
+          </p>
+          <div className="signup-form-input-group">
+            <div className="signup-form-input-container">
+              <i className="fa-solid fa-lock" style={{ color: "#c7c7c7" }}></i>
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="signup-form-input-container">
+              <i className="fa-solid fa-lock" style={{ color: "#c7c7c7" }}></i>
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+            </div>
           </div>
-          <div className="signup-form-input-container">
-            <i className="fa-solid fa-lock" style={{ color: "#c7c7c7" }}></i>
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <div className="signup-form-input-container">
-            <i className="fa-solid fa-lock" style={{ color: "#c7c7c7" }}></i>
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
+          <div className="signup-form-input-group-names">
+            <div className="signup-form-input-container-name">
+              <input
+                type="text"
+                placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="signup-form-input-container-name">
+              <input
+                type="text"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+              />
+            </div>
           </div>
           <button type="submit" className="signup-button">
             Create Account
