@@ -13,17 +13,21 @@ export default function LandingPage() {
     const sessionUser = useSelector(state => state.session.user) // Check if user is logged in
     
     // Function for logging in demo user
-    const demoLogin = () => {
-        history.push("/home")
-        return dispatch(login("demo@aa.io", "password"))
-    }
+    // const demoLogin = () => {
+    //     history.push("/home")
+    //     return dispatch(login("demo@aa.io", "password"))
+    // }
     
     // Redirect to homepage if user is logged in
-    useEffect(() => {
-        if (sessionUser) {
-          history.push("/home");
-        }
-      }, [sessionUser, history]);
+    // useEffect(() => {
+    //     if (sessionUser) history.push("/home")
+    //   }, [sessionUser, history]);
+
+    const demoLogin = async () => {
+        return await dispatch(login("demo@aa.io", "password"))
+    }
+
+    if (sessionUser) history.push("/home")
 
     return (
         <>
