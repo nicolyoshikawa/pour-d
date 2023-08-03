@@ -28,9 +28,9 @@ export default function LandingPage() {
                             CREATE AN ACCOUNT
                         </button>
                     </NavLink>
-                        <button onClick={demoLogin}>
-                            DEMO LOGIN
-                        </button>
+                    <button onClick={demoLogin}>
+                        DEMO LOGIN
+                    </button>
                 </div>
             </div>
             <div className="hero-content">
