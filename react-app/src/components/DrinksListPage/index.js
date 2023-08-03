@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import BeerTile from './BeerTile';
+import DrinkTile from './DrinkTile';
 import * as drinkActions from "../../store/drinks";
-import './Beer.css';
+import './Drinks.css';
 
-function AllBeer(){
+function AllDrinks(){
     const dispatch = useDispatch();
     const allDrinks = useSelector(state => Object.values(state.drinks));
 
@@ -15,10 +15,10 @@ function AllBeer(){
     return(
         <>
             <div>
-                {allDrinks.map(el => (<BeerTile key={el.id} drink={el}/>))}
+                {allDrinks.map(el => (<DrinkTile key={el.id} drink={el}/>))}
             </div>
         </>
     )
 }
 
-export default AllBeer;
+export default AllDrinks;

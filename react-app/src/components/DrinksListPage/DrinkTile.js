@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import "./Beer.css";
+import "./Drinks.css";
 
-const BeerTile = ({drink}) => {
+const DrinkTile = ({drink}) => {
     return (
         <>
             <div>
-                <Link to={`/beer/${drink.id}`}>
+                <Link to={`/drinks/${drink.id}`}>
                     <img key={drink.id} src={`${drink?.drink_img_url}`} alt={drink.description} title={drink.name} />
                 </Link>
                 <div>
@@ -19,4 +19,4 @@ const BeerTile = ({drink}) => {
     )
 };
 
-export default BeerTile;
+export default DrinkTile;

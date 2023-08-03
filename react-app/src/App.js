@@ -6,8 +6,8 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
-import BeerListPage from "./components/BeerListPage";
-import BeerDetail from "./components/BeerListPage/BeerDetail";
+import DrinksListPage from "./components/DrinksListPage";
+import DrinkDetail from "./components/DrinksListPage/DrinkDetail";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,14 +34,14 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route exact path="/beer/top-rated">
+          <Route exact path="/drinks/top-rated">
             <p>Top Beers to come</p>
           </Route>
-          <Route exact path="/beer">
-            <BeerListPage/>
+          <Route exact path="/drinks">
+            <DrinksListPage/>
           </Route>
-          <Route exact path="/beer/:beerId">
-            <BeerDetail/>
+          <Route exact path="/drinks/:id">
+            <DrinkDetail/>
           </Route>
           <Route exact path="/friends">
             <p>Friends</p>
