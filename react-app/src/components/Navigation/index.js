@@ -34,10 +34,10 @@ function Navigation({ isLoaded }){
 			{isLoaded && sessionUser && (
 				<>
 					<li>
-						<NavLink exact to="/beer">Beer List</NavLink>
+						<NavLink exact to="/drinks">Drinks List</NavLink>
 					</li>
 					<li>
-						<NavLink exact to="/beer/top_rated">Top Beers</NavLink>
+						<NavLink exact to="/drinks/top_rated">Top Drinks</NavLink>
 					</li>
 					<li>
 						<ProfileButton user={sessionUser} />
