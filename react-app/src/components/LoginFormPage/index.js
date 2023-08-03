@@ -18,12 +18,13 @@ function LoginFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
-    data ? setErrors(data.errors) : history.push("/home")
+    console.log(data);
+    data ? setErrors(data) : history.push("/home")
   };
 
   const handleDemoLogin = async () => {
     const data = await dispatch(login("demo@aa.io", "password"));
-    data ? setErrors(data.errors) : history.push("/home")
+    data ? setErrors(data) : history.push("/home")
   };
 
   return (
