@@ -26,8 +26,10 @@ function LoginFormPage() {
     <div className="login-page-container">
       <div className="login-form-container">
         <div className="login-form-logo-slogan">
-          <img src={logo} alt="Logo" />
-          <p>DRINK SOCIALLY</p>
+          <a href="/">
+            <img src={logo} alt="Logo" />
+            <p>DRINK SOCIALLY</p>
+          </a>
         </div>
         <form onSubmit={handleSubmit}>
           <ul>
