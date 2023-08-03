@@ -21,12 +21,13 @@
 }
 
 .login-form-logo-slogan a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
-.login-form-logo-slogan a:hover { /* global style has hover color */
-    color: black
+.login-form-logo-slogan a:hover {
+  /* global style has hover color */
+  color: black;
 }
 
 .login-form-logo-slogan img {
@@ -34,11 +35,11 @@
 }
 
 .login-form-logo-slogan p {
-    margin: 0px;
-    margin-top: -10px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 4px;
+  margin: 0px;
+  margin-top: -10px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 4px;
 }
 
 .login-form-container form {
@@ -61,7 +62,6 @@
 }
 
 .login-form-input-container input {
-  box-sizing: border-box;
   border: none;
   border-left: 1px solid #cccccc;
   padding: 0px 8px;
@@ -86,8 +86,8 @@
 }
 
 .login-form-container button:hover {
-    background-color: rgba(0, 0, 0, 0.80);
-  }
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
 .login-form-container button.demo-login-button {
   margin: 10px 0;
@@ -95,9 +95,8 @@
 }
 
 .login-form-container button.demo-login-button:hover {
-    margin: 10px 0;
-    background-color: #8a4500d0;
-  }
+  background-color: #8a4500d0;
+}
 
 .login-form-signup {
   border-top: 1px solid #dddddd;
@@ -114,5 +113,5 @@
 }
 
 .login-form-signup a:hover {
-  color: #8a4500d0
+  color: #8a4500d0;
 }
