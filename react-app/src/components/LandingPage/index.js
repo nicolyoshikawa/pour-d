@@ -66,6 +66,7 @@ export default function LandingPage() {
             <SearchBar/>
             <div className="features">
                 <div className="feature">
+                    <i class="fa-solid fa-beer-mug-empty" style={{color: "#ffc000", fontSize: "30pt"}}></i>
                     <h2 className="feature-title">
                         Find new beers
                     </h2>
@@ -74,6 +75,7 @@ export default function LandingPage() {
                     </p>
                 </div>
                 <div className="feature">
+                    <i class="fa-solid fa-comment-dots" style={{color: "#ffc000", fontSize: "30pt"}}></i>
                     <h2 className="feature-title">
                         Share your thoughts
                     </h2>
@@ -82,6 +84,7 @@ export default function LandingPage() {
                     </p>
                 </div>
                 <div className="feature">
+                    <i class="fa-solid fa-user-group" style={{color: "#ffc000", fontSize: "30pt"}}></i>
                     <h2 className="feature-title">
                         Connect with friends
                     </h2>
