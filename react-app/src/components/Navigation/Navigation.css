@@ -1,7 +1,16 @@
 .profile-dropdown {
   position: absolute;
+  list-style-type: none;
+  background-color: darkgray;
 }
 
 .hidden {
   display: none;
+}
+
+.navBar {
+  /* background-color: yellow; */
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
 }
