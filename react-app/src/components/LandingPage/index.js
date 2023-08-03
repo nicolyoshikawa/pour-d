@@ -98,7 +98,7 @@ export default function LandingPage() {
                     Start discovering and sharing now
                     <NavLink to="/signup">
                         <button>
-                            Join Pour'd
+                            JOIN POUR'D
                         </button>
                     </NavLink>
                 </div>
