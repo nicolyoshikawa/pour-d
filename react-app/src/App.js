@@ -40,6 +40,7 @@ function App() {
           </Route>
           <Route exact path="/drinks/top-rated">
             <p>Top Drinks to come</p>
+          </Route>
           <Route exact path="/beer/top-rated">
             <p>Top Beers to come</p>
           </Route>
