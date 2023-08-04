@@ -14,3 +14,8 @@ a {
 a:hover {
     color: #d6a30a;
 }
+
+#root {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
