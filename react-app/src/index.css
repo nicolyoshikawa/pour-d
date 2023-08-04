@@ -4,4 +4,13 @@ html, body {
     margin: 0px;
     height: 100%;
     width: 100%;
+    font-family: Open-Sans, sans-serif;
+}
+
+a {
+    color: #ffc000;
+}
+
+a:hover {
+    color: #d6a30a;
 }

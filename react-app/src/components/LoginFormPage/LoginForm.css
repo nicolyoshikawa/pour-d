@@ -10,22 +10,36 @@
 
 .login-form-container {
   background-color: rgba(255, 255, 255);
-  padding: 20px;
+  padding: 20px 50px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.login-form-logo {
+.login-form-logo-slogan {
   margin: auto;
 }
 
-.login-form-logo img {
+.login-form-logo-slogan a {
+  text-decoration: none;
+  color: black;
+}
+
+.login-form-logo-slogan a:hover {
+  /* global style has hover color */
+  color: black;
+}
+
+.login-form-logo-slogan img {
   width: 300px;
 }
 
-.login-form-container {
-  padding: 20px 50px;
+.login-form-logo-slogan p {
+  margin: 0px;
+  margin-top: -10px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 4px;
 }
 
 .login-form-container form {
@@ -48,10 +62,9 @@
 }
 
 .login-form-input-container input {
-  box-sizing: border-box;
   border: none;
   border-left: 1px solid #cccccc;
-  padding: 4px 8px;
+  padding: 0px 8px;
   font-size: 16px;
   margin: 6px 0px;
   width: 100%;
@@ -73,8 +86,8 @@
 }
 
 .login-form-container button:hover {
-    background-color: rgba(0, 0, 0, 0.80);
-  }
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
 .login-form-container button.demo-login-button {
   margin: 10px 0;
@@ -82,9 +95,8 @@
 }
 
 .login-form-container button.demo-login-button:hover {
-    margin: 10px 0;
-    background-color: #8a4500d0;
-  }
+  background-color: #8a4500d0;
+}
 
 .login-form-signup {
   border-top: 1px solid #dddddd;
@@ -101,5 +113,5 @@
 }
 
 .login-form-signup a:hover {
-  color: #8a4500d0
+  color: #8a4500d0;
 }
