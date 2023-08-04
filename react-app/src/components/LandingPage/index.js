@@ -64,11 +64,17 @@ export default function LandingPage() {
                 </div>
             </div>
             <SearchBar/>
+            <h1 className="features-header">
+                Check out our features
+            </h1>
+            <p className="divider">
+                    --------
+            </p>
             <div className="features">
                 <div className="feature">
                     <i class="fa-solid fa-beer-mug-empty" style={{color: "#ffc000", fontSize: "30pt"}}></i>
                     <h2 className="feature-title">
-                        Find new beers
+                        FIND NEW BEERS
                     </h2>
                     <p className="feature-body">
                         Discover your new favorite brew with our beer feed
@@ -77,7 +83,7 @@ export default function LandingPage() {
                 <div className="feature">
                     <i class="fa-solid fa-comment-dots" style={{color: "#ffc000", fontSize: "30pt"}}></i>
                     <h2 className="feature-title">
-                        Share your thoughts
+                        SHARE YOUR THOUGHTS
                     </h2>
                     <p className="feature-body">
                         Leave reviews and ratings about what you're drinking, and keep track of what you loved or didn't
@@ -86,7 +92,7 @@ export default function LandingPage() {
                 <div className="feature">
                     <i class="fa-solid fa-user-group" style={{color: "#ffc000", fontSize: "30pt"}}></i>
                     <h2 className="feature-title">
-                        Connect with friends
+                        CONNECT WITH FRIENDS
                     </h2>
                     <p className="feature-body">
                         See what other beer lovers are drinking, and view their feedback

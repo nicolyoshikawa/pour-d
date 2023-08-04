@@ -89,11 +89,18 @@
     border: 0;
 }
 
+.features-header {
+    text-align: center;
+    margin-top: 5vh;
+    font-size: 30pt;
+    margin-bottom: 10px;
+}
+
 .features {
     width: 100%;
-    min-height: 35vh;
+    min-height: 32vh;
     margin: 0 auto;
-    padding-top: 12vh;
+    padding-top: 8vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
