@@ -1,6 +1,6 @@
 .hero {
     width: 100%;
-    height: 90vh;
+    min-height: 90vh;
     background-image: url(../../assets/hero-img.jpeg);
     display: grid;
     grid-template-rows: auto;
@@ -73,6 +73,7 @@
     grid-area: image;
     max-width: 40vw;
     justify-self: flex-start;
+    overflow-y: hidden;
 }
 
 .landing-search {
@@ -100,7 +101,7 @@
 
 .features {
     width: 100%;
-    height: 35vh;
+    min-height: 35vh;
     margin: 0 auto;
     padding-top: 12vh;
     display: flex;
@@ -118,7 +119,7 @@
 }
 
 .landing-footer {
-    height: 15vh;
+    height: 100px;
     background-color: black;
     color: white;
     font-size: 16pt;
@@ -128,7 +129,6 @@
 }
 
 .footer-content {
-    width: 70vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -141,4 +141,5 @@
     padding: 10px 20px;
     border: 3px solid white;
     border-radius: 5px;
+    margin-left: 50px;
 }
