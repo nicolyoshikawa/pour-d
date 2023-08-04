@@ -14,6 +14,7 @@ function SignupFormPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [birthday, setBirthday] = useState("");
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
@@ -21,7 +22,9 @@ function SignupFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(
+        signUp(username, email, password, firstName, lastName, birthday)
+      );
       if (data) {
         setErrors(data);
       }
@@ -96,24 +99,38 @@ function SignupFormPage() {
             </div>
           </div>
           <div className="signup-form-input-group-names">
-            <div className="signup-form-input-container-name">
-              <input
-                type="text"
-                placeholder="First Name"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-              />
-            </div>
-            <div className="signup-form-input-container-name">
-              <input
-                type="text"
-                placeholder="Last Name"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                required
-              />
-            </div>
+            <input
+              type="text"
+              placeholder="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+
+            <input
+              type="text"
+              placeholder="Last Name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="signup-form-input-group-birthday">
+            <label htmlFor="birthday">Birthday:</label>
+            <input
+              type="date"
+              id="birthday"
+              value={birthday}
+              onChange={(e) => setBirthday(e.target.value)}
+              required
+            />
+          </div>
+          <div className="caption-div">
+            <p className="caption-text">
+              You must be of legal drinking age in your country to join Pour'd. By
+              clicking Create Account, you agree to our non-existent Terms of Use and
+              Privacy Policy.
+            </p>
           </div>
           <button type="submit" className="signup-button">
             Create Account
