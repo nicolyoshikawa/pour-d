@@ -123,6 +123,13 @@ function SignupFormPage() {
               required
             />
           </div>
+          <div className="caption-div">
+            <p className="caption-text">
+              You must be of legal drinking age in your country to join Pour'd. By
+              clicking Create Account, you agree to our non-existent Terms of Use and
+              Privacy Policy.
+            </p>
+          </div>
           <button type="submit" className="signup-button">
             Create Account
           </button>

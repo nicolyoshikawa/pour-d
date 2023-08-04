@@ -137,6 +137,20 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
+.caption-div {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.caption-text {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 0px;
+}
+
 .signup-form-container button {
   background-color: black;
   border: none;
