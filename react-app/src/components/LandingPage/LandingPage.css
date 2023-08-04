@@ -147,6 +147,7 @@
     background-color: white;
     max-height: 20vh;
     overflow-y: scroll;
+    padding-bottom: 8px;
 }
 
 .result {
