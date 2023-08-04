@@ -1,0 +1,22 @@
+.profile-container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.user-hero {
+    height: 250px;
+    background-image: url(../../assets/hero-img.jpeg);
+    padding: 20px;
+}
+
+.hero-avatar {
+    width: 100px;
+}
+
+.full-name {
+    color: white;
+}
+
+.username {
+    color: white;
+}
