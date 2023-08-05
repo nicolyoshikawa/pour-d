@@ -40,6 +40,23 @@
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+.signup-form-container-errors {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid red;
+  width: 80%;
+  margin: auto;
+}
+
+.signup-form-container-errors ul {
+  list-style: none;
+  padding: 0px;
+  font-size: 14px;
 }
 
 .signup-form-container form {
@@ -53,6 +70,7 @@
   font-weight: bold;
   color: rgba(0, 0, 0, 0.7);
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .signup-form-password-text {
