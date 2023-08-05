@@ -60,7 +60,7 @@ function App() {
           <Route exact path="/edit-profile">
             <p>Edit Profile</p>
           </Route>
-          <Route exact path="/checkins">
+          <Route exact path="/check-ins">
             <p>Check-ins</p>
           </Route>
           <Route>
