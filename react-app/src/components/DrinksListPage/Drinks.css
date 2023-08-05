@@ -1,0 +1,17 @@
+.DrinkTile {
+    margin: 15px 20px;
+}
+.drinkDetails {
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+}
+.drinkDetails > div {
+    padding: 10px;
+}
+
+.leftBorder{
+    border-left: 1px solid lightgrey;
+}

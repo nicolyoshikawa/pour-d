@@ -97,18 +97,58 @@
 
 .signup-form-input-group-names {
   display: flex;
-}
-
-.signup-form-input-container-name {
   justify-content: space-between;
+  width: 100%;
+  gap: 40px;
 }
 
-.signup-form-input-container-name input {
+.signup-form-input-group-names input {
   border: 1px solid #cccccc;
   border-radius: 4px;
   padding: 6px;
   font-size: 16px;
   margin: 6px 0px;
+  flex: 1;
+  outline: none;
+}
+
+.signup-form-input-group-birthday {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  flex-basis: 100%;
+  box-sizing: border-box;
+  padding: 0px 6px;
+}
+
+.signup-form-input-group-birthday label {
+  font-size: 16px;
+  margin-right: 5px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.signup-form-input-group-birthday input {
+  border: none;
+  font-size: 16px;
+  margin: 6px 0px;
+  width: 100%;
+  outline: none;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.caption-div {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.caption-text {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 0px;
 }
 
 .signup-form-container button {
