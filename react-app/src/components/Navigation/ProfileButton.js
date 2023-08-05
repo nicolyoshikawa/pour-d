@@ -51,7 +51,7 @@ function ProfileButton({ user }) {
             {/* <li>{user.username}</li>
             <li>{user.email}</li> */}
             <li>
-              <NavLink exact to="/checkins">Check-in History</NavLink>
+              <NavLink exact to="/check-ins">Check-in History</NavLink>
             </li>
             <li>
               <NavLink exact to="/friends">Friends</NavLink>

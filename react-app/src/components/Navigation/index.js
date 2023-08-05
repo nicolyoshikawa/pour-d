@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import OpenModalButton from "../OpenModalButton";
-import LoginFormModal from "../LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
+// import OpenModalButton from "../OpenModalButton";
+// import LoginFormModal from "../LoginFormModal";
+// import SignupFormModal from "../SignupFormModal";
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
@@ -26,7 +26,7 @@ function Navigation({ isLoaded }){
 						<NavLink exact to="/drinks">Drinks List</NavLink>
 					</li>
 					<li>
-						<NavLink exact to="/drinks/top_rated">Top Drinks</NavLink>
+						<NavLink exact to="/drinks/top-rated">Top Drinks</NavLink>
 					</li>
 					<li>
 						<ProfileButton user={sessionUser} />
