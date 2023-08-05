@@ -6,11 +6,16 @@
 .user-hero {
     height: 250px;
     background-image: url(../../assets/hero-img.jpeg);
+    background-size: cover;
+    background-position-y: center;
     padding: 20px;
+    display: flex;
+    align-items: flex-end;
 }
 
 .hero-avatar {
-    width: 100px;
+    width: 80px;
+    margin: 20px 10px;
 }
 
 .full-name {
@@ -19,4 +24,10 @@
 
 .username {
     color: white;
+}
+
+.stats {
+    color: white;
+    display: flex;
+    flex-direction: row;
 }
