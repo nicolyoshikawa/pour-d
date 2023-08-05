@@ -1,17 +1,52 @@
 .DrinkTile {
-    margin: 15px 20px;
+    margin: 15px 0px;
 }
+
+.DrinkTile div{
+    margin: 5px;
+}
+
 .drinkDetails {
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 15px;
+    margin: 15px 15px;
+    color: #595959
 }
+
 .drinkDetails > div {
     padding: 10px;
 }
 
 .leftBorder{
     border-left: 1px solid lightgrey;
+}
+
+.allDrinks {
+    margin: 15px 15px;
+
+}
+
+img {
+    height: 150px;
+    width: 150px;
+}
+
+.drinkGrid {
+    margin: 0px;
+    /* display: grid; */
+    display: flex;
+    /* grid-template:
+    "a b b"
+    "a c c" */
+}
+.drinkImg{
+    grid-area: a;
+}
+.drinkName{
+    grid-area: b;
+}
+.drinkDescription {
+    grid-area: c;
 }
