@@ -9,6 +9,7 @@ import LandingPage from "./components/LandingPage";
 import Home from "./components/Home";
 import DrinksListPage from "./components/DrinksListPage";
 import DrinkDetail from "./components/DrinksListPage/DrinkDetail";
+import ProfilePage from "./components/ProfilePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ function App() {
             <p>Friends</p>
           </Route>
           <Route exact path="/my-profile">
-            <p>My Profile</p>
+            <ProfilePage/>
           </Route>
           <Route exact path="/edit-profile">
             <p>Edit Profile</p>

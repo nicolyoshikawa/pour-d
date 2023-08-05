@@ -1,0 +1,53 @@
+.profile-container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.user-hero {
+    height: 250px;
+    background-image: url(../../assets/hero-img.jpeg);
+    background-size: cover;
+    background-position-y: center;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-avatar {
+    width: 80px;
+    margin: 40px 30px;
+}
+
+.full-name {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.username {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.stats {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.stat {
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+
+.number {
+    font-size: 16pt;
+    margin-right: 2px;
+    font-weight: 600;
+}
+
+.stat-title {
+    margin: 0;
+    font-size: 12pt;
+    font-weight: 400;
+}

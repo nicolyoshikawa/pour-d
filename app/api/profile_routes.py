@@ -40,6 +40,19 @@ def getCurrentUserFriendRequests():
     find_friends = Friend.query.all()
     return [request.to_dict() for request in find_friends if request.friend_id == current_user.id and request.status == "pending"]
 
+@profile_routes.route("/friends", methods=["GET"])
+@login_required
+def getCurrentUserFriends():
+    """
+    A logged in user can view all friends.
+    """
+    find_friends = Friend.query.all()
+    all_friends = [request.to_dict() for request in find_friends if (request.friend_id == current_user.id or request.user_id == current_user.id) and request.status == "friends"]
+    user_ids = [friend["user_id"] for friend in all_friends if friend["user_id"] != current_user.id]
+    friend_ids = [friend["friend_id"] for friend in all_friends if friend["friend_id"] != current_user.id]
+    return user_ids + friend_ids
+
+
 @profile_routes.route("/friend-activity", methods=["GET"])
 @login_required
 def getCurrentUserFriendActivity():
