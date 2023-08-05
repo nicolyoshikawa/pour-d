@@ -53,19 +53,13 @@ export default function ProfilePage() {
                     <div className="stats">
                         <div className="stat">
                             <h3 className="stat-title">
-                                DRINKS
+                                <span className="number">{totalDrinks}</span> DRINKS
                             </h3>
-                            <p className="stat-body">
-                                {totalDrinks}
-                            </p>
                         </div>
                         <div className="stat">
                             <h3 className="stat-title">
-                                FRIENDS
+                                <span className="number">{totalFriends}</span> FRIENDS
                             </h3>
-                            <p className="stat-body">
-                                {totalFriends}
-                            </p>
                         </div>
                     </div>
                 </div>
