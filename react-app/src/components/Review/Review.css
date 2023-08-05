@@ -1,0 +1,12 @@
+.review {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+.star {
+    color: #ffc000;
+}
+
+.beer-img img {
+    width: 50px;
+}

@@ -1,9 +1,10 @@
 import "./ProfilePage.css"
 import default_avatar from "../../assets/default_avatar.png"
-import { getUserDrinks, getUserFriends } from "../../store/currUser"
+import * as userActions from "../../store/currUser"
 import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { useEffect, useState } from "react"
+import Review from "../Review"
 
 export default function ProfilePage() {
     const history = useHistory()
@@ -13,9 +14,6 @@ export default function ProfilePage() {
     const {id, first_name, last_name, birthday, email, username, user_img_url} = sessionUser // Destructuring user info
     const lowercase = username?.toLowerCase()
 
-    const drinks = useSelector(state => state.currUser.drinks)
-    const friends = useSelector(state => state.currUser.friends)
-
     // If no user_img, show default avatar
     let avatar
     if (!user_img_url) {
@@ -24,14 +22,20 @@ export default function ProfilePage() {
         avatar = user_img_url
     }
 
+    const drinks = useSelector(state => state.currUser.drinks)
+    const friends = useSelector(state => state.currUser.friends)
+    const reviews = useSelector(state => state.currUser.reviews)
+
+
     useEffect(() => {
         // Redirect to landing page if user not logged in
         if (!sessionUser) {
             history.push("/")
         }
 
-        dispatch(getUserDrinks())
-        dispatch(getUserFriends())
+        dispatch(userActions.getUserDrinks())
+        dispatch(userActions.getUserFriends())
+        dispatch(userActions.getUserReviews())
     }, [])
 
 
@@ -63,6 +67,11 @@ export default function ProfilePage() {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="user-feed">
+                {reviews?.map((review) => {
+                    return <Review user={sessionUser} review={review}/>
+                })}
             </div>
         </div>
     )

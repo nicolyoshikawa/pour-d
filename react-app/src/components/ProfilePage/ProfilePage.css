@@ -12,12 +12,17 @@
     align-items: flex-end;
 }
 
+.user-info {
+    margin-left: 10px;
+}
+
 .hero-avatar {
     width: 80px;
-    margin: 40px 30px;
+    margin: 30px 25px;
 }
 
 .full-name {
+    font-size: 28pt;
     color: white;
     margin-bottom: 5px;
 }
@@ -37,7 +42,7 @@
 
 .stat {
     margin-right: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .number {
