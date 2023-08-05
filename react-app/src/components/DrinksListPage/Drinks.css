@@ -23,7 +23,11 @@
     border-left: 1px solid lightgrey;
 }
 
-.allDrinks {
+.allDrinks{
+    margin: 15px 15px;
+
+}
+.drinkDetailPage{
     margin: 15px 15px;
 
 }
@@ -36,17 +40,31 @@ img {
 .drinkGrid {
     margin: 0px;
     /* display: grid; */
-    display: flex;
+    display: inline-flex;
     /* grid-template:
     "a b b"
     "a c c" */
+
 }
-.drinkImg{
+/* .drinkImg{
+    grid-area: a;
+
+} */
+.drinkNameDesc{
+    /* grid-area: b; */
+    /* word-wrap: break-word; */
+    /* display: grid; */
+    display: block
+}
+/* .gridA {
     grid-area: a;
 }
-.drinkName{
+.gridB {
     grid-area: b;
-}
+} */
 .drinkDescription {
-    grid-area: c;
+    /* grid-area: c; */
+    /* flex-wrap: wrap;
+    display: flex; */
+    display: block
 }

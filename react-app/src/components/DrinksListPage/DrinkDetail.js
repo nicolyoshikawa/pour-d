@@ -20,10 +20,10 @@ const DrinkDetail = () => {
     return (
         <>
             {isLoaded && (
-                <>
+                <div className="drinkDetailPage">
                     <DrinkTile drink={drink} clickable={false}/>
                     <Reviews/>
-                </>
+                </div>
             )}
         </>
     )
