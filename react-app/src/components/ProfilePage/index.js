@@ -41,6 +41,8 @@ export default function ProfilePage() {
 
     const totalDrinks = drinks?.length
     const totalFriends = friends?.length
+    const totalReviews = reviews?.length
+
     return (
         <div className="profile-container">
             <div className="user-hero">
@@ -58,6 +60,11 @@ export default function ProfilePage() {
                         <div className="stat">
                             <h3 className="stat-title">
                                 <span className="number">{totalDrinks}</span> DRINKS
+                            </h3>
+                        </div>
+                        <div className="stat">
+                            <h3 className="stat-title">
+                                <span className="number">{totalReviews}</span> REVIEWS
                             </h3>
                         </div>
                         <div className="stat">
