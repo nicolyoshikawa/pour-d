@@ -6,15 +6,15 @@ const DrinkTile = ({drink, clickable}) => {
     const dateFormat = date.toLocaleDateString()
     return (
         <div className="DrinkTile">
-            <div className="drinkGrid">
-                <div className="drinkImg">
-                    <img key={drink.id} src={`${drink?.drink_img_url}`} alt={drink.description} title={drink.name} />
-                </div>
+            <div className="drinkImg">
+                <img key={drink.id} src={`${drink?.drink_img_url}`} alt={drink.description} title={drink.name} />
+            </div>
+            <div className="drinkInfo">
                 {clickable ? (
-                    <div className="drinkName"><Link to={`/drinks/${drink.id}`}> {drink.name}</Link></div>
-                    ) : <div>{drink.name}</div>
+                    <p className="drinkName"><Link to={`/drinks/${drink.id}`}> {drink.name}</Link></p>
+                    ) : <p>{drink.name}</p>
                 }
-                <div className="drinkDescription">{drink.description}</div>
+                <p>{drink.description}</p>
             </div>
             <div className="drinkDetails">
                 <div>{drink.abv}% ABV</div>
