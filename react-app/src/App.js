@@ -62,6 +62,9 @@ function App() {
           <Route exact path="/checkins">
             <p>Check-ins</p>
           </Route>
+          <Route>
+            <h1>Page Not Found</h1>
+          </Route>
         </Switch>
       )}
     </>
