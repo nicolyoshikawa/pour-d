@@ -18,7 +18,7 @@ function LoginFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
-    data ? setErrors(data) : history.push("/home")
+    data ? setErrors(data) : history.push("/home");
   };
 
   const handleDemoLogin = async (e) => {
@@ -35,12 +35,16 @@ function LoginFormPage() {
             <p>DRINK SOCIALLY</p>
           </a>
         </div>
+        {errors.length > 0 && (
+          <div className="login-form-container-errors">
+            <ul>
+              {errors.map((error, idx) => (
+                <li key={idx}>{error}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
-            ))}
-          </ul>
           <div className="login-form-input-container">
             <i className="fa-solid fa-user" style={{ color: "#c7c7c7" }}></i>
             <input
@@ -64,7 +68,11 @@ function LoginFormPage() {
           <button type="submit" className="login-button">
             Sign In
           </button>
-          <button type="button" className="demo-login-button" onClick={handleDemoLogin}>
+          <button
+            type="button"
+            className="demo-login-button"
+            onClick={handleDemoLogin}
+          >
             Demo Login
           </button>
         </form>
