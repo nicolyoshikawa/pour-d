@@ -42,6 +42,27 @@ export default function ProfilePage() {
     const totalDrinks = drinks?.length
     const totalFriends = friends?.length
     const totalReviews = reviews?.length
+    
+    // Grab top user's top drinks
+    let sortedReviews
+    let topFive = []
+    if (reviews) {
+        sortedReviews = [...reviews]
+        sortedReviews.sort((a,b) => b.stars - a.stars)
+        sortedReviews.filter((item, index) => sortedReviews.indexOf(item) === index)
+        const drinkIds = sortedReviews.map((review) => {
+            return review.drink_id
+        })
+
+        function removeDuplicates(arr) {
+            return [...new Set(arr)];
+        }
+
+        const removed = removeDuplicates(drinkIds)
+
+        removed.slice(0,5).forEach((id) => topFive.push(drinks?.find((drink) => drink.id === id)))
+    }
+
 
     return (
         <div className="profile-container">
@@ -75,11 +96,34 @@ export default function ProfilePage() {
                     </div>
                 </div>
             </div>
-            <div className="user-feed">
-                <h2>Your recent activity</h2>
-                {reviews?.map((review) => {
-                    return <Review user={sessionUser} review={review}/>
-                })}
+            <div className="sections">
+                <div className="user-feed">
+                    <h2>
+                        Your recent activity
+                    </h2>
+                    {reviews?.map((review) => {
+                        return <Review user={sessionUser} review={review}/>
+                    })}
+                </div>
+                <div className="user-top">
+                    <h2>
+                        Your top beers
+                    </h2>
+                    <div className="top-list">
+                        {topFive.filter((drink) => {
+                            if (drink !== undefined) {
+                                return drink
+                            }
+                        }).map((beer, idx) => {
+                        return (
+                            <span className="top-item">
+                            <img src={beer?.drink_img_url} alt="logo" className="top-img"/>
+                            <div key={idx} className="top-name">{beer?.name}</div>
+                            </span>
+                        )
+                        })}
+                    </div>
+                </div>
             </div>
         </div>
     )
