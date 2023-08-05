@@ -19,8 +19,8 @@ const DrinkTile = ({drink, clickable}) => {
             <div className="drinkDetails">
                 <div>{drink.abv}% ABV</div>
                 <div className="leftBorder">{drink.ibu} IBU</div>
-                <div className="leftBorder">stars</div>
-                <div className="leftBorder">number of ratings</div>
+                <div className="leftBorder">STARS ({drink.review_avg})</div>
+                <div className="leftBorder">{drink.review_count} Ratings</div>
                 {clickable ? (
                     <div className="leftBorder">Added {dateFormat}</div>
                     ) : <div></div>

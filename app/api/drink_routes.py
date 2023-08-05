@@ -4,6 +4,7 @@ from flask_login import login_required, current_user
 from app.forms.drink_form import DrinkForm
 from app.forms.review_form import ReviewForm
 from .auth_routes import validation_errors_to_error_messages
+from sqlalchemy.sql import func
 
 drink_routes = Blueprint("drink", __name__)
 
@@ -107,7 +108,16 @@ def drinks():
     GET ALL DRINKS
     """
     drinks = Drink.query.all()
-    return {'drinks': [drink.to_dict() for drink in drinks]}
+    # return {'drinks': [drink.to_dict() for drink in drinks]}
+    drinksList = []
+    for drink in drinks:
+        reviewAvg = Review.query.with_entities(func.avg(Review.stars)).filter(Review.drink_id == drink.id).scalar()
+        reviewCount = Review.query.filter(Review.drink_id == drink.id).count()
+        drinkDict = drink.to_dict()
+        drinkDict["review_avg"] = reviewAvg
+        drinkDict["review_count"] = reviewCount
+        drinksList.append(drinkDict)
+    return {"drinks": drinksList}
 
 @drink_routes.route("/", methods=["POST"])
 @login_required
