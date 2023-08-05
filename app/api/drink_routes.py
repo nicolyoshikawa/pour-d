@@ -57,7 +57,14 @@ def drink(id):
     drink = Drink.query.get(id)
     if not drink:
         return {'errors': "Drink could not be found"}, 404
-    return drink.to_dict()
+
+    reviewAvg = Review.query.with_entities(func.avg(Review.stars)).filter(Review.drink_id == drink.id).scalar()
+    reviewCount = Review.query.filter(Review.drink_id == drink.id).count()
+    drinkDict = drink.to_dict()
+    drinkDict["review_avg"] = reviewAvg
+    drinkDict["review_count"] = reviewCount
+    return drinkDict
+    # return drink.to_dict()
 
 @drink_routes.route("/<int:id>", methods=["PUT"])
 @login_required
