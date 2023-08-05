@@ -1,6 +1,7 @@
 .review {
     width: 100%;
-    border: 1px solid gray;
+    border-top: 1px solid rgb(238, 238, 238);
+    padding: 20px 0;
 }
 
 .star {

@@ -56,3 +56,15 @@
     font-size: 12pt;
     font-weight: 400;
 }
+
+.user-feed {
+    margin-top: 20px;
+    width: 65%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.user-feed h2 {
+    margin-top: 0;
+}

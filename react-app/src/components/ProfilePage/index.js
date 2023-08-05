@@ -69,6 +69,7 @@ export default function ProfilePage() {
                 </div>
             </div>
             <div className="user-feed">
+                <h2>Your recent activity</h2>
                 {reviews?.map((review) => {
                     return <Review user={sessionUser} review={review}/>
                 })}
