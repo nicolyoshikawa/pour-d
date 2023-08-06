@@ -5,12 +5,18 @@ import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { useEffect, useState } from "react"
 import Review from "../Review"
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 
 export default function ProfilePage() {
     const history = useHistory()
     const dispatch = useDispatch()
 
     const sessionUser = useSelector(state => state.session.user) // Get current logged in user
+    // Redirect to landing page if user not logged in
+    if (!sessionUser) {
+        history.push("/")
+    }
+
     const {id, first_name, last_name, birthday, email, username, user_img_url} = sessionUser // Destructuring user info
     const lowercase = username?.toLowerCase()
 
@@ -28,15 +34,10 @@ export default function ProfilePage() {
 
 
     useEffect(() => {
-        // Redirect to landing page if user not logged in
-        if (!sessionUser) {
-            history.push("/")
-        }
-
         dispatch(userActions.getUserDrinks())
         dispatch(userActions.getUserFriends())
         dispatch(userActions.getUserReviews())
-    }, [])
+    }, [dispatch])
 
 
     const totalDrinks = drinks?.length
@@ -116,10 +117,12 @@ export default function ProfilePage() {
                             }
                         }).map((beer, idx) => {
                         return (
-                            <span className="top-item">
-                            <img src={beer?.drink_img_url} alt="logo" className="top-img"/>
-                            <div key={idx} className="top-name">{beer?.name}</div>
-                            </span>
+                            <NavLink to={`/drinks/${beer.id}`}>
+                                <span className="top-item">
+                                <img src={beer?.drink_img_url} alt="logo" className="top-img"/>
+                                <div key={idx} className="top-name">{beer?.name}</div>
+                                </span>
+                            </NavLink>
                         )
                         })}
                     </div>
