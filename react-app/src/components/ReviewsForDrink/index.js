@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
-import DrinkTile from './DrinkTile';
-import ReviewsForDrink from "../ReviewsForDrink";
 import * as drinkActions from "../../store/drinks";
-import './Drinks.css';
 
-const DrinkDetail = () => {
+const ReviewsForDrink = ({drink}) => {
     const { id } = useParams();
     const drinksObj = useSelector(state => state.drinks);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -19,14 +16,9 @@ const DrinkDetail = () => {
     },[dispatch, id]);
     return (
         <>
-            {isLoaded && (
-                <div className="drinkDetailPage">
-                    <DrinkTile drink={drink} clickable={false}/>
-                    <ReviewsForDrink drink={drink}/>
-                </div>
-            )}
+            <div> Reviews to be worked on soon </div>
         </>
     )
 };
 
-export default DrinkDetail;
+export default ReviewsForDrink;
