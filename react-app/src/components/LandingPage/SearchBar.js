@@ -45,7 +45,7 @@ export default function SearchBar() {
                         filterDrinks?.map((drink) => {
                             return (
                                 <div className="result" key={drink.id}>
-                                    {drink.name}
+                                    <NavLink to={`/drinks/${drink.id}`}>{drink.name}</NavLink>
                                 </div>
                             )
                         })

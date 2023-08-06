@@ -162,3 +162,8 @@
     padding-top: 8px;
     font-size: 10pt
 }
+
+.result a {
+    text-decoration: none;
+    font-weight: 600;
+}
