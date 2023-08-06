@@ -1,6 +1,7 @@
 
 const LOAD_REVIEWS = "reviews/LOAD_REVIEWS";
 const REVIEW_BY_ID = "reviews/REVIEW_BY_ID";
+const REVIEWS_BY_DRINKID = "drinks/REVIEWS_BY_DRINKID";
 const CREATE_A_REVIEW = "reviews/CREATE_A_REVIEW";
 const UPDATE_A_REVIEW = "reviews/UPDATE_A_REVIEW";
 const DELETE_A_REVIEW = "reviews/DELETE_A_REVIEW";
@@ -13,6 +14,11 @@ export const loadReviews = (reviews) => ({
 export const reviewById = (review) => ({
   type: REVIEW_BY_ID,
   review
+});
+
+export const reviewsByDrinkId = (reviews) => ({
+  type: REVIEWS_BY_DRINKID,
+  reviews
 });
 
 export const createAReview = (review) => ({
@@ -48,6 +54,18 @@ export const loadReviewById = (id) => async (dispatch) => {
     const res = await response.json();
     dispatch(reviewById(res));
     return res;
+  }
+};
+
+export const loadReviewsByDrinkId = (drink) => async (dispatch) => {
+  const response = await fetch(`/api/drinks/${drink.id}/reviews`, {
+    method: "GET"
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(reviewsByDrinkId(data.reviews));
+    return response;
   }
 };
 
@@ -104,6 +122,11 @@ const reviewsReducer = (state = initialState, action) => {
     case REVIEW_BY_ID:
       newState[action.review.id] = action.review;
       return newState;
+    case REVIEWS_BY_DRINKID:
+        action.reviews.forEach((review) => {
+            newState[review.id] = review;
+        });
+        return newState;
     case CREATE_A_REVIEW:
       newState[action.review.id] = action.review;
       return newState;

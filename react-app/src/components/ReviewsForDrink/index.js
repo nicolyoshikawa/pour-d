@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
-import * as drinkActions from "../../store/drinks";
+import * as reviewActions from "../../store/reviews";
+import ReviewTile from "./ReviewTile";
 
 const ReviewsForDrink = ({drink}) => {
-    const { id } = useParams();
-    const drinksObj = useSelector(state => state.drinks);
     const [isLoaded, setIsLoaded] = useState(false);
-    const drink = drinksObj[id];
+    const allReviews = useSelector(state => Object.values(state.reviews));
     const dispatch = useDispatch();
 
     useEffect(()=> {
-        dispatch(drinkActions.loadDrinkById(id))
+        dispatch(reviewActions.loadReviewsByDrinkId(drink))
         .then(()=>setIsLoaded(true))
-    },[dispatch, id]);
+    },[dispatch]);
     return (
         <>
-            <div> Reviews to be worked on soon </div>
+            {isLoaded && (
+                <div>
+                    {allReviews.map(el => (<ReviewTile key={el.id} review={el} drink={drink}/>))}
+                </div>
+            )}
         </>
     )
 };
