@@ -29,12 +29,9 @@ function DrinkFormPage() {
             }
         })
         if(drink){
-            console.log(drink)
             reset();
             history.push(`/drinks/${drink.id}`);
             setErrors({});
-        } else {
-            console.log("no drink")
         }
     }
   };
