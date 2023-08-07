@@ -1,44 +1,39 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import ProfileButton from "./ProfileButton";
 // import OpenModalButton from "../OpenModalButton";
 // import LoginFormModal from "../LoginFormModal";
 // import SignupFormModal from "../SignupFormModal";
-import './Navigation.css';
+import "./Navigation.css";
+import logo from "../../assets/logo.png";
 
-function Navigation({ isLoaded }){
-	const sessionUser = useSelector(state => state.session.user);
+function Navigation({ isLoaded }) {
+  const sessionUser = useSelector((state) => state.session.user);
 
-	return (
-		<ul className='navBar'>
-			{!sessionUser && (
-				<li>
-					<NavLink exact to="/">Pour'd Logo</NavLink>
-				</li>
-			)}
-			{isLoaded && sessionUser && (
-				<>
-					<li>
-						<NavLink exact to="/home">Pour'd Logo</NavLink>
-					</li>
-					<li>
-						<NavLink exact to="/drinks">Drinks List</NavLink>
-					</li>
-					<li>
-						<NavLink exact to="/drinks/top-rated">Top Drinks</NavLink>
-					</li>
-					<li>
-						<ProfileButton user={sessionUser} />
-					</li>
-					<li>
-						{/* <input type='text' placeholder='Find a beer...'></input> */}
-						Search bar coming soon
-					</li>
-				</>
-			)}
-		</ul>
-	);
+  return (
+    <div className="navBar">
+      <NavLink exact to="/">
+        <img className="nav-logo" src={logo} alt="Logo" />
+      </NavLink>
+      {isLoaded && (
+        <>
+          {sessionUser && (
+            <>
+              <NavLink exact to="/drinks">
+                Drinks List
+              </NavLink>
+              <NavLink exact to="/drinks/top-rated">
+                Top Drinks
+              </NavLink>
+              <input className="nav-search" type='text' placeholder='Search coming soon...'/>
+            </>
+          )}
+          <ProfileButton user={sessionUser} />
+        </>
+      )}
+    </div>
+  );
 }
 
 export default Navigation;
