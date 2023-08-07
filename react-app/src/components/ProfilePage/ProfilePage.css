@@ -57,6 +57,11 @@
     font-weight: 400;
 }
 
+.sections {
+    display: flex;
+    justify-content: space-between;
+}
+
 .user-feed {
     margin-top: 20px;
     width: 65%;
@@ -67,4 +72,39 @@
 
 .user-feed h2 {
     margin-top: 0;
+}
+
+.user-top {
+    margin-top: 20px;
+    width: 25%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    list-style: none;
+    height: max-content;
+}
+
+.user-top h2 {
+    margin-top: 0;
+}
+
+.top-list {
+    border-top: 1px solid rgb(238,238,238);
+    padding-top: 20px;
+}
+
+.top-list a {
+    text-decoration: none;
+}
+
+.top-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.top-img {
+    width: 50px;
+    margin-right: 15px;
 }

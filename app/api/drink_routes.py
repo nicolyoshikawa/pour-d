@@ -16,7 +16,16 @@ def getAllReviewsForADrink(id):
     reviews = Review.query.filter(Review.drink_id == id).all()
     if not reviews:
         return {'errors': "Reviews could not be found"}, 404
-    return {'reviews': [review.to_dict() for review in reviews]}
+    # return {'reviews': [review.to_dict() for review in reviews]}
+
+    reviewsList = []
+    for review in reviews:
+        user = User.query.filter(User.id == review.user_id).first()
+        reviewOwner = user.to_dict()
+        reviewDict = review.to_dict()
+        reviewDict["User"] = reviewOwner
+        reviewsList.append(reviewDict)
+    return {"reviews": reviewsList}
 
 @drink_routes.route('/<int:id>/reviews', methods=["POST"])
 @login_required

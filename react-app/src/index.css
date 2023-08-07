@@ -10,11 +10,12 @@ body {
 }
 
 a {
-  color: #ffc000;
+    color: #8a4500;
+    text-decoration: none;
 }
 
 a:hover {
-  color: #d6a30a;
+    color: #cb7014;
 }
 
 #root {

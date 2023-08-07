@@ -5,12 +5,18 @@ import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { useEffect, useState } from "react"
 import Review from "../Review"
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 
 export default function ProfilePage() {
     const history = useHistory()
     const dispatch = useDispatch()
 
     const sessionUser = useSelector(state => state.session.user) // Get current logged in user
+    // Redirect to landing page if user not logged in
+    if (!sessionUser) {
+        history.push("/")
+    }
+
     const {id, first_name, last_name, birthday, email, username, user_img_url} = sessionUser // Destructuring user info
     const lowercase = username?.toLowerCase()
 
@@ -28,20 +34,36 @@ export default function ProfilePage() {
 
 
     useEffect(() => {
-        // Redirect to landing page if user not logged in
-        if (!sessionUser) {
-            history.push("/")
-        }
-
         dispatch(userActions.getUserDrinks())
         dispatch(userActions.getUserFriends())
         dispatch(userActions.getUserReviews())
-    }, [])
+    }, [dispatch])
 
 
     const totalDrinks = drinks?.length
     const totalFriends = friends?.length
     const totalReviews = reviews?.length
+    
+    // Grab top user's top drinks
+    let sortedReviews
+    let topFive = []
+    if (reviews) {
+        sortedReviews = [...reviews]
+        sortedReviews.sort((a,b) => b.stars - a.stars)
+        sortedReviews.filter((item, index) => sortedReviews.indexOf(item) === index)
+        const drinkIds = sortedReviews.map((review) => {
+            return review.drink_id
+        })
+
+        function removeDuplicates(arr) {
+            return [...new Set(arr)];
+        }
+
+        const removed = removeDuplicates(drinkIds)
+
+        removed.slice(0,5).forEach((id) => topFive.push(drinks?.find((drink) => drink.id === id)))
+    }
+
 
     return (
         <div className="profile-container">
@@ -75,11 +97,36 @@ export default function ProfilePage() {
                     </div>
                 </div>
             </div>
-            <div className="user-feed">
-                <h2>Your recent activity</h2>
-                {reviews?.map((review) => {
-                    return <Review user={sessionUser} review={review}/>
-                })}
+            <div className="sections">
+                <div className="user-feed">
+                    <h2>
+                        Your recent activity
+                    </h2>
+                    {reviews?.map((review) => {
+                        return <Review user={sessionUser} review={review}/>
+                    })}
+                </div>
+                <div className="user-top">
+                    <h2>
+                        Your top beers
+                    </h2>
+                    <div className="top-list">
+                        {topFive.filter((drink) => {
+                            if (drink !== undefined) {
+                                return drink
+                            }
+                        }).map((beer, idx) => {
+                        return (
+                            <NavLink to={`/drinks/${beer.id}`}>
+                                <span className="top-item">
+                                <img src={beer?.drink_img_url} alt="logo" className="top-img"/>
+                                <div key={idx} className="top-name">{beer?.name}</div>
+                                </span>
+                            </NavLink>
+                        )
+                        })}
+                    </div>
+                </div>
             </div>
         </div>
     )

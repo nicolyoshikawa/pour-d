@@ -52,17 +52,17 @@ export const loadDrinkById = (id) => async (dispatch) => {
 };
 
 export const createNewDrink = (drink) => async (dispatch) => {
-  const response = await fetch('/api/drinks', {
+  const response = await fetch('/api/drinks/', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json'},
     body: JSON.stringify(drink)
   });
 
+  const data = await response.json();
   if (response.ok) {
-    const newDrink = await response.json();
-    dispatch(createADrink(newDrink));
-    return newDrink;
+    dispatch(createADrink(data));
   }
+  return data;
 };
 
 export const updateADrink = (drink) => async dispatch => {
