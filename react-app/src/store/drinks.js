@@ -52,13 +52,15 @@ export const loadDrinkById = (id) => async (dispatch) => {
 };
 
 export const createNewDrink = (drink) => async (dispatch) => {
-  const response = await fetch('/api/drinks', {
+  console.log("hitting right before fetch req")
+  const response = await fetch('/api/drinks/', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json'},
     body: JSON.stringify(drink)
   });
-
+  console.log("right after fetch")
   if (response.ok) {
+    console.log("drink was created in redux")
     const newDrink = await response.json();
     dispatch(createADrink(newDrink));
     return newDrink;
