@@ -18,7 +18,7 @@ function Navigation({ isLoaded }) {
       </NavLink>
       {isLoaded && (
         <>
-          {sessionUser && (
+          {/* {sessionUser && (
             <>
               <NavLink exact to="/drinks">
                 Drinks List
@@ -29,7 +29,52 @@ function Navigation({ isLoaded }) {
               <input className="nav-search" type='text' placeholder='Search coming soon...'/>
             </>
           )}
-          <ProfileButton user={sessionUser} />
+          <ProfileButton user={sessionUser} /> */}
+          {sessionUser ? (
+            <>
+              <NavLink exact to="/drinks">
+                Drinks List
+              </NavLink>
+              <NavLink exact to="/drinks/top-rated">
+                Top Drinks
+              </NavLink>
+              <NavLink exact to="/check-ins">
+                Check-in History
+              </NavLink>
+              <NavLink exact to="/friends">
+                Friends
+              </NavLink>
+              <NavLink exact to="/my-profile">
+                My Profile
+              </NavLink>
+              <NavLink exact to="/edit-profile">
+                Edit Profile
+              </NavLink>
+              <NavLink exact to="/drinks/new">
+                Create a Drink
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink exact to="/drinks">
+                Drinks List
+              </NavLink>
+              <NavLink exact to="/drinks/top-rated">
+                Top Drinks
+              </NavLink>
+              <NavLink exact to="/login">
+                Sign In
+              </NavLink>
+              <NavLink exact to="/signup">
+                Join Now
+              </NavLink>
+              <input
+                className="nav-search"
+                type="text"
+                placeholder="Search coming soon..."
+              />
+            </>
+          )}
         </>
       )}
     </div>
