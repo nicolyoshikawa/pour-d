@@ -11,7 +11,7 @@ const ReviewsForDrink = ({drink}) => {
     useEffect(()=> {
         dispatch(reviewActions.loadReviewsByDrinkId(drink))
         .then(()=>setIsLoaded(true))
-    },[dispatch]);
+    },[dispatch, drink]);
     return (
         <>
             {isLoaded && (
