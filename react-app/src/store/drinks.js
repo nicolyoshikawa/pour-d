@@ -58,11 +58,11 @@ export const createNewDrink = (drink) => async (dispatch) => {
     body: JSON.stringify(drink)
   });
 
+  const data = await response.json();
   if (response.ok) {
-    const newDrink = await response.json();
-    dispatch(createADrink(newDrink));
-    return newDrink;
+    dispatch(createADrink(data));
   }
+  return data;
 };
 
 export const updateADrink = (drink) => async dispatch => {

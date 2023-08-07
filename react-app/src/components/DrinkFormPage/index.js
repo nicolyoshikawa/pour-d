@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import logo from "../../assets/logo.png";
@@ -15,23 +15,37 @@ function DrinkFormPage() {
   const [errors, setErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
+  useEffect(() => {
+    const errors = [];
+    if(name && name.length > 50) errors.push("Drink name needs to be under 50 characters");
+    if(abv && (abv > 100 || abv < 0)) errors.push("ABV needs to be between 0 and 100");
+    if(ibu && (ibu > 130 || ibu < 0)) errors.push("IBU needs to be between 0 and 130");
+    if(description && description.length > 255) errors.push("Description needs to be less than 255 characters");
+    if(drink_img_url && (!drink_img_url.endsWith(".png") &&
+        !drink_img_url.endsWith(".jpg") && !drink_img_url.endsWith(".jpeg"))) {
+        errors.push("Image URL must end in .png, .jpg, or .jpeg");
+    }
+    if(drink_img_url && drink_img_url.length > 255) {
+        errors.push("Image URL needs to be under 255 characters");
+    }
+    setErrors(errors);
+  }, [name, abv, ibu, description, drink_img_url, hasSubmitted]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setHasSubmitted(true);
     const newDrink = {name, abv, ibu, description, drink_img_url};
     if(Object.values(errors).length === 0){
-        setErrors({});
-        const drink = await dispatch(drinkActions.createNewDrink(newDrink))
-        .catch(async (res) => {
-            const data = await res.json();
-            if (data && data.errors) {
-                setErrors(data.errors);
-            }
-        })
-        if(drink){
-            reset();
-            history.push(`/drinks/${drink.id}`);
-            setErrors({});
+        setErrors([]);
+        const drink = await dispatch(drinkActions.createNewDrink(newDrink));
+        if(drink.errors){
+          const errors = [];
+          errors.push(drink.errors);
+          setErrors(errors);
+        } else {
+          reset();
+          history.push(`/drinks/${drink.id}`);
+          setErrors([]);
         }
     }
   };
