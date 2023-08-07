@@ -132,3 +132,13 @@
 .login-form-signup a:hover {
   color: #8a4500d0;
 }
+
+.login-form-input-container textarea {
+  border: none;
+  border-left: 1px solid #cccccc;
+  padding: 0px 8px;
+  font-size: 16px;
+  margin: 6px 0px;
+  width: 100%;
+  font-family: Open-Sans, sans-serif;
+}
