@@ -12,7 +12,7 @@ const ReviewTile = ({review, drink}) => {
         <>
             <div className="review">
                 <div className="review-beer">
-                    ___ is drinking a {drink?.name}
+                    {review.User.username} is drinking a {drink.name}
                 </div>
                 <div className="review-content">
                     {review.content}
@@ -26,7 +26,7 @@ const ReviewTile = ({review, drink}) => {
                     })}
                 </div>
                 <div className="review-img">
-                    <img src={review.review_img_url} alt="review-img"/>
+                    <img src={review?.review_img_url} alt="review-img"/>
                 </div>
             </div>
         </>
