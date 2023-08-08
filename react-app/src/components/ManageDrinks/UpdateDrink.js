@@ -64,7 +64,6 @@ function UpdateDrink() {
     if(Object.values(errors).length === 0){
         setErrors([]);
         const drink = await dispatch(drinkActions.updateADrink(updatedDrink));
-        console.log(drink)
         if(drink.errors){
           const errors = [];
           errors.push(drink.errors);
