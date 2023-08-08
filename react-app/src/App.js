@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch, useLocation } from "react-router-dom";
+import { Route, Switch, useLocation, Redirect } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
@@ -69,6 +69,9 @@ function App() {
           </Route>
           <Route exact path="/check-ins">
             <p>Check-ins</p>
+          </Route>
+          <Route exact path="/logout">
+            <Redirect to="/"/>
           </Route>
           <Route>
             <h1>Page Not Found</h1>

@@ -12,71 +12,60 @@ function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
 
   return (
-    <div className="navBar">
-      <NavLink exact to="/">
-        <img className="nav-logo" src={logo} alt="Logo" />
-      </NavLink>
-      {isLoaded && (
-        <>
-          {/* {sessionUser && (
-            <>
-              <NavLink exact to="/drinks">
-                Drinks List
-              </NavLink>
-              <NavLink exact to="/drinks/top-rated">
-                Top Drinks
-              </NavLink>
-              <input className="nav-search" type='text' placeholder='Search coming soon...'/>
-            </>
-          )}
-          <ProfileButton user={sessionUser} /> */}
-          {sessionUser ? (
-            <>
-              <NavLink exact to="/drinks">
-                Drinks List
-              </NavLink>
-              <NavLink exact to="/drinks/top-rated">
-                Top Drinks
-              </NavLink>
-              <NavLink exact to="/check-ins">
-                Check-in History
-              </NavLink>
-              <NavLink exact to="/friends">
-                Friends
-              </NavLink>
-              <NavLink exact to="/my-profile">
-                My Profile
-              </NavLink>
-              <NavLink exact to="/edit-profile">
-                Edit Profile
-              </NavLink>
-              <NavLink exact to="/drinks/new">
-                Create a Drink
-              </NavLink>
-            </>
+    <div className="navbar-container">
+      <div className="navbar">
+        <NavLink exact to="/">
+          <img className="nav-logo" src={logo} alt="Logo" />
+        </NavLink>
+        {isLoaded ? (
+          sessionUser ? (
+            <div className="navbar-inner-container">
+              <div className="navbar-inner-links">
+                <NavLink exact to="/drinks">
+                  Drinks List
+                </NavLink>
+                <NavLink exact to="/drinks/top-rated">
+                  Top Drinks
+                </NavLink>
+              </div>
+              <div className="navbar-inner-profile-search">
+                <ProfileButton user={sessionUser} />
+                <input
+                  className="nav-search"
+                  type="text"
+                  placeholder="Search coming soon..."
+                />
+              </div>
+            </div>
           ) : (
-            <>
-              <NavLink exact to="/drinks">
-                Drinks List
-              </NavLink>
-              <NavLink exact to="/drinks/top-rated">
-                Top Drinks
-              </NavLink>
-              <NavLink exact to="/login">
-                Sign In
-              </NavLink>
-              <NavLink exact to="/signup">
-                Join Now
-              </NavLink>
+            <div className="navbar-inner-container">
+              <div className="navbar-inner-links">
+                <NavLink exact to="/drinks">
+                  Drinks List
+                </NavLink>
+                <NavLink exact to="/drinks/top-rated">
+                  Top Drinks
+                </NavLink>
+              </div>
+              <div className="navbar-inner-login-signup">
+                <NavLink exact to="/login">
+                  Sign In
+                </NavLink>
+                <NavLink exact to="/signup">
+                  Join Now
+                </NavLink>
+              </div>
               <input
                 className="nav-search"
                 type="text"
                 placeholder="Search coming soon..."
               />
-            </>
-          )}
-        </>
-      )}
+            </div>
+          )
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 }
