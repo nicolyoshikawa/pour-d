@@ -1,14 +1,26 @@
-.navBar {
+.navbar-container {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 6px 0 #ffc000;
+  border-bottom: 1px solid gray;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 15px 20px;
+}
+
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid gray;
-  padding: 15px 20px;
-  box-shadow: 0 1px 1px rgba(0,0,0,.1), inset 0 6px 0 #ffc000;
+  max-width: 1440px;
+  width: 100%;
 }
 
 .nav-logo {
   max-height: 40px;
+}
+
+.navbar-inner {
+  display: flex;
 }
 
 .profile-button {

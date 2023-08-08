@@ -12,48 +12,27 @@ function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
 
   return (
-    <div className="navBar">
-      <NavLink exact to="/">
-        <img className="nav-logo" src={logo} alt="Logo" />
-      </NavLink>
-      {isLoaded && (
-        <>
-          {/* {sessionUser && (
-            <>
+    <div className="navbar-container">
+      <div className="navbar">
+        <NavLink exact to="/">
+          <img className="nav-logo" src={logo} alt="Logo" />
+        </NavLink>
+        {isLoaded ? (
+          sessionUser ? (
+            <div className="navbar-inner">
               <NavLink exact to="/drinks">
                 Drinks List
               </NavLink>
               <NavLink exact to="/drinks/top-rated">
                 Top Drinks
               </NavLink>
-              <input className="nav-search" type='text' placeholder='Search coming soon...'/>
-            </>
-          )}
-          <ProfileButton user={sessionUser} /> */}
-          {sessionUser ? (
-            <>
-              <NavLink exact to="/drinks">
-                Drinks List
-              </NavLink>
-              <NavLink exact to="/drinks/top-rated">
-                Top Drinks
-              </NavLink>
-              <NavLink exact to="/check-ins">
-                Check-in History
-              </NavLink>
-              <NavLink exact to="/friends">
-                Friends
-              </NavLink>
-              <NavLink exact to="/my-profile">
-                My Profile
-              </NavLink>
-              <NavLink exact to="/edit-profile">
-                Edit Profile
-              </NavLink>
-              <NavLink exact to="/drinks/new">
-                Create a Drink
-              </NavLink>
-            </>
+              <ProfileButton user={sessionUser} />
+              <input
+                className="nav-search"
+                type="text"
+                placeholder="Search coming soon..."
+              />
+            </div>
           ) : (
             <>
               <NavLink exact to="/drinks">
@@ -74,9 +53,11 @@ function Navigation({ isLoaded }) {
                 placeholder="Search coming soon..."
               />
             </>
-          )}
-        </>
-      )}
+          )
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 }
