@@ -28,10 +28,7 @@ function ManageDrinks() {
     const updateClickHandler = (drink) => {
         history.push(`/drinks/${drink.id}/edit`);
     }
-    // const openMenu = () => {
-    //     if (showMenu) return;
-    //     setShowMenu(true);
-    //   };
+
     const closeMenu = () => setShowMenu(false);
 
     return (
@@ -64,7 +61,7 @@ function ManageDrinks() {
                                             <OpenModalButton
                                                 buttonText="Delete"
                                                 onItemClick={closeMenu}
-                                                modalComponent={<DeleteDrink drink={el} closeMenu={closeMenu}/>}
+                                                modalComponent={<DeleteDrink drink={el}/>}
                                             />
                                         </div>
                                     </div>

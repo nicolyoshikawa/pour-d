@@ -4,8 +4,9 @@ import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import * as drinkActions from "../../store/drinks";
 import * as userActions from "../../store/currUser";
+import "./DeleteDrink.css"
 
-function DeleteDrink({drink, closeMenu}) {
+function DeleteDrink({drink}) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [errors, setErrors] = useState({});
@@ -35,13 +36,13 @@ function DeleteDrink({drink, closeMenu}) {
     return (
       <>
         {showModal && (
-          <>
-            <div>Confirm Delete</div>
-            {errors.length > 0 && <p>{errors}</p>}
-            <div>Are you sure you want to delete this drink?</div>
-            <button onClick={deleteClickHandler}>Yes</button>
-            <button onClick={keepClickHandler}>No</button>
-          </>
+          <div className="login-form-container">
+            <h2>Confirm Delete</h2>
+            {errors.length > 0 && <p className="login-form-container-errors">{errors}</p>}
+            <div className="delete-button question">Are you sure you want to delete this drink?</div>
+            <button onClick={deleteClickHandler} className="delete-button">Yes</button>
+            <button onClick={keepClickHandler} className="delete-button">No</button>
+          </div>
         )}
       </>
     );
