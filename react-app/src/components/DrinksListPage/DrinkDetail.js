@@ -20,10 +20,16 @@ const DrinkDetail = () => {
     return (
         <>
             {isLoaded && (
-                <div className="drinkDetailPage">
-                    <DrinkTile drink={drink} clickable={false}/>
-                    <ReviewsForDrink drink={drink}/>
-                </div>
+                <>
+                    {drink ? (
+                    <div className="drinkDetailPage">
+                        <DrinkTile drink={drink} clickable={false}/>
+                        <ReviewsForDrink drink={drink}/>
+                    </div>
+                    ) :
+                    <h1>Drink Not Found</h1>
+                    }
+                </>
             )}
         </>
     )

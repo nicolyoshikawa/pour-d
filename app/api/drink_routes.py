@@ -13,10 +13,11 @@ def getAllReviewsForADrink(id):
     """
     View all reviews for a drink
     """
+    drink = Drink.query.get(id)
+    if not drink:
+        return {'errors': "Drink could not be found"}, 404
+
     reviews = Review.query.filter(Review.drink_id == id).all()
-    if not reviews:
-        return {'errors': "Reviews could not be found"}, 404
-    # return {'reviews': [review.to_dict() for review in reviews]}
 
     reviewsList = []
     for review in reviews:
