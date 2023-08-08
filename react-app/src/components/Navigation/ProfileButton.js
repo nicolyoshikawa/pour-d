@@ -41,17 +41,15 @@ function ProfileButton({ user }) {
   const closeMenu = () => setShowMenu(false);
 
   return (
-    <>
+    <div className="profile-button">
       <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
-          <>
-            {/* <li>{user.username}</li>
-            <li>{user.email}</li> */}
+          <div className="profile-dropdown-menu">
             <li>
-              <NavLink exact to="/checkins">Check-in History</NavLink>
+              <NavLink exact to="/check-ins">Check-in History</NavLink>
             </li>
             <li>
               <NavLink exact to="/friends">Friends</NavLink>
@@ -63,9 +61,12 @@ function ProfileButton({ user }) {
               <NavLink exact to="/edit-profile">Edit Profile</NavLink>
             </li>
             <li>
+              <NavLink exact to="/drinks/new">Create a Drink</NavLink>
+            </li>
+            <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>
-          </>
+          </div>
         ) : (
           <>
             <OpenModalButton
@@ -82,7 +83,7 @@ function ProfileButton({ user }) {
           </>
         )}
       </ul>
-    </>
+    </div>
   );
 }
 

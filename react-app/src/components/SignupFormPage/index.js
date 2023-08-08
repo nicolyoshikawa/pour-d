@@ -29,7 +29,7 @@ function SignupFormPage() {
         setErrors(data);
       }
     } else {
-      setErrors(["Confirm Password field must be the same as the Password field"]);
+      setErrors(["Passwords do not match."]);
     }
   };
 
@@ -42,12 +42,16 @@ function SignupFormPage() {
             <p>DRINK SOCIALLY</p>
           </a>
         </div>
+        {errors.length > 0 && (
+          <div className="signup-form-container-errors">
+            <ul>
+              {errors.map((error, idx) => (
+                <li key={idx}>{error}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
-            ))}
-          </ul>
           <p className="signup-form-required-text">
             All fields below are required unless specified
           </p>

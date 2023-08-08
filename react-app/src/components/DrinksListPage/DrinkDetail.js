@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import DrinkTile from './DrinkTile';
-import Reviews from "../Reviews";
+import ReviewsForDrink from "../ReviewsForDrink";
 import * as drinkActions from "../../store/drinks";
 import './Drinks.css';
 
@@ -20,10 +20,10 @@ const DrinkDetail = () => {
     return (
         <>
             {isLoaded && (
-                <>
+                <div className="drinkDetailPage">
                     <DrinkTile drink={drink} clickable={false}/>
-                    <Reviews/>
-                </>
+                    <ReviewsForDrink drink={drink}/>
+                </div>
             )}
         </>
     )

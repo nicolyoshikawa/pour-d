@@ -17,7 +17,7 @@ function AllDrinks(){
     return(
         <>
             {isLoaded && (
-                <div>
+                <div className="allDrinks">
                     {allDrinks.map(el => (<DrinkTile key={el.id} drink={el} clickable={true}/>))}
                 </div>
             )}

@@ -9,6 +9,8 @@ import LandingPage from "./components/LandingPage";
 import Home from "./components/Home";
 import DrinksListPage from "./components/DrinksListPage";
 import DrinkDetail from "./components/DrinksListPage/DrinkDetail";
+import ProfilePage from "./components/ProfilePage";
+import DrinkFormPage from "./components/DrinkFormPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +21,10 @@ function App() {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  const hideNavigation = location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/";
+  const hideNavigation =
+    location.pathname === "/login" ||
+    location.pathname === "/signup" ||
+    location.pathname === "/";
 
   return (
     <>
@@ -27,39 +32,42 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/">
-            <LandingPage/>
+            <LandingPage />
           </Route>
-          <Route path="/login" >
+          <Route path="/login">
             <LoginFormPage />
           </Route>
           <Route path="/signup">
             <SignupFormPage />
           </Route>
           <Route exact path="/home">
-            <Home/>
+            <Home />
           </Route>
           <Route exact path="/drinks/top-rated">
             <p>Top Drinks to come</p>
           </Route>
-          <Route exact path="/beer/top-rated">
+          {/* <Route exact path="/beer/top-rated">
             <p>Top Beers to come</p>
-          </Route>
+          </Route> */}
           <Route exact path="/drinks">
-            <DrinksListPage/>
+            <DrinksListPage />
+          </Route>
+          <Route path="/drinks/new">
+            <DrinkFormPage/>
           </Route>
           <Route exact path="/drinks/:id">
-            <DrinkDetail/>
+            <DrinkDetail />
           </Route>
           <Route exact path="/friends">
             <p>Friends</p>
           </Route>
           <Route exact path="/my-profile">
-            <p>My Profile</p>
+            <ProfilePage />
           </Route>
           <Route exact path="/edit-profile">
             <p>Edit Profile</p>
           </Route>
-          <Route exact path="/checkins">
+          <Route exact path="/check-ins">
             <p>Check-ins</p>
           </Route>
           <Route>

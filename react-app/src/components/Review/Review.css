@@ -1,0 +1,49 @@
+.review {
+    width: 100%;
+    border-top: 1px solid rgb(238, 238, 238);
+    padding: 20px 0;
+}
+
+.review-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.star {
+    color: #ffc000;
+}
+
+.beer-img img {
+    width: 50px;
+    align-self: flex-end;
+}
+
+.review-user {
+    font-weight: 600;
+}
+
+.review-beer {
+    margin-bottom: 20px;
+    font-size: 14pt;
+}
+
+.review-content {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.review-rating {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.review-date {
+    font-size: 10pt;
+    margin-left: 10px;
+}
+
+.review-img {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}

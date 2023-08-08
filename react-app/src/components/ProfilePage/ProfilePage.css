@@ -1,0 +1,110 @@
+.profile-container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.user-hero {
+    height: 250px;
+    background-image: url(../../assets/hero-img.jpeg);
+    background-size: cover;
+    background-position-y: center;
+    display: flex;
+    align-items: flex-end;
+}
+
+.user-info {
+    margin-left: 10px;
+}
+
+.hero-avatar {
+    width: 80px;
+    margin: 30px 25px;
+}
+
+.full-name {
+    font-size: 28pt;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.username {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.stats {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.stat {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.number {
+    font-size: 16pt;
+    margin-right: 2px;
+    font-weight: 600;
+}
+
+.stat-title {
+    margin: 0;
+    font-size: 12pt;
+    font-weight: 400;
+}
+
+.sections {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-feed {
+    margin-top: 20px;
+    width: 65%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.user-feed h2 {
+    margin-top: 0;
+}
+
+.user-top {
+    margin-top: 20px;
+    width: 25%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    list-style: none;
+    height: max-content;
+}
+
+.user-top h2 {
+    margin-top: 0;
+}
+
+.top-list {
+    border-top: 1px solid rgb(238,238,238);
+    padding-top: 20px;
+}
+
+.top-list a {
+    text-decoration: none;
+}
+
+.top-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.top-img {
+    width: 50px;
+    margin-right: 15px;
+}
