@@ -19,13 +19,15 @@ function Navigation({ isLoaded }) {
         </NavLink>
         {isLoaded ? (
           sessionUser ? (
-            <div className="navbar-inner">
-              <NavLink exact to="/drinks">
-                Drinks List
-              </NavLink>
-              <NavLink exact to="/drinks/top-rated">
-                Top Drinks
-              </NavLink>
+            <div className="navbar-inner-container">
+              <div className="navbar-inner-links">
+                <NavLink exact to="/drinks">
+                  Drinks List
+                </NavLink>
+                <NavLink exact to="/drinks/top-rated">
+                  Top Drinks
+                </NavLink>
+              </div>
               <ProfileButton user={sessionUser} />
               <input
                 className="nav-search"

@@ -19,8 +19,18 @@
   max-height: 40px;
 }
 
-.navbar-inner {
+.navbar-inner-container {
+  width: 100%;
   display: flex;
+  flex: 0 1 auto;
+  justify-content: space-between;
+}
+
+.navbar-inner-links {
+  display: flex;
+  gap: 20px;
+  margin-left: 40px;
+  flex-shrink: 0;
 }
 
 .profile-button {
