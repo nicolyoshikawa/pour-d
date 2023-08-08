@@ -1,16 +1,41 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid gray;
+  padding: 15px 20px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.1), inset 0 6px 0 #ffc000;
+}
+
+.nav-logo {
+  max-height: 40px;
+}
+
+.profile-button {
+  position: relative;
+}
+
 .profile-dropdown {
   position: absolute;
   list-style-type: none;
   background-color: darkgray;
+  white-space: nowrap;
+  padding: 0px;
+  top: 2%;
+  right: 0;
+}
+
+.profile-dropdown-menu {
+  margin: 5px 0px;
 }
 
 .hidden {
   display: none;
 }
 
-.navBar {
-  /* background-color: yellow; */
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
+.nav-search {
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  outline: none;
 }

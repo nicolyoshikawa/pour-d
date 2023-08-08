@@ -1,11 +1,12 @@
 /* TODO Add site wide styles */
-html, body {
-    padding: 0px;
-    margin: 0px;
-    height: 100%;
-    width: 100%;
-    font-family: Open-Sans, sans-serif;
-    background-color: rgb(248, 248, 248);
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  font-family: Open-Sans, sans-serif;
+  background-color: rgb(248, 248, 248);
 }
 
 a {
@@ -18,6 +19,6 @@ a:hover {
 }
 
 #root {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
+  max-width: 100%;
+  overflow-x: hidden;
+}

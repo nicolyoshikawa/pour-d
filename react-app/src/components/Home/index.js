@@ -13,6 +13,9 @@ export default function Home() {
     
     return (
         <div>
+            <p>
+                Home page here
+            </p>
             <button onClick={logoutUser}>
                 Log out
             </button>
