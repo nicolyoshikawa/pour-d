@@ -2,6 +2,7 @@ import "./Review.css"
 import { loadDrinkById } from "../../store/drinks"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 
 export default function Review({user, review}) {
     const dispatch = useDispatch()
@@ -14,7 +15,7 @@ export default function Review({user, review}) {
 
     useEffect(() => {
         dispatch(loadDrinkById(drink_id))
-    }, [dispatch])
+    }, [dispatch, drink_id])
 
     // Calculate full and empty stars to match review rating
     let makeRating = []
@@ -35,28 +36,32 @@ export default function Review({user, review}) {
 
     return (
         <div className="review">
-            <div className="review-beer">
-                {user?.first_name} is drinking a {drink?.name}
-            </div>
-            <div className="review-content">
-                {content}
-            </div>
-            <div className="review-rating">
-                {makeRating?.map((rating) => {
-                    if (rating === 1) {
-                        return <span className="star">{star}</span>
-                    }
-                    return <span className="star">{emptyStar}</span>
-                })}
-            </div>
-            <div className="date">
-                {formatDate}
-            </div>
-            <div className="beer-img">
-                <img src={drink?.drink_img_url} alt="logo"/>
+            <div className="review-info">
+                <div className="review-txt">
+                    <div className="review-beer">
+                        <span className="review-user">{user?.first_name}</span> is drinking a <NavLink to={`/drinks/${id}`}>{drink?.name}</NavLink>:
+                    </div>
+                    <div className="review-content">
+                        {content}
+                    </div>
+                    <div className="review-rating">
+                        {makeRating?.map((rating) => {
+                            if (rating === 1) {
+                                return <span className="star">{star}</span>
+                            }
+                            return <span className="star">{emptyStar}</span>
+                        })}
+                    </div>
+                </div>
+                <div className="beer-img">
+                    <img src={drink?.drink_img_url} alt="logo"/>
+                </div>
             </div>
             <div className="review-img">
-                <img src={review_img_url} alt="review-img"/>
+                <img src={review_img_url && review_img_url} alt="review-img"/>
+            </div>
+            <div className="review-date">
+                {formatDate}
             </div>
         </div>
     )

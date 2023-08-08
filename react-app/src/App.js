@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import DrinksListPage from "./components/DrinksListPage";
 import DrinkDetail from "./components/DrinksListPage/DrinkDetail";
 import ProfilePage from "./components/ProfilePage";
+import DrinkFormPage from "./components/DrinkFormPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route exact path="/drinks">
             <DrinksListPage/>
+          </Route>
+          <Route path="/drinks/new">
+            <DrinkFormPage/>
           </Route>
           <Route exact path="/drinks/:id">
             <DrinkDetail/>

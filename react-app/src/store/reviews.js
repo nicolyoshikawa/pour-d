@@ -123,10 +123,11 @@ const reviewsReducer = (state = initialState, action) => {
       newState[action.review.id] = action.review;
       return newState;
     case REVIEWS_BY_DRINKID:
+      let reviewsByDrinkId = {};
         action.reviews.forEach((review) => {
-            newState[review.id] = review;
+          reviewsByDrinkId[review.id] = review;
         });
-        return newState;
+        return reviewsByDrinkId;
     case CREATE_A_REVIEW:
       newState[action.review.id] = action.review;
       return newState;

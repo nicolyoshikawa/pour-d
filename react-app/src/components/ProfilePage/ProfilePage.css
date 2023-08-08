@@ -93,6 +93,10 @@
     padding-top: 20px;
 }
 
+.top-list a {
+    text-decoration: none;
+}
+
 .top-item {
     display: flex;
     flex-direction: row;
