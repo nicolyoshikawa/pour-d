@@ -28,12 +28,14 @@ function Navigation({ isLoaded }) {
                   Top Drinks
                 </NavLink>
               </div>
-              <ProfileButton user={sessionUser} />
-              <input
-                className="nav-search"
-                type="text"
-                placeholder="Search coming soon..."
-              />
+              <div className="navbar-inner-profile-search">
+                <ProfileButton user={sessionUser} />
+                <input
+                  className="nav-search"
+                  type="text"
+                  placeholder="Search coming soon..."
+                />
+              </div>
             </div>
           ) : (
             <>
