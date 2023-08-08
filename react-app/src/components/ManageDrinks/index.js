@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, NavLink } from "react-router-dom";
+import { useHistory, NavLink, Link } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import * as userActions from "../../store/currUser";
 import DeleteDrink from "./DeleteDrink";
@@ -54,7 +54,7 @@ function ManageDrinks() {
                                             />}
                                         </div>
                                         <div className="drinkInfo">
-                                            <p className="drinkName">{el.name}</p>
+                                            <p className="drinkName"><Link to={`/drinks/${el.id}`}> {el.name}</Link></p>
                                             <p>{el.description}</p>
                                         </div>
                                         <div className="drinkDetails">
