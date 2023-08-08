@@ -71,7 +71,7 @@ export const updateADrink = (drink) => async dispatch => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(drink)
   });
-
+  console.log(response)
   if (response.ok) {
     const updatedDrink = await response.json();
     dispatch(editADrink(updatedDrink));

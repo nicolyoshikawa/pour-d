@@ -10,7 +10,6 @@ function UpdateDrink() {
   const { id } = useParams();
   const user = useSelector(state => state.session.user);
   const drinkObj = useSelector(state => state.drinks);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   const [name, setName] = useState("");
   const [abv, setAbv] = useState("");
@@ -43,7 +42,7 @@ function UpdateDrink() {
 
   useEffect(() => {
     const errors = [];
-    if(user != drink?.user_id) errors.push("You do not have access to edit this drink.");
+    if(user.id != drink?.user_id) errors.push("You do not have access to edit this drink.");
     if(name && name.length > 50) errors.push("Drink name needs to be under 50 characters");
     if(abv && (abv > 100 || abv < 0)) errors.push("ABV needs to be between 0 and 100");
     if(ibu && (ibu > 130 || ibu < 0)) errors.push("IBU needs to be between 0 and 130");
@@ -61,10 +60,11 @@ function UpdateDrink() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setHasSubmitted(true);
-    const updatedDrink = {name, abv, ibu, description, drink_img_url};
+    const updatedDrink = {name, abv, ibu, description, drink_img_url, id};
     if(Object.values(errors).length === 0){
         setErrors([]);
         const drink = await dispatch(drinkActions.updateADrink(updatedDrink));
+        console.log(drink)
         if(drink.errors){
           const errors = [];
           errors.push(drink.errors);
