@@ -18,7 +18,7 @@ class Drink(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
 
     user = db.relationship('User', back_populates='drinks')
-    drink_reviews = db.relationship('Review', back_populates='drink')
+    drink_reviews = db.relationship('Review', back_populates='drink', cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
