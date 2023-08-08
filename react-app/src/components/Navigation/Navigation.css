@@ -52,6 +52,8 @@
   outline: none;
 }
 
+/* Profile button */
+
 .profile-button {
   position: relative;
 }
@@ -66,13 +68,10 @@
   right: 0;
 }
 
-/* .profile-dropdown-menu {
-
-} */
-
 .profile-dropdown-menu li {
   padding: 10px 20px;
   border-bottom: 1px solid gray;
+  text-align: left;
 }
 
 
@@ -87,5 +86,3 @@
 .hidden {
   display: none;
 }
-
-/* Profile Button */

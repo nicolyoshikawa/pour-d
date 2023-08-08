@@ -64,7 +64,7 @@ function ProfileButton({ user }) {
               <NavLink exact to="/drinks/new">Create a Drink</NavLink>
             </li>
             <li>
-              <button onClick={handleLogout}>Log Out</button>
+              <NavLink exact to="/logout" onClick={handleLogout}>Log Out</NavLink>
             </li>
           </div>
         ) : (
