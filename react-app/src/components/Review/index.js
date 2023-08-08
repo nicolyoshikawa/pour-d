@@ -11,7 +11,7 @@ export default function Review({user, review}) {
     const drink = drinks[drink_id]
     const star = <i class="fa-solid fa-star"></i>
     const emptyStar = <i class="fa-regular fa-star"></i>
-
+    
 
     useEffect(() => {
         dispatch(loadDrinkById(drink_id))
@@ -23,9 +23,8 @@ export default function Review({user, review}) {
         makeRating.push(1)
     }
     if (makeRating.length < 5) {
-        // const empty = stars % 5
-        const empty = 5 - makeRating.length
-        for (let i = 0; i < empty; i++) {
+        const empty = stars % 5
+        for (let i = 0; i <= empty; i++) {
             makeRating.push(0)
         }
     }

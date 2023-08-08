@@ -1,10 +1,9 @@
 import "./Home.css"
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { logout } from "../../store/session";
 import Review from "../Review";
 import { loadAllReviews } from "../../store/reviews";
+import { loadUser } from "../../store/user";
 
 export default function Home() {
     const dispatch = useDispatch()
@@ -14,10 +13,15 @@ export default function Home() {
         dispatch(loadAllReviews())
     }, [dispatch])
 
+    const reviewArr = []
+    Object.values(reviews).forEach((review) => reviewArr.push(review))
+    
     return (
         <div className="container">
             <div className="user-feeed">
-                {/* <Review user={user} /> */}
+                {reviewArr?.map((review) => {
+                    return <Review review={review} user={review.user_id}/>
+                })}
             </div>
         </div>
     )
