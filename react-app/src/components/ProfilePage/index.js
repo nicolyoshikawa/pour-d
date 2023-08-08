@@ -66,7 +66,7 @@ export default function ProfilePage() {
 
 
     return (
-        <div className="profile-container">
+        <div className="container">
             <div className="user-hero">
                     <img src={avatar} alt="avatar" className="hero-avatar"/>
                 <div className="user-info">
