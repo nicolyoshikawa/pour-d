@@ -38,6 +38,11 @@
   display: flex;
 }
 
+.navbar-inner-login-signup {
+  display: flex;
+  gap: 50px;
+}
+
 .profile-button {
   position: relative;
 }

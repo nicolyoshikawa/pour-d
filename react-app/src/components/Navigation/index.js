@@ -38,25 +38,29 @@ function Navigation({ isLoaded }) {
               </div>
             </div>
           ) : (
-            <>
-              <NavLink exact to="/drinks">
-                Drinks List
-              </NavLink>
-              <NavLink exact to="/drinks/top-rated">
-                Top Drinks
-              </NavLink>
-              <NavLink exact to="/login">
-                Sign In
-              </NavLink>
-              <NavLink exact to="/signup">
-                Join Now
-              </NavLink>
+            <div className="navbar-inner-container">
+              <div className="navbar-inner-links">
+                <NavLink exact to="/drinks">
+                  Drinks List
+                </NavLink>
+                <NavLink exact to="/drinks/top-rated">
+                  Top Drinks
+                </NavLink>
+              </div>
+              <div className="navbar-inner-login-signup">
+                <NavLink exact to="/login">
+                  Sign In
+                </NavLink>
+                <NavLink exact to="/signup">
+                  Join Now
+                </NavLink>
+              </div>
               <input
                 className="nav-search"
                 type="text"
                 placeholder="Search coming soon..."
               />
-            </>
+            </div>
           )
         ) : (
           <p>Loading...</p>
