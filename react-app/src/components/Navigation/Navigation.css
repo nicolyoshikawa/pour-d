@@ -1,3 +1,5 @@
+/* Navigation */
+
 .navbar-container {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 6px 0 #ffc000;
   border-bottom: 1px solid gray;
@@ -43,6 +45,13 @@
   gap: 50px;
 }
 
+.nav-search {
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  outline: none;
+}
+
 .profile-button {
   position: relative;
 }
@@ -50,24 +59,33 @@
 .profile-dropdown {
   position: absolute;
   list-style-type: none;
-  background-color: darkgray;
+  background-color: #575757;
   white-space: nowrap;
   padding: 0px;
   top: 2%;
   right: 0;
 }
 
-.profile-dropdown-menu {
-  margin: 5px 0px;
+/* .profile-dropdown-menu {
+
+} */
+
+.profile-dropdown-menu li {
+  padding: 10px 20px;
+  border-bottom: 1px solid gray;
+}
+
+
+.profile-dropdown-menu li a {
+  color: white;
+}
+
+.profile-dropdown-menu li a:hover {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .hidden {
   display: none;
 }
 
-.nav-search {
-  border: none;
-  background-color: transparent;
-  font-size: 14px;
-  outline: none;
-}
+/* Profile Button */
