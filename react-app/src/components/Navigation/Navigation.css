@@ -13,7 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1440px;
+  max-width: 1080px;
   width: 100%;
 }
 
@@ -40,11 +40,6 @@
   display: flex;
 }
 
-.navbar-inner-login-signup {
-  display: flex;
-  gap: 50px;
-}
-
 .nav-search {
   border: none;
   background-color: transparent;
@@ -56,7 +51,7 @@
 
 .profile-button {
   position: relative;
-  margin-right: 50px;
+  margin-right: 150px;
 }
 
 .profile-button button {
@@ -102,4 +97,29 @@
 
 .hidden {
   display: none;
+}
+
+/* Login/Signup - LoggedOut */
+.navbar-inner-login-signup {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.navbar-inner-login-signup a {
+  font-weight: bold;
+}
+
+.navbar-inner-signup {
+  color: white;
+  background-color: #00599c;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.navbar-inner-signup:hover {
+  background-color: #0b5b99ef;
+  color: rgba(255, 255, 255, 0.8);
 }
