@@ -13,10 +13,11 @@ def getAllReviewsForADrink(id):
     """
     View all reviews for a drink
     """
+    drink = Drink.query.get(id)
+    if not drink:
+        return {'errors': "Drink could not be found"}, 404
+
     reviews = Review.query.filter(Review.drink_id == id).all()
-    if not reviews:
-        return {'errors': "Reviews could not be found"}, 404
-    # return {'reviews': [review.to_dict() for review in reviews]}
 
     reviewsList = []
     for review in reviews:
@@ -88,7 +89,7 @@ def edit_drink(id):
     if current_user.id == owner:
         form = DrinkForm()
         form['csrf_token'].data = request.cookies['csrf_token']
-        drink_name_exists = Drink.query.filter(Drink.name == form.data["name"]).all()
+        drink_name_exists = Drink.query.filter(Drink.name == form.data["name"], Drink.id != id).all()
         if drink_name_exists:
             return {'errors': "A drink with that name already exisits"}, 401
         if form.validate_on_submit():
