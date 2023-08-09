@@ -70,18 +70,20 @@ export default function Review({user, review}) {
             {showMenu && (
                 <>
                     <div className="review-edit">
-                        <OpenModalButton
-                            buttonText="Edit"
-                            onItemClick={closeMenu}
-                            modalComponent={<EditReview drink={drink} user={user} review={review}/>}
-                        />
-                    </div>
-                    <div className="review-edit">
-                        <OpenModalButton
-                            buttonText="Delete"
-                            onItemClick={closeMenu}
-                            modalComponent={<DeleteReview review={review}/>}
-                        />
+                        <div className="review-edit-button">
+                            <OpenModalButton
+                                buttonText="Edit"
+                                onItemClick={closeMenu}
+                                modalComponent={<EditReview drink={drink} user={user} review={review}/>}
+                            />
+                        </div>
+                        <div className="review-edit-button">
+                            <OpenModalButton
+                                buttonText="Delete"
+                                onItemClick={closeMenu}
+                                modalComponent={<DeleteReview review={review}/>}
+                            />
+                        </div>
                     </div>
                 </>
             )}
