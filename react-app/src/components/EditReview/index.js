@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import * as reviewActions from "../../store/reviews";
 import * as userActions from "../../store/currUser";
+import "../ReviewFormPage/ReviewForm.css"
 
 function EditReview({user, drink, review}) {
   const dispatch = useDispatch();
@@ -77,10 +78,10 @@ function EditReview({user, drink, review}) {
   return (
     <>
         <div>
-        <div className="login-form-container">
-            <div className="login-form-logo-slogan">Check-In</div>
+        <div className="review-form-container">
+            <div className="check-in">Check-In</div>
             {hasSubmitted && errors.length > 0 && (
-            <div className="login-form-container-errors">
+            <div className="review-form-container-errors">
                 <ul>
                 {errors.map((error, idx) => (
                     <li key={idx}>{error}</li>
@@ -89,7 +90,7 @@ function EditReview({user, drink, review}) {
             </div>
             )}
             <form onSubmit={handleSubmit}>
-            <div className="login-form-input-container">
+            <div className="review-form-input-container">
                 <textarea
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
@@ -98,7 +99,8 @@ function EditReview({user, drink, review}) {
                     required
                 />
             </div>
-            <div className="login-form-input-container">
+            <div className="review-form-input-container">
+              <i className="fa-solid fa-camera"></i>
                 <input
                     type='text'
                     onChange={(e) => setReview_img_url(e.target.value)}
@@ -107,7 +109,7 @@ function EditReview({user, drink, review}) {
                     name='drink_img_url'
                 />
             </div>
-            <div className="login-form-input-container">
+            <div className="review-form-input-container">
                 <input
                 type="text"
                 placeholder="Stars"
@@ -116,7 +118,7 @@ function EditReview({user, drink, review}) {
                 required
                 />
             </div>
-            <button type="submit" className="login-button">Confirm</button>
+            <button type="submit" className="review-button">Confirm</button>
             </form>
         </div>
         </div>
