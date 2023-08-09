@@ -48,7 +48,7 @@ function EditReview({user, drink, review}) {
     e.preventDefault();
     setHasSubmitted(true);
 
-    const updatedReview = {content, stars, review_img_url, user_id, drink_id};
+    const updatedReview = {id: review_id, content, stars, review_img_url, user_id, drink_id};
 
     if(Object.values(errors).length === 0){
         setErrors([]);
