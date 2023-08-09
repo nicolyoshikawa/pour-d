@@ -5,7 +5,7 @@ import { useModal } from "../../context/Modal";
 import * as reviewActions from "../../store/reviews";
 
 
-function ReviewFormPage() {
+function ReviewFormPage({drink}) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [content, setContent] = useState("");
@@ -49,7 +49,7 @@ function ReviewFormPage() {
           setErrors(errors);
         } else {
           reset();
-          history.push(`/reviews/${review.id}`);
+          history.push(`/drinks/${review.drink_id}`);
           setErrors([]);
           closeModal();
         }

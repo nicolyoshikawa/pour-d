@@ -49,9 +49,6 @@ function App() {
           <Route exact path="/drinks">
             <DrinksListPage />
           </Route>
-          <Route path="/reviews/new">
-            <ReviewFormPage/>
-          </Route>
           <Route exact path="/my-drinks">
             <ManageDrinks />
           </Route>
