@@ -50,6 +50,7 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'username': self.username,
             'birthday': self.birthday.isoformat(),
+            'user_img_url': self.user_img_url,
             'created_at': self.created_at.isoformat(),
             'updated_at': self.updated_at.isoformat()
         }
