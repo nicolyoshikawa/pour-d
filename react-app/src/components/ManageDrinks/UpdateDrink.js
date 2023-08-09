@@ -42,7 +42,7 @@ function UpdateDrink() {
 
   useEffect(() => {
     const errors = [];
-    if(user.id != drink?.user_id) errors.push("You do not have access to edit this drink.");
+    if(user?.id != drink?.user_id) errors.push("You do not have access to edit this drink.");
     if(name && name.length > 50) errors.push("Drink name needs to be under 50 characters");
     if(abv && (abv > 100 || abv < 0)) errors.push("ABV needs to be between 0 and 100");
     if(ibu && (ibu > 130 || ibu < 0)) errors.push("IBU needs to be between 0 and 130");

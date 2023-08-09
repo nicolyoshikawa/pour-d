@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import * as drinkActions from "../../store/drinks";
@@ -14,6 +14,12 @@ function DrinkFormPage() {
   const [drink_img_url, setDrink_img_url] = useState("");
   const [errors, setErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
+
+  const sessionUser = useSelector(state => state.session.user) // Get current logged in user
+  // Redirect to landing page if user not logged in
+  if (!sessionUser) {
+      history.push("/")
+  }
 
   useEffect(() => {
     const errors = [];

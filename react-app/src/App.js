@@ -13,6 +13,7 @@ import ProfilePage from "./components/ProfilePage";
 import DrinkFormPage from "./components/DrinkFormPage";
 import ManageDrinks from "./components/ManageDrinks";
 import UpdateDrink from "./components/ManageDrinks/UpdateDrink";
+import ReviewFormPage from "./components/ReviewFormPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route exact path="/drinks">
             <DrinksListPage />
+          </Route>
+          <Route path="/reviews/new">
+            <ReviewFormPage/>
           </Route>
           <Route exact path="/my-drinks">
             <ManageDrinks />
