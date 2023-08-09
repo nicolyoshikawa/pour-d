@@ -4,10 +4,10 @@ import session from './session'
 import drinks from "./drinks";
 import currUser from "./currUser";
 import reviews from "./reviews";
-import user from './user';
+import users from './users';
 
 const rootReducer = combineReducers({
-  session, drinks, currUser, reviews, user
+  session, drinks, currUser, reviews, users
 });
 
 

@@ -1,32 +1,35 @@
 import "./Review.css"
-import { loadDrinkById } from "../../store/drinks"
+import { loadAllDrinks } from "../../store/drinks"
+import { loadUser } from "../../store/users"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 
-export default function Review({user, review}) {
+export default function Review({userId, review}) {
     const dispatch = useDispatch()
     const {id, content, created_at, drink_id, review_img_url, stars, user_id} = review
     const drinks = useSelector(state => state.drinks)
+    const user = useSelector(state => state.users.user)
     const drink = drinks[drink_id]
     const star = <i class="fa-solid fa-star"></i>
     const emptyStar = <i class="fa-regular fa-star"></i>
     
 
     useEffect(() => {
-        dispatch(loadDrinkById(drink_id))
+            dispatch(loadAllDrinks)
     }, [dispatch, drink_id])
+    
+    // useEffect(() => {
+    //     dispatch(loadUser(userId))
+    // }, [dispatch])
 
     // Calculate full and empty stars to match review rating
     let makeRating = []
-    for (let i = 0; i < stars; i++) {
+    for (let i = 0; i < review.stars; i++) {
         makeRating.push(1)
     }
-    if (makeRating.length < 5) {
-        const empty = stars % 5
-        for (let i = 0; i <= empty; i++) {
-            makeRating.push(0)
-        }
+    while (makeRating.length < 5){
+        makeRating.push(0)
     }
 
     // Change date format
@@ -44,11 +47,11 @@ export default function Review({user, review}) {
                         {content}
                     </div>
                     <div className="review-rating">
-                        {makeRating?.map((rating) => {
+                        {makeRating?.map((rating, idx) => {
                             if (rating === 1) {
-                                return <span className="star">{star}</span>
+                                return <span className="star" key={idx}>{star}</span>
                             }
-                            return <span className="star">{emptyStar}</span>
+                            return <span className="star" key={idx}>{emptyStar}</span>
                         })}
                     </div>
                 </div>

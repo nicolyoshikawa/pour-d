@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Review from "../Review";
 import { loadAllReviews } from "../../store/reviews";
-import { loadUser } from "../../store/user";
 
 export default function Home() {
     const dispatch = useDispatch()
@@ -15,12 +14,12 @@ export default function Home() {
 
     const reviewArr = []
     Object.values(reviews).forEach((review) => reviewArr.push(review))
-    
+
     return (
         <div className="container">
             <div className="user-feeed">
                 {reviewArr?.map((review) => {
-                    return <Review review={review} user={review.user_id}/>
+                    return <Review key={review.id} review={review} userId={review.user_id}/>
                 })}
             </div>
         </div>

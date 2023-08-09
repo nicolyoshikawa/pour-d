@@ -11,7 +11,7 @@ export const loadUser = (id) => async dispatch => {
     })
 
     if (res.ok) {
-        const data = res.json()
+        const data = await res.json()
         dispatch(getUser(data))
         return(data)
     }
@@ -19,7 +19,7 @@ export const loadUser = (id) => async dispatch => {
 
 const initialState = {}
 
-export default function user (state = initialState, action) {
+export default function users (state = initialState, action) {
     let newState = {}
     switch (action.type) {
         case GET_USER:
