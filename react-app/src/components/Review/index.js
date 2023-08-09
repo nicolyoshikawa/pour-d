@@ -1,31 +1,29 @@
 import "./Review.css"
 import { loadAllDrinks } from "../../store/drinks"
-import { loadUser } from "../../store/users"
+import { loadUsers } from "../../store/users"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 
-export default function Review({userId, review}) {
+export default function Review({review}) {
     const dispatch = useDispatch()
     const {id, content, created_at, drink_id, review_img_url, stars, user_id} = review
     const drinks = useSelector(state => state.drinks)
-    const user = useSelector(state => state.users.user)
+    const users = useSelector(state => state.users)
     const drink = drinks[drink_id]
+    const user = users[user_id]
     const star = <i class="fa-solid fa-star"></i>
     const emptyStar = <i class="fa-regular fa-star"></i>
     
 
     useEffect(() => {
-            dispatch(loadAllDrinks)
-    }, [dispatch, drink_id])
-    
-    // useEffect(() => {
-    //     dispatch(loadUser(userId))
-    // }, [dispatch])
+            dispatch(loadAllDrinks())
+            dispatch(loadUsers())
+    }, [dispatch])
 
     // Calculate full and empty stars to match review rating
     let makeRating = []
-    for (let i = 0; i < review.stars; i++) {
+    for (let i = 0; i < stars; i++) {
         makeRating.push(1)
     }
     while (makeRating.length < 5){

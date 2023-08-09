@@ -6,20 +6,17 @@ import { loadAllReviews } from "../../store/reviews";
 
 export default function Home() {
     const dispatch = useDispatch()
-    const reviews = useSelector(state => state.reviews)
+    const reviews = useSelector(state => Object.values(state.reviews))
 
     useEffect(() => {
         dispatch(loadAllReviews())
     }, [dispatch])
 
-    const reviewArr = []
-    Object.values(reviews).forEach((review) => reviewArr.push(review))
-
     return (
         <div className="container">
             <div className="user-feeed">
-                {reviewArr?.map((review) => {
-                    return <Review key={review.id} review={review} userId={review.user_id}/>
+                {reviews?.map((review) => {
+                    return <Review key={review.id} review={review}/>
                 })}
             </div>
         </div>
