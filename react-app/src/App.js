@@ -11,6 +11,8 @@ import DrinksListPage from "./components/DrinksListPage";
 import DrinkDetail from "./components/DrinksListPage/DrinkDetail";
 import ProfilePage from "./components/ProfilePage";
 import DrinkFormPage from "./components/DrinkFormPage";
+import ManageDrinks from "./components/ManageDrinks";
+import UpdateDrink from "./components/ManageDrinks/UpdateDrink";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,9 +48,6 @@ function App() {
           <Route exact path="/drinks/top-rated">
             <p>Top Drinks to come</p>
           </Route>
-          {/* <Route exact path="/beer/top-rated">
-            <p>Top Beers to come</p>
-          </Route> */}
           <Route exact path="/drinks">
             <DrinksListPage />
           </Route>
@@ -70,6 +69,11 @@ function App() {
           <Route exact path="/check-ins">
             <p>Check-ins</p>
           </Route>
+          <Route exact path="/my-drinks">
+            <ManageDrinks />
+          </Route>
+          <Route exact path="/drinks/:id/edit">
+            <UpdateDrink />
           <Route exact path="/logout">
             <Redirect to="/"/>
           </Route>

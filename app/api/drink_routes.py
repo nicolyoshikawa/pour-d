@@ -89,7 +89,7 @@ def edit_drink(id):
     if current_user.id == owner:
         form = DrinkForm()
         form['csrf_token'].data = request.cookies['csrf_token']
-        drink_name_exists = Drink.query.filter(Drink.name == form.data["name"]).all()
+        drink_name_exists = Drink.query.filter(Drink.name == form.data["name"], Drink.id != id).all()
         if drink_name_exists:
             return {'errors': "A drink with that name already exisits"}, 401
         if form.validate_on_submit():
