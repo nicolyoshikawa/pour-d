@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as reviewActions from "../../store/reviews";
 import ReviewTile from "./ReviewTile";
-import ReviewFormPage from "../ReviewFormPage";
 import ReviewModal from "../ReviewFormPage/ReviewModal";
 
 const ReviewsForDrink = ({drink}) => {

@@ -65,12 +65,13 @@ export const loadReviewsByDrinkId = (drink) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(reviewsByDrinkId(data.reviews));
+    // returns an array of reviewObjs
     return response;
   }
 };
 
-export const createNewReview = (review) => async (dispatch) => {
-  const response = await fetch('/api/reviews', {
+export const createNewReview = (review, drink) => async (dispatch) => {
+  const response = await fetch(`/api/drinks/${drink.id}/reviews`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(review)

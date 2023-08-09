@@ -13,7 +13,6 @@ import ProfilePage from "./components/ProfilePage";
 import DrinkFormPage from "./components/DrinkFormPage";
 import ManageDrinks from "./components/ManageDrinks";
 import UpdateDrink from "./components/ManageDrinks/UpdateDrink";
-import ReviewFormPage from "./components/ReviewFormPage";
 
 function App() {
   const dispatch = useDispatch();

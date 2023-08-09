@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import * as reviewActions from "../../store/reviews";
 
 
-function ReviewFormPage({drink}) {
+function ReviewFormPage({user, drink}) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [content, setContent] = useState("");
@@ -13,14 +13,10 @@ function ReviewFormPage({drink}) {
   const [review_img_url, setReview_img_url] = useState("");
   const [errors, setErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
-  const [showModal, setShowModal] = useState(true);
   const { closeModal } = useModal();
 
-  const sessionUser = useSelector(state => state.session.user) // Get current logged in user
-  // Redirect to landing page if user not logged in
-  if (!sessionUser) {
-      history.push("/")
-  }
+  const user_id = user.id
+  const drink_id = drink.id
 
   useEffect(() => {
     const errors = [];
@@ -39,10 +35,13 @@ function ReviewFormPage({drink}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setHasSubmitted(true);
-    const newReview = {content, stars, review_img_url};
+
+    const newReview = {content, stars, review_img_url, user_id, drink_id};
+
     if(Object.values(errors).length === 0){
         setErrors([]);
-        const review = await dispatch(reviewActions.createNewReview(newReview));
+
+        const review = await dispatch(reviewActions.createNewReview(newReview, drink));
         if(review.errors){
           const errors = [];
           errors.push(review.errors);
@@ -65,7 +64,6 @@ function ReviewFormPage({drink}) {
 
   return (
     <>
-    {showModal && (
         <div>
         <div className="login-form-container">
             <div className="login-form-logo-slogan">Check-In</div>
@@ -110,7 +108,6 @@ function ReviewFormPage({drink}) {
             </form>
         </div>
         </div>
-    )}
     </>
   );
 }
