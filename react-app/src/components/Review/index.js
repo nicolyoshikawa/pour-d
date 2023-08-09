@@ -38,7 +38,7 @@ export default function Review({user, review}) {
             <div className="review-info">
                 <div className="review-txt">
                     <div className="review-beer">
-                        <span className="review-user">{user?.first_name}</span> is drinking a <NavLink to={`/drinks/${id}`}>{drink?.name}</NavLink>:
+                        <span className="review-user">{user?.first_name}</span> is drinking a <NavLink to={`/drinks/${drink?.id}`}>{drink?.name}</NavLink>:
                     </div>
                     <div className="review-content">
                         {content}
