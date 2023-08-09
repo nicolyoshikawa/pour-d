@@ -33,29 +33,23 @@ function App() {
       {!hideNavigation && <Navigation isLoaded={isLoaded} />}
       {isLoaded && (
         <Switch>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
-          <Route path="/login">
-            <LoginFormPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
-          <Route exact path="/home">
-            <Home />
-          </Route>
           <Route exact path="/drinks/top-rated">
             <p>Top Drinks to come</p>
-          </Route>
-          <Route exact path="/drinks">
-            <DrinksListPage />
           </Route>
           <Route path="/drinks/new">
             <DrinkFormPage/>
           </Route>
+          <Route exact path="/drinks/:id/edit">
+            <UpdateDrink />
+          </Route>
           <Route exact path="/drinks/:id">
             <DrinkDetail />
+          </Route>
+          <Route exact path="/drinks">
+            <DrinksListPage />
+          </Route>
+          <Route exact path="/my-drinks">
+            <ManageDrinks />
           </Route>
           <Route exact path="/friends">
             <p>Friends</p>
@@ -69,13 +63,20 @@ function App() {
           <Route exact path="/check-ins">
             <p>Check-ins</p>
           </Route>
-          <Route exact path="/my-drinks">
-            <ManageDrinks />
+          <Route path="/login">
+            <LoginFormPage />
           </Route>
-          <Route exact path="/drinks/:id/edit">
-            <UpdateDrink />
+          <Route path="/signup">
+            <SignupFormPage />
+          </Route>
           <Route exact path="/logout">
             <Redirect to="/"/>
+          </Route>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/">
+            <LandingPage />
           </Route>
           <Route>
             <h1>Page Not Found</h1>
