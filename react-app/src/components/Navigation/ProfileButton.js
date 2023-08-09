@@ -43,7 +43,7 @@ function ProfileButton({ user }) {
   return (
     <div className="profile-button">
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+        <img src={user.user_img_url} alt="Profile" />
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (

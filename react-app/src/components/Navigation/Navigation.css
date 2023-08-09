@@ -56,6 +56,23 @@
 
 .profile-button {
   position: relative;
+  margin-right: 50px;
+}
+
+.profile-button button {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+}
+
+.profile-button button img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
 .profile-dropdown {
@@ -64,7 +81,7 @@
   background-color: #575757;
   white-space: nowrap;
   padding: 0px;
-  top: 2%;
+  top: 60%;
   right: 0;
 }
 
@@ -74,7 +91,6 @@
   text-align: left;
   font-size: 14px;
 }
-
 
 .profile-dropdown-menu li a {
   color: white;

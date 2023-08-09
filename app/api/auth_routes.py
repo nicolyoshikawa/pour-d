@@ -61,9 +61,10 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        if not form.data["user_img_url"]:
-            form.data["user_img_url"] = "https://gravatar.com/avatar/a7f767aec38bdd1bc32e3f73a570accc?size=125&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2"
+    if form.validate_on_submit():        
+        user_img_url = form.data["user_img_url"]
+        if not user_img_url:
+            user_img_url = "https://gravatar.com/avatar/a7f767aec38bdd1bc32e3f73a570accc?size=125&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2"
         
         user = User(
             first_name=form.data["first_name"],
@@ -72,7 +73,7 @@ def sign_up():
             email=form.data['email'],
             password=form.data['password'],
             birthday=form.data["birthday"],
-            user_img_url=form.data["user_img_url"]
+            user_img_url=user_img_url
         )
         db.session.add(user)
         db.session.commit()
