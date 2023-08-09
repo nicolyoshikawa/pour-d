@@ -74,6 +74,7 @@ function App() {
           </Route>
           <Route exact path="/drinks/:id/edit">
             <UpdateDrink />
+          </Route>
           <Route exact path="/logout">
             <Redirect to="/"/>
           </Route>
