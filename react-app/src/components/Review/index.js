@@ -1,6 +1,4 @@
 import "./Review.css"
-import { loadAllDrinks } from "../../store/drinks"
-import { loadUsers } from "../../store/users"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
@@ -8,18 +6,12 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 export default function Review({review}) {
     const dispatch = useDispatch()
     const {id, content, created_at, drink_id, review_img_url, stars, user_id} = review
-    const drinks = useSelector(state => state.drinks)
-    const users = useSelector(state => state.users)
-    const drink = drinks[drink_id]
-    const user = users[user_id]
+    const drink = useSelector(state => state.drinks.drink)
+    // const users = useSelector(state => state.users)
+    // const drink = drinks[drink_id]
+    // const user = users[user_id]
     const star = <i class="fa-solid fa-star"></i>
     const emptyStar = <i class="fa-regular fa-star"></i>
-    
-
-    useEffect(() => {
-            dispatch(loadAllDrinks())
-            dispatch(loadUsers())
-    }, [dispatch])
 
     // Calculate full and empty stars to match review rating
     let makeRating = []
@@ -36,10 +28,10 @@ export default function Review({review}) {
 
     return (
         <div className="review">
-            <div className="review-info">
+            {/* <div className="review-info">
                 <div className="review-txt">
                     <div className="review-beer">
-                        <span className="review-user">{user?.first_name}</span> is drinking a <NavLink to={`/drinks/${id}`}>{drink?.name}</NavLink>:
+                        <span className="review-user">{user?.first_name}</span> is drinking a <NavLink to={`/drinks/${drink?.id}`}>{drink?.name}</NavLink>:
                     </div>
                     <div className="review-content">
                         {content}
@@ -62,7 +54,7 @@ export default function Review({review}) {
             </div>
             <div className="review-date">
                 {formatDate}
-            </div>
+            </div> */}
         </div>
     )
 }

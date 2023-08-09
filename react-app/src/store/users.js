@@ -5,8 +5,8 @@ const getUsers = (users) => ({
     users
 })
 
-export const loadUsers = () => async dispatch => {
-    const res = await fetch(`/api/users`, {
+export const loadUsers = (id) => async (dispatch) => {
+    const res = await fetch(`/api/users/${id}`, {
         method: "GET"
     })
 
@@ -23,9 +23,7 @@ export default function users (state = initialState, action) {
     let newState = {}
     switch (action.type) {
         case GET_USERS:
-            action.users.forEach((user) => {
-                newState[user.id] = user
-            })
+            newState = {users: action.users}
             return newState
         default:
             return state
