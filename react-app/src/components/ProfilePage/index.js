@@ -101,7 +101,7 @@ export default function ProfilePage() {
                         Your recent activity
                     </h2>
                     {reviews?.map((review) => {
-                        return <Review userId={sessionUser.id} review={review}/>
+                        return <Review user={sessionUser} review={review}/>
                     })}
                 </div>
                 <div className="user-top">
