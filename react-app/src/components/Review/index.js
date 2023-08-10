@@ -1,25 +1,18 @@
 import "./Review.css"
-import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react";
 import OpenModalButton from "../OpenModalButton";
 import { NavLink } from  "react-router-dom";
 import DeleteReview from "../DeleteReview";
 import EditReview from "../EditReview";
 import { loadDrinkById } from "../../store/drinks"
+import ManageReview from "../ManageReviews";
 
-export default function Review({review, user}) {
-    const dispatch = useDispatch()
+export default function Review({review, drink, user}) {
     const {id, content, created_at, drink_id, review_img_url, stars, user_id} = review
-    const drinks = useSelector(state => state.drinks)
-    const drink = drinks[drink_id]
     const star = <i className="fa-solid fa-star"></i>
     const emptyStar = <i className="fa-regular fa-star"></i>
     const [showMenu, setShowMenu] = useState(true);
     const closeMenu = () => setShowMenu(false);
-
-    useEffect(() => {
-        dispatch(loadDrinkById(drink_id))
-    }, [dispatch, drink_id])
 
     // Calculate full and empty stars to match review rating
     let makeRating = []
@@ -58,31 +51,18 @@ export default function Review({review, user}) {
                 </div>
             </div>
             <div className="review-img">
-                <img src={review_img_url && review_img_url} alt="review-img"/>
+                {/* <img src={review_img_url && review_img_url} alt="review-img"/> */}
+                {review_img_url ?
+                    <img src={review_img_url} alt="review-img"/>
+                    : <div></div>
+                }
             </div>
             <div className="review-date">
                 {formatDate}
             </div>
-            {showMenu && (
-                <>
-                    <div className="review-edit">
-                        <div className="review-edit-button">
-                            <OpenModalButton
-                                buttonText="Edit"
-                                onItemClick={closeMenu}
-                                modalComponent={<EditReview drink={drink} user={user} review={review}/>}
-                            />
-                        </div>
-                        <div className="review-edit-button">
-                            <OpenModalButton
-                                buttonText="Delete"
-                                onItemClick={closeMenu}
-                                modalComponent={<DeleteReview review={review}/>}
-                            />
-                        </div>
-                    </div>
-                </>
-            )}
-        </div>
+            <div>
+                <ManageReview review={review} drink={drink}/>
+            </div>
+            </div>
     )
 }

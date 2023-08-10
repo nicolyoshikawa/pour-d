@@ -76,7 +76,8 @@
 
 .user-top {
     margin-top: 20px;
-    width: 25%;
+    box-sizing: border-box;
+    width: 30%;
     padding: 20px;
     background-color: white;
     border-radius: 15px;
@@ -86,11 +87,12 @@
 
 .user-top h2 {
     margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .top-list {
     border-top: 1px solid rgb(238,238,238);
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .top-list a {

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useHistory, NavLink } from "react-router-dom"
 import { useEffect } from "react"
 import Review from "../Review"
+import { loadAllDrinks } from "../../store/drinks"
 
 export default function ProfilePage() {
     const history = useHistory()
@@ -29,12 +30,13 @@ export default function ProfilePage() {
     const drinks = useSelector(state => state.currUser.drinks)
     const friends = useSelector(state => state.currUser.friends)
     const reviews = useSelector(state => state.currUser.reviews)
-
+    const allDrinks = useSelector(state => state.drinks)
 
     useEffect(() => {
         dispatch(userActions.getUserDrinks())
         dispatch(userActions.getUserFriends())
         dispatch(userActions.getUserReviews())
+        dispatch(loadAllDrinks())
     }, [dispatch])
 
 
@@ -98,10 +100,10 @@ export default function ProfilePage() {
             <div className="sections">
                 <div className="user-feed">
                     <h2>
-                        Your recent activity
+                        Your recent reviews
                     </h2>
                     {reviews?.map((review) => {
-                        return <Review user={sessionUser} review={review}/>
+                        return <Review user={sessionUser} review={review} drink={allDrinks[review.drink_id]}/>
                     })}
                 </div>
                 <div className="user-top">

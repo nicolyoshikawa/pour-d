@@ -1,0 +1,73 @@
+.homepage-sidebar {
+    width: 30%;
+}
+
+.sidebar-stats {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    list-style: none;
+    height: max-content;
+}
+
+.sidebar-top-drinks {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    list-style: none;
+    height: max-content;
+}
+
+.stats-top-section {
+    display: flex;
+}
+
+.stats-avatar img {
+    margin-right: 20px;
+    width: 60px;
+}
+
+.stats-name {
+    margin: 0;
+}
+
+.stats-username {
+    margin: 5px 0 15px 0;
+    font-size: 10pt;
+}
+
+.stats-grid {
+    width: 85%;
+    background-color: rgb(248,248,248);
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stats-grid-item {
+    text-align: center;
+    font-size: 14pt;
+}
+
+.stats-type {
+    font-size: 7pt;
+    margin: 2px;
+}
+
+.top-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.top-rating {
+    margin-top: 2px;
+    font-size: 8pt;
+    color: gray;
+}
