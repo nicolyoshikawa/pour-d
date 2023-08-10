@@ -11,7 +11,7 @@ function ManageDrinks() {
     const history = useHistory();
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
-    const [showMenu, setShowMenu] = useState(false);
+    const [showMenu, setShowMenu] = useState(true);
 
     const sessionUser = useSelector(state => state.session.user) // Get current logged in user
     // Redirect to landing page if user not logged in
@@ -33,7 +33,7 @@ function ManageDrinks() {
 
     return (
         <>
-            {isLoaded && (
+            {isLoaded && showMenu && (
                 <>
                     <h1>Manage Drinks</h1>
                     <div className="allDrinks">

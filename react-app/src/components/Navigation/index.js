@@ -51,7 +51,7 @@ function Navigation({ isLoaded }) {
                 <NavLink exact to="/login">
                   Sign In
                 </NavLink>
-                <NavLink exact to="/signup">
+                <NavLink className="navbar-inner-signup" exact to="/signup">
                   Join Now
                 </NavLink>
               </div>
