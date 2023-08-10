@@ -47,3 +47,19 @@
     display: flex;
     justify-content: center;
 }
+
+.review-edit {
+    margin: 20px 0;
+    display: inline-flex;
+}
+
+.review-edit-button {
+    width: 150px;
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+}
+.review-img img {
+    height: 120px;
+    width: 120px;
+}
