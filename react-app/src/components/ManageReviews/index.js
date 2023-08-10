@@ -1,7 +1,6 @@
 import OpenModalButton from "../OpenModalButton";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import DeleteReview from "../DeleteReview";
 import EditReview from "../EditReview";
 

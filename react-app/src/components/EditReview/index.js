@@ -48,7 +48,7 @@ function EditReview({drink, review, user}) {
         errors.push("Image URL needs to be under 255 characters");
     }
     setErrors(errors);
-  }, [content, stars, review_img_url, hasSubmitted]);
+  }, [content, stars, review_img_url, hasSubmitted, sessionUser?.id, review.user_id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
