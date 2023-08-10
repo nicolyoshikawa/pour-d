@@ -7,9 +7,11 @@ import "./FriendsPage.css"
 const FriendsPage = () => {
     const dispatch = useDispatch();
     const friends = useSelector(state => state.currUser.friends)
+    const pending = useSelector(state => state.currUser.pendings)
 
     useEffect(() => {
         dispatch(userActions.getUserFriends())
+        dispatch(userActions.getUserPendings())
     }, [dispatch])
     
 
