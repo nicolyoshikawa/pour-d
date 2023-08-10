@@ -26,7 +26,10 @@ const ReviewTile = ({review, drink}) => {
                     })}
                 </div>
                 <div className="review-img">
-                    <img src={review?.review_img_url} alt="review-img"/>
+                    {review.review_img_url ?
+                        <img src={review?.review_img_url} alt="review-img"/>
+                        : <div></div>
+                    }
                 </div>
             </div>
         </>

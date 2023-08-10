@@ -1,4 +1,3 @@
-
 const LOAD_DRINKS = "drinks/LOAD_DRINKS";
 const DRINK_BY_ID = "drinks/DRINK_BY_ID";
 const CREATE_A_DRINK = "drinks/CREATE_A_DRINK";
