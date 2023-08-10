@@ -53,7 +53,7 @@ export default function Review({review, drink, user}) {
                 </div>
             </div>
             <div className="review-img">
-                <img src={review_img_url && review_img_url} alt="review-img"/>
+                {review_img_url && <img src={review_img_url} alt="review-img"/>}
             </div>
             <div className="review-date">
                 {formatDate}
