@@ -5,8 +5,9 @@ import OpenModalButton from "../OpenModalButton";
 import { NavLink } from  "react-router-dom";
 import DeleteReview from "../DeleteReview";
 import EditReview from "../EditReview";
+import { loadDrinkById } from "../../store/drinks"
 
-export default function Review({review}) {
+export default function Review({review, user}) {
     const dispatch = useDispatch()
     const {id, content, created_at, drink_id, review_img_url, stars, user_id} = review
     const drinks = useSelector(state => state.drinks)
@@ -35,7 +36,7 @@ export default function Review({review}) {
 
     return (
         <div className="review">
-            {/* <div className="review-info">
+            <div className="review-info">
                 <div className="review-txt">
                     <div className="review-beer">
                         <span className="review-user">{user?.first_name}</span> is drinking a <NavLink to={`/drinks/${drink?.id}`}>{drink?.name}</NavLink>:
@@ -82,7 +83,6 @@ export default function Review({review}) {
                     </div>
                 </>
             )}
-            </div> */}
         </div>
     )
 }
