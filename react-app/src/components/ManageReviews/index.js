@@ -1,6 +1,7 @@
 import OpenModalButton from "../OpenModalButton";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import DeleteReview from "../DeleteReview";
 import EditReview from "../EditReview";
 
@@ -10,7 +11,7 @@ const ManageReview = ({review, drink}) => {
     const closeMenu = () => setShowMenu(false);
 
     let ownReview = false;
-    if(user.id === review.user_id){
+    if(user?.id === review?.user_id){
         ownReview = true;
     }
 
