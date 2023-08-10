@@ -1,4 +1,4 @@
-
+import { loadDrinkById } from "./drinks"
 const LOAD_REVIEWS = "reviews/LOAD_REVIEWS";
 const REVIEW_BY_ID = "reviews/REVIEW_BY_ID";
 const REVIEWS_BY_DRINKID = "drinks/REVIEWS_BY_DRINKID";
@@ -80,6 +80,7 @@ export const createNewReview = (review, drink) => async (dispatch) => {
   const newReview = await response.json();
   if (response.ok) {
     dispatch(createAReview(newReview));
+    dispatch(loadDrinkById(drink.id));
   }
   return newReview;
 };
