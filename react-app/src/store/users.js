@@ -5,8 +5,8 @@ const getUsers = (users) => ({
     users
 })
 
-export const loadUsers = (id) => async (dispatch) => {
-    const res = await fetch(`/api/users/${id}`, {
+export const loadUsers = () => async (dispatch) => {
+    const res = await fetch(`/api/users`, {
         method: "GET"
     })
 

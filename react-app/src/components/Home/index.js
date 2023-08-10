@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Review from "../Review";
 import { loadAllReviews } from "../../store/reviews";
 import { loadAllDrinks } from "../../store/drinks";
+import { loadUsers } from "../../store/users";
 
 export default function Home() {
     const dispatch = useDispatch()
@@ -14,7 +15,10 @@ export default function Home() {
     useEffect(() => {
         dispatch(loadAllReviews())
         dispatch(loadAllDrinks())
+        dispatch(loadUsers())
     }, [dispatch])
+
+    console.log(users)
 
     return (
         <div className="container">
