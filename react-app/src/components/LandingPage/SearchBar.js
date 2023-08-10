@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom" // Links will be implemented after dr
 import { useDispatch, useSelector } from "react-redux"
 import { loadAllDrinks } from "../../store/drinks"
 
-export default function SearchBar() {
+export default function SearchBar({classStyle}) {
     const dispatch = useDispatch()
 
     const drinks = useSelector(state => state.drinks) // Load all drinks for search bar to query
@@ -32,10 +32,10 @@ export default function SearchBar() {
         }
 
         return (
-            <div className="landing-search">
+            <>
                 <form>
                     <input
-                        className="search-input"
+                        className={classStyle}
                         placeholder="Find a beer"
                         onChange={(e) => setSearchInput(e.target.value)}
                     />
@@ -51,7 +51,7 @@ export default function SearchBar() {
                         })
                     }
                 </div>
-            </div>
+            </>
         )
     }
 }
