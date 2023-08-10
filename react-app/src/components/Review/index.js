@@ -29,20 +29,23 @@ export default function Review({review, drink, user}) {
     return (
         <div className="review">
             <div className="review-info">
-                <div className="review-txt">
-                    <div className="review-beer">
-                        <span className="review-user">{user?.first_name}</span> is drinking a <NavLink to={`/drinks/${drink?.id}`}>{drink?.name}</NavLink>:
-                    </div>
-                    <div className="review-content">
-                        {content}
-                    </div>
-                    <div className="review-rating">
-                        {makeRating?.map((rating, el) => {
-                            if (rating === 1) {
-                                return <span className="star" key={el}>{star}</span>
-                            }
-                            return <span className="star" key={el}>{emptyStar}</span>
-                        })}
+                <div className="review-avatar">
+                <img src={user?.user_img_url} alt="avatar"/>
+                    <div className="review-txt">
+                        <div className="review-beer">
+                            <span className="review-user">{user?.first_name}</span> is drinking a <NavLink to={`/drinks/${drink?.id}`}>{drink?.name}</NavLink>:
+                        </div>
+                        <div className="review-content">
+                            {content}
+                        </div>
+                        <div className="review-rating">
+                            {makeRating?.map((rating, el) => {
+                                if (rating === 1) {
+                                    return <span className="star" key={el}>{star}</span>
+                                }
+                                return <span className="star" key={el}>{emptyStar}</span>
+                            })}
+                        </div>
                     </div>
                 </div>
                 <div className="beer-img">
