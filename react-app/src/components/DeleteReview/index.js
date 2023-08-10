@@ -36,7 +36,7 @@ function DeleteReview({review}) {
     });
 
     if (reviewDeleted) {
-        history.push("/my-profile");
+        // history.push("/my-profile");
         dispatch(userActions.getUserReviews())
         closeModal()
     };

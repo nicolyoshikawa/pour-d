@@ -66,7 +66,7 @@ function EditReview({drink, review, user}) {
           setErrors(errors);
         } else {
           reset();
-          history.push("/my-profile");
+          // history.push("/my-profile");
           dispatch(userActions.getUserReviews())
           closeModal();
         }
