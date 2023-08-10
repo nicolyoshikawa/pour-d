@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import * as drinkActions from "../../store/drinks";
@@ -12,6 +12,17 @@ function DeleteDrink({drink}) {
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(true);
   const { closeModal } = useModal();
+  const user = useSelector(state => state.session.user) // Get current logged in user
+  // Redirect to landing page if user not logged in
+  if (!user) {
+      history.push("/")
+  }
+
+  useEffect(() => {
+    const errors = [];
+    if(user.id !== drink.user_id) errors.push("You do not have access to delete this drink.");
+    setErrors(errors);
+  }, [user.id, drink.user_id]);
 
   const deleteClickHandler = async () => {
     const drinkDeleted = await dispatch(drinkActions.deleteDrink(drink.id))

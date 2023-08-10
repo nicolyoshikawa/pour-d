@@ -104,3 +104,64 @@
     justify-content: center;
     text-align: center;
 }
+
+.StarLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 12px;
+}
+
+.ratings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+.rate {
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc000;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #ffc000;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #ffc000;
+}
+.review-form-input-container-ratings{
+    display: flex;
+    align-items: center;
+    border: 1px transparent;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-family: Open-Sans, sans-serif;
+}

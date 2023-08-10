@@ -96,14 +96,22 @@ function ReviewFormPage({user, drink}) {
                     name='drink_img_url'
                 />
             </div>
-            <div className="review-form-input-container">
-                <input
-                type="text"
-                placeholder="Stars"
-                value={stars}
-                onChange={(e) => setStars(e.target.value)}
-                required
-                />
+            <div className="review-form-input-container-ratings">
+              <div className="ratings">
+                <div className="rate">
+                    <input type="radio" id="star5" name="rate" value={5} onChange={(e) => setStars(e.target.value)}/>
+                    <label htmlFor="star5"></label>
+                    <input type="radio" id="star4" name="rate" value={4} onChange={(e) => setStars(e.target.value)}/>
+                    <label htmlFor="star4"></label>
+                    <input type="radio" id="star3" name="rate" value={3} onChange={(e) => setStars(e.target.value)}/>
+                    <label htmlFor="star3"></label>
+                    <input type="radio" id="star2" name="rate" value={2} onChange={(e) => setStars(e.target.value)}/>
+                    <label htmlFor="star2"></label>
+                    <input type="radio" id="star1" name="rate" value={1} onChange={(e) => setStars(e.target.value)}/>
+                    <label htmlFor="star1"></label>
+                </div>
+                <div className="ratings StarLabel"></div>
+              </div>
             </div>
             <button type="submit" className="review-button">Confirm</button>
             </form>

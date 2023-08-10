@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import * as reviewActions from "../../store/reviews";
 import * as userActions from "../../store/currUser";
 import "../ReviewFormPage/ReviewForm.css"
 
-function EditReview({user, drink, review}) {
+function EditReview({drink, review, user}) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [content, setContent] = useState("");
@@ -15,8 +15,12 @@ function EditReview({user, drink, review}) {
   const [errors, setErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const { closeModal } = useModal();
-
-  const user_id = user.id
+  const sessionUser = useSelector(state => state.session.user) // Get current logged in user
+  // // Redirect to landing page if user not logged in
+  if (!sessionUser) {
+      history.push("/")
+  }
+  const user_id = sessionUser?.id
   const drink_id = drink.id
   const review_id = review.id
 
@@ -33,6 +37,7 @@ function EditReview({user, drink, review}) {
 
   useEffect(() => {
     const errors = [];
+    if(sessionUser?.id !== review.user_id) errors.push("You do not have access to delete this review.");
     if(content && content.length > 500) errors.push("Your review needs to be less than 500 characters");
     if(stars && (stars > 5 || stars < 1)) errors.push("Stars needs to be between 1 and 5");
     if(review_img_url && (!review_img_url.endsWith(".png") &&
@@ -43,7 +48,7 @@ function EditReview({user, drink, review}) {
         errors.push("Image URL needs to be under 255 characters");
     }
     setErrors(errors);
-  }, [content, stars, review_img_url, hasSubmitted]);
+  }, [content, stars, review_img_url, hasSubmitted, sessionUser?.id, review.user_id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,14 +59,14 @@ function EditReview({user, drink, review}) {
     if(Object.values(errors).length === 0){
         setErrors([]);
 
-        const review = await dispatch(reviewActions.updateAReview(updatedReview));
+        const review = await dispatch(reviewActions.updateAReview(updatedReview, drink));
         if(review.errors){
           const errors = [];
           errors.push(review.errors);
           setErrors(errors);
         } else {
           reset();
-          history.push("/my-profile");
+          // history.push("/my-profile");
           dispatch(userActions.getUserReviews())
           closeModal();
         }
@@ -109,14 +114,22 @@ function EditReview({user, drink, review}) {
                     name='drink_img_url'
                 />
             </div>
-            <div className="review-form-input-container">
-                <input
-                type="text"
-                placeholder="Stars"
-                value={stars}
-                onChange={(e) => setStars(e.target.value)}
-                required
-                />
+            <div className="review-form-input-container-ratings">
+              <div className="ratings">
+                <div className="rate">
+                    <input type="radio" id="star5" name="rate" value={5} onChange={(e) => setStars(e.target.value)}/>
+                    <label htmlFor="star5"></label>
+                    <input type="radio" id="star4" name="rate" value={4} onChange={(e) => setStars(e.target.value)}/>
+                    <label htmlFor="star4"></label>
+                    <input type="radio" id="star3" name="rate" value={3} onChange={(e) => setStars(e.target.value)}/>
+                    <label htmlFor="star3"></label>
+                    <input type="radio" id="star2" name="rate" value={2} onChange={(e) => setStars(e.target.value)}/>
+                    <label htmlFor="star2"></label>
+                    <input type="radio" id="star1" name="rate" value={1} onChange={(e) => setStars(e.target.value)}/>
+                    <label htmlFor="star1"></label>
+                </div>
+                <div className="ratings StarLabel"></div>
+              </div>
             </div>
             <button type="submit" className="review-button">Confirm</button>
             </form>

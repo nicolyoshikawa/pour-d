@@ -1,3 +1,5 @@
+import ManageReview from "../ManageReviews";
+
 const ReviewTile = ({review, drink}) => {
     const star = <i className="fa-solid fa-star"></i>
     const emptyStar = <i className="fa-regular fa-star"></i>
@@ -30,6 +32,9 @@ const ReviewTile = ({review, drink}) => {
                         <img src={review?.review_img_url} alt="review-img"/>
                         : <div></div>
                     }
+                </div>
+                <div>
+                    <ManageReview review={review} drink={drink}/>
                 </div>
             </div>
         </>

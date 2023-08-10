@@ -1,21 +1,33 @@
-import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import * as userActions from "../../store/currUser";
 import * as reviewActions from "../../store/reviews";
 
 
-function DeleteReview({review}) {
+function DeleteReview({review, drink}) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(true);
   const { closeModal } = useModal();
+  const sessionUser = useSelector(state => state.session.user) // Get current logged in user
+  // // Redirect to landing page if user not logged in
+  if (!sessionUser) {
+      history.push("/")
+  }
+
   const reviewId = review.id
 
+  useEffect(() => {
+    const errors = [];
+    if(sessionUser?.id !== review?.user_id) errors.push("You do not have access to delete this review.");
+    setErrors(errors);
+  }, [sessionUser?.id, review?.user_id]);
+
   const deleteClickHandler = async () => {
-    const reviewDeleted = await dispatch(reviewActions.deleteReview(reviewId))
+    const reviewDeleted = await dispatch(reviewActions.deleteReview(reviewId, drink))
     .catch(async (res) => {
         const data = await res.json();
           if (data && data.message) {
@@ -24,7 +36,7 @@ function DeleteReview({review}) {
     });
 
     if (reviewDeleted) {
-        history.push("/my-profile");
+        // history.push("/my-profile");
         dispatch(userActions.getUserReviews())
         closeModal()
     };
