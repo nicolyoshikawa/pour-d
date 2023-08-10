@@ -30,7 +30,7 @@ const ManageReview = ({review, drink}) => {
                         <OpenModalButton
                             buttonText="Delete"
                             onItemClick={closeMenu}
-                            modalComponent={<DeleteReview review={review}/>}
+                            modalComponent={<DeleteReview drink={drink} review={review}/>}
                         />
                     </div>
                 </div>

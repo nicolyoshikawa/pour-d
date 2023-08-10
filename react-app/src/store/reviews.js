@@ -85,7 +85,7 @@ export const createNewReview = (review, drink) => async (dispatch) => {
   return newReview;
 };
 
-export const updateAReview = (review) => async dispatch => {
+export const updateAReview = (review, drink) => async dispatch => {
   const response = await fetch(`/api/reviews/${review.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
@@ -95,11 +95,12 @@ export const updateAReview = (review) => async dispatch => {
   const updatedReview = await response.json();
   if (response.ok) {
     dispatch(editAReview(updatedReview));
+    dispatch(loadDrinkById(drink.id));
   }
   return updatedReview;
 };
 
-export const deleteReview = (reviewId) => async (dispatch) => {
+export const deleteReview = (reviewId, drink) => async (dispatch) => {
   const response = await fetch(`/api/reviews/${reviewId}`, {
     method: 'DELETE'
   });
@@ -107,6 +108,7 @@ export const deleteReview = (reviewId) => async (dispatch) => {
   if (response.ok) {
     const res = await response.json();
     dispatch(deleteAReview(reviewId));
+    dispatch(loadDrinkById(drink.id));
     return res;
   }
 };
