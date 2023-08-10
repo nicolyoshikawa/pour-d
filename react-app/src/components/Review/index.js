@@ -1,5 +1,4 @@
 import "./Review.css"
-import { loadDrinkById } from "../../store/drinks"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react";
 import OpenModalButton from "../OpenModalButton";
@@ -7,7 +6,7 @@ import { NavLink } from  "react-router-dom";
 import DeleteReview from "../DeleteReview";
 import EditReview from "../EditReview";
 
-export default function Review({user, review}) {
+export default function Review({review}) {
     const dispatch = useDispatch()
     const {id, content, created_at, drink_id, review_img_url, stars, user_id} = review
     const drinks = useSelector(state => state.drinks)
@@ -26,12 +25,8 @@ export default function Review({user, review}) {
     for (let i = 0; i < stars; i++) {
         makeRating.push(1)
     }
-    if (makeRating.length < 5) {
-        // const empty = stars % 5
-        const empty = 5 - makeRating.length
-        for (let i = 0; i < empty; i++) {
-            makeRating.push(0)
-        }
+    while (makeRating.length < 5){
+        makeRating.push(0)
     }
 
     // Change date format
@@ -40,10 +35,10 @@ export default function Review({user, review}) {
 
     return (
         <div className="review">
-            <div className="review-info">
+            {/* <div className="review-info">
                 <div className="review-txt">
                     <div className="review-beer">
-                        <span className="review-user">{user?.first_name}</span> is drinking a <NavLink to={`/drinks/${id}`}>{drink?.name}</NavLink>:
+                        <span className="review-user">{user?.first_name}</span> is drinking a <NavLink to={`/drinks/${drink?.id}`}>{drink?.name}</NavLink>:
                     </div>
                     <div className="review-content">
                         {content}
@@ -87,6 +82,7 @@ export default function Review({user, review}) {
                     </div>
                 </>
             )}
+            </div> */}
         </div>
     )
 }

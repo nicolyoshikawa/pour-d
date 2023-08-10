@@ -16,15 +16,14 @@ export default function ProfilePage() {
         history.push("/")
     }
 
-    const {id, first_name, last_name, birthday, email, username, user_img_url} = sessionUser // Destructuring user info
-    const lowercase = username?.toLowerCase()
+    const lowercase = sessionUser?.username?.toLowerCase()
 
     // If no user_img, show default avatar
     let avatar
-    if (!user_img_url) {
+    if (!sessionUser?.user_img_url) {
         avatar = default_avatar
     } else {
-        avatar = user_img_url
+        avatar = sessionUser?.user_img_url
     }
 
     const drinks = useSelector(state => state.currUser.drinks)
@@ -65,13 +64,13 @@ export default function ProfilePage() {
 
 
     return (
-        <div className="profile-container">
+        <div className="container">
             <div className="user-hero">
                     <img src={avatar} alt="avatar" className="hero-avatar"/>
                 <div className="user-info">
                     <div className="user-name">
                         <h1 className="full-name">
-                            {first_name} {last_name}
+                            {sessionUser?.first_name} {sessionUser?.last_name}
                         </h1>
                         <p className="username">
                             {lowercase}
@@ -101,8 +100,8 @@ export default function ProfilePage() {
                     <h2>
                         Your recent activity
                     </h2>
-                    {reviews?.map((review, el) => {
-                        return <Review user={sessionUser} review={review} key={el}/>
+                    {reviews?.map((review) => {
+                        return <Review userId={sessionUser.id} review={review}/>
                     })}
                 </div>
                 <div className="user-top">
