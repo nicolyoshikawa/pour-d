@@ -1,5 +1,6 @@
 const USER_DRINKS = "currUser/USER_DRINKS"
 const USER_FRIENDS = "currUser/USER_FRIENDS"
+const USER_PENDINGS = "currUser/USER_PENDINGS"
 const USER_REVIEWS = "currUser/USER_REVIEWS"
 
 const userDrinks = (drinks) => ({
@@ -10,6 +11,11 @@ const userDrinks = (drinks) => ({
 const userFriends = (friends) => ({
     type: USER_FRIENDS,
     friends
+})
+
+const userPendings = (pendings) => ({
+    type: USER_PENDINGS,
+    pendings
 })
 
 const userReviews = (reviews) => ({
@@ -41,6 +47,16 @@ export const getUserFriends = () => async (dispatch) => {
     }
 }
 
+export const getUserPendings = () => async (dispatch) => {
+    const res = await fetch("api/currentUser/pending")
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(userPendings(data))
+        return data
+    }
+}
+
 export const getUserReviews = () => async (dispatch) => {
     const res = await fetch ("api/currentUser/reviews", {
     method: "GET"
@@ -62,6 +78,9 @@ export default function reducer(state = initialState, action) {
             return newState
         case USER_FRIENDS:
             newState = {...state, friends: action.friends}
+            return newState
+        case USER_PENDINGS:
+            newState = {...state, pendings: action.pendings}
             return newState
         case USER_REVIEWS:
             newState = {...state, reviews: action.reviews}
