@@ -37,8 +37,18 @@ def getCurrentUserFriendRequests():
     """
     A logged in user can view pending friend request to accept/reject.
     """
-    find_friends = Friend.query.all()
-    return [request.to_dict() for request in find_friends if request.friend_id == current_user.id and request.status == "pending"]
+    pending_friends = Friend.query.filter(
+        (Friend.friend_id == current_user.id) & (Friend.status == "pending")
+    ).all()
+
+    pending_friends_info = []
+    for friend_request in pending_friends:
+        if friend_request.user_id != current_user.id:
+            pending_friends_info.append(friend_request.user.to_dict())
+        elif friend_request.friend_id != current_user.id:
+            pending_friends_info.append(friend_request.friend.to_dict())
+
+    return jsonify(pending_friends_info)
 
 @profile_routes.route("/friends", methods=["GET"])
 @login_required
