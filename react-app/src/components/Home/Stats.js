@@ -13,12 +13,19 @@ export default function Stats({user, numDrinks, numReviews, numFriends}) {
 
     return (
         <>
-            <h2 className="stats-name">
-                {user?.first_name} {user?.last_name}
-            </h2>
-            <p className="stats-username">
-                <i class="fa-solid fa-user" style={{fontSize: "8pt", color: "gray", marginRight: "5px"}}></i> {lowercase}
-            </p>
+            <div className="stats-top-section">
+                <div className="stats-avatar">
+                    <img src={avatar} alt="avatar"/>
+                </div>
+                <div className="stats-top-text">
+                    <h2 className="stats-name">
+                        {user?.first_name} {user?.last_name}
+                    </h2>
+                    <p className="stats-username">
+                        <i class="fa-solid fa-user" style={{fontSize: "8pt", color: "gray", marginRight: "5px"}}></i> {lowercase}
+                    </p>
+                </div>
+            </div>
             <div className="stats-grid">
                 <div className="stats-grid-item">
                     {numDrinks}

@@ -1,11 +1,36 @@
-.user-stat-sidebar {
+.homepage-sidebar {
+    width: 30%;
+}
+
+.sidebar-stats {
+    width: 100%;
+    box-sizing: border-box;
     margin-top: 20px;
-    width: 25%;
     padding: 20px;
     background-color: white;
     border-radius: 15px;
     list-style: none;
     height: max-content;
+}
+
+.sidebar-top-drinks {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    list-style: none;
+    height: max-content;
+}
+
+.stats-top-section {
+    display: flex;
+}
+
+.stats-avatar img {
+    margin-right: 20px;
+    width: 60px;
 }
 
 .stats-name {
@@ -34,4 +59,15 @@
 .stats-type {
     font-size: 7pt;
     margin: 2px;
+}
+
+.top-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.top-rating {
+    margin-top: 2px;
+    font-size: 8pt;
+    color: gray;
 }
