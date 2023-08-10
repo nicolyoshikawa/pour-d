@@ -4,6 +4,7 @@ import OpenModalButton from "../OpenModalButton";
 import { NavLink } from  "react-router-dom";
 import DeleteReview from "../DeleteReview";
 import EditReview from "../EditReview";
+import { loadDrinkById } from "../../store/drinks"
 
 export default function Review({review, drink, user}) {
     const {id, content, created_at, drink_id, review_img_url, stars, user_id} = review
