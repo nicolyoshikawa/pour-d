@@ -18,8 +18,6 @@ export default function Home() {
         dispatch(loadUsers())
     }, [dispatch])
 
-    console.log(reviews)
-
     return (
         <div className="container">
             <div className="user-feed">
