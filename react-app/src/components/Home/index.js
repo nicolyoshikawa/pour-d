@@ -22,9 +22,10 @@ export default function Home() {
 
     return (
         <div className="container">
-            <div className="user-feeed">
+            <div className="user-feed">
+                <h2>Latest reviews</h2>
                 {reviews?.map((review) => {
-                    return <Review key={review.id} review={review} drink={drinks[review.drink_id]} user={review.user_id}/>
+                    return <Review key={review.id} review={review} drink={drinks[review.drink_id]} user={review.User}/>
                 })}
             </div>
         </div>

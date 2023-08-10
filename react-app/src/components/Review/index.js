@@ -1,25 +1,16 @@
 import "./Review.css"
-import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react";
-import { loadDrinkById } from "../../store/drinks";
 import OpenModalButton from "../OpenModalButton";
 import { NavLink } from  "react-router-dom";
 import DeleteReview from "../DeleteReview";
 import EditReview from "../EditReview";
 
-export default function Review({review}) {
-    const dispatch = useDispatch()
+export default function Review({review, drink, user}) {
     const {id, content, created_at, drink_id, review_img_url, stars, user_id} = review
-    const drinks = useSelector(state => state.drinks)
-    const drink = drinks[drink_id]
     const star = <i className="fa-solid fa-star"></i>
     const emptyStar = <i className="fa-regular fa-star"></i>
     const [showMenu, setShowMenu] = useState(true);
     const closeMenu = () => setShowMenu(false);
-
-    useEffect(() => {
-        dispatch(loadDrinkById(drink_id))
-    }, [dispatch, drink_id])
 
     // Calculate full and empty stars to match review rating
     let makeRating = []
