@@ -32,7 +32,7 @@ export default function ProfilePage() {
     const reviews = useSelector(state => state.currUser.reviews)
     const allDrinks = useSelector(state => state.drinks)
 
-    console.log(drinks)
+    // console.log(drinks)
 
 
     useEffect(() => {

@@ -62,7 +62,7 @@ export default function Review({review, drink, user}) {
                             <OpenModalButton
                                 buttonText="Edit"
                                 onItemClick={closeMenu}
-                                modalComponent={<EditReview drink={drink} user={user} review={review}/>}
+                                modalComponent={<EditReview drink={drink} review={review}/>}
                             />
                         </div>
                         <div className="review-edit-button">
