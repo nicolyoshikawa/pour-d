@@ -1,6 +1,7 @@
 import "./Review.css"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react";
+import { loadDrinkById } from "../../store/drinks";
 import OpenModalButton from "../OpenModalButton";
 import { NavLink } from  "react-router-dom";
 import DeleteReview from "../DeleteReview";
@@ -35,7 +36,7 @@ export default function Review({review}) {
 
     return (
         <div className="review">
-            {/* <div className="review-info">
+            <div className="review-info">
                 <div className="review-txt">
                     <div className="review-beer">
                         <span className="review-user">{user?.first_name}</span> is drinking a <NavLink to={`/drinks/${drink?.id}`}>{drink?.name}</NavLink>:
@@ -82,7 +83,6 @@ export default function Review({review}) {
                     </div>
                 </>
             )}
-            </div> */}
-        </div>
+            </div>
     )
 }

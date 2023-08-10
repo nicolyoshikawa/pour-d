@@ -18,7 +18,7 @@ export default function Home() {
         dispatch(loadUsers())
     }, [dispatch])
 
-    console.log(users)
+    console.log(reviews)
 
     return (
         <div className="container">
