@@ -1,17 +1,24 @@
 import "./Review.css"
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react"
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
+import { useEffect, useState } from "react";
+import OpenModalButton from "../OpenModalButton";
+import { NavLink } from  "react-router-dom";
+import DeleteReview from "../DeleteReview";
+import EditReview from "../EditReview";
 
 export default function Review({review}) {
     const dispatch = useDispatch()
     const {id, content, created_at, drink_id, review_img_url, stars, user_id} = review
-    const drink = useSelector(state => state.drinks.drink)
-    // const users = useSelector(state => state.users)
-    // const drink = drinks[drink_id]
-    // const user = users[user_id]
-    const star = <i class="fa-solid fa-star"></i>
-    const emptyStar = <i class="fa-regular fa-star"></i>
+    const drinks = useSelector(state => state.drinks)
+    const drink = drinks[drink_id]
+    const star = <i className="fa-solid fa-star"></i>
+    const emptyStar = <i className="fa-regular fa-star"></i>
+    const [showMenu, setShowMenu] = useState(true);
+    const closeMenu = () => setShowMenu(false);
+
+    useEffect(() => {
+        dispatch(loadDrinkById(drink_id))
+    }, [dispatch, drink_id])
 
     // Calculate full and empty stars to match review rating
     let makeRating = []
@@ -37,11 +44,11 @@ export default function Review({review}) {
                         {content}
                     </div>
                     <div className="review-rating">
-                        {makeRating?.map((rating, idx) => {
+                        {makeRating?.map((rating, el) => {
                             if (rating === 1) {
-                                return <span className="star" key={idx}>{star}</span>
+                                return <span className="star" key={el}>{star}</span>
                             }
-                            return <span className="star" key={idx}>{emptyStar}</span>
+                            return <span className="star" key={el}>{emptyStar}</span>
                         })}
                     </div>
                 </div>
@@ -54,6 +61,27 @@ export default function Review({review}) {
             </div>
             <div className="review-date">
                 {formatDate}
+            </div>
+            {showMenu && (
+                <>
+                    <div className="review-edit">
+                        <div className="review-edit-button">
+                            <OpenModalButton
+                                buttonText="Edit"
+                                onItemClick={closeMenu}
+                                modalComponent={<EditReview drink={drink} user={user} review={review}/>}
+                            />
+                        </div>
+                        <div className="review-edit-button">
+                            <OpenModalButton
+                                buttonText="Delete"
+                                onItemClick={closeMenu}
+                                modalComponent={<DeleteReview review={review}/>}
+                            />
+                        </div>
+                    </div>
+                </>
+            )}
             </div> */}
         </div>
     )

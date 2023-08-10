@@ -65,22 +65,23 @@ export const loadReviewsByDrinkId = (drink) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(reviewsByDrinkId(data.reviews));
+    // returns an array of reviewObjs
     return response;
   }
 };
 
-export const createNewReview = (review) => async (dispatch) => {
-  const response = await fetch('/api/reviews', {
+export const createNewReview = (review, drink) => async (dispatch) => {
+  const response = await fetch(`/api/drinks/${drink.id}/reviews`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(review)
   });
 
+  const newReview = await response.json();
   if (response.ok) {
-    const newReview = await response.json();
     dispatch(createAReview(newReview));
-    return newReview;
   }
+  return newReview;
 };
 
 export const updateAReview = (review) => async dispatch => {
@@ -90,11 +91,11 @@ export const updateAReview = (review) => async dispatch => {
     body: JSON.stringify(review)
   });
 
+  const updatedReview = await response.json();
   if (response.ok) {
-    const updatedReview = await response.json();
     dispatch(editAReview(updatedReview));
-    return updatedReview;
   }
+  return updatedReview;
 };
 
 export const deleteReview = (reviewId) => async (dispatch) => {

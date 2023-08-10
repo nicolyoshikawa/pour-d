@@ -1,10 +1,17 @@
 from flask import Blueprint, redirect, url_for, request
 from flask_login import login_required, current_user
-from app.models import db, Review
+from app.models import db, Review, User
 from .auth_routes import validation_errors_to_error_messages
 from app.forms.review_form import ReviewForm
 
 review_routes = Blueprint("reviews", __name__)
+
+def add_User_obj(review):
+    user = User.query.filter(review.user_id == User.id).first()
+    reviewOwner = user.to_dict()
+    reviewDict = review.to_dict()
+    reviewDict["User"] = reviewOwner
+    return reviewDict
 
 @review_routes.route('/<int:id>', methods=["GET"])
 def getASpecificReview(id):
@@ -14,7 +21,9 @@ def getASpecificReview(id):
     review = Review.query.get(id)
     if not review:
         return {'errors': "Review could not be found"}, 404
-    return review.to_dict()
+
+    reviewDict = add_User_obj(review)
+    return reviewDict
 
 @review_routes.route("/<int:id>", methods=["PUT"])
 @login_required
@@ -36,7 +45,9 @@ def update_review(id):
             review.review_img_url = form.data["review_img_url"]
 
             db.session.commit()
-            return review.to_dict()
+
+            reviewDict = add_User_obj(review)
+            return reviewDict
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     return {'errors': ['Unauthorized']}
 
@@ -62,4 +73,10 @@ def get_reviews():
     Users can read a list of checkins/reviews.
     """
     reviews = Review.query.all()
-    return {'reviews': [review.to_dict() for review in reviews]}
+    # return {'reviews': [review.to_dict() for review in reviews]}
+
+    reviewsList = []
+    for review in reviews:
+        reviewDict = add_User_obj(review)
+        reviewsList.append(reviewDict)
+    return {"reviews": reviewsList}

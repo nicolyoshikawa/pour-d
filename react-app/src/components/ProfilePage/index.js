@@ -2,10 +2,9 @@ import "./ProfilePage.css"
 import default_avatar from "../../assets/default_avatar.png"
 import * as userActions from "../../store/currUser"
 import { useSelector, useDispatch } from "react-redux"
-import { useHistory } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useHistory, NavLink } from "react-router-dom"
+import { useEffect } from "react"
 import Review from "../Review"
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 
 export default function ProfilePage() {
     const history = useHistory()
@@ -42,7 +41,7 @@ export default function ProfilePage() {
     const totalDrinks = drinks?.length
     const totalFriends = friends?.length
     const totalReviews = reviews?.length
-    
+
     // Grab top user's top drinks
     let sortedReviews
     let topFive = []
