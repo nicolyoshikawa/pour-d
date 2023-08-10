@@ -1,4 +1,4 @@
-
+import { loadDrinkById } from "./drinks"
 const LOAD_REVIEWS = "reviews/LOAD_REVIEWS";
 const REVIEW_BY_ID = "reviews/REVIEW_BY_ID";
 const REVIEWS_BY_DRINKID = "drinks/REVIEWS_BY_DRINKID";
@@ -65,22 +65,24 @@ export const loadReviewsByDrinkId = (drink) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(reviewsByDrinkId(data.reviews));
+    // returns an array of reviewObjs
     return response;
   }
 };
 
-export const createNewReview = (review) => async (dispatch) => {
-  const response = await fetch('/api/reviews', {
+export const createNewReview = (review, drink) => async (dispatch) => {
+  const response = await fetch(`/api/drinks/${drink.id}/reviews`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(review)
   });
 
+  const newReview = await response.json();
   if (response.ok) {
-    const newReview = await response.json();
     dispatch(createAReview(newReview));
-    return newReview;
+    dispatch(loadDrinkById(drink.id));
   }
+  return newReview;
 };
 
 export const updateAReview = (review) => async dispatch => {
@@ -90,11 +92,11 @@ export const updateAReview = (review) => async dispatch => {
     body: JSON.stringify(review)
   });
 
+  const updatedReview = await response.json();
   if (response.ok) {
-    const updatedReview = await response.json();
     dispatch(editAReview(updatedReview));
-    return updatedReview;
   }
+  return updatedReview;
 };
 
 export const deleteReview = (reviewId) => async (dispatch) => {

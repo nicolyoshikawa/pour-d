@@ -53,10 +53,15 @@ def createAReview(id):
             drink_id= drink_id,
             review_img_url= form.data["review_img_url"]
         )
+
         db.session.add(review)
         db.session.commit()
 
-        return review.to_dict()
+        reviewDict = review.to_dict()
+        reviewOwner = current_user.to_dict()
+        reviewDict["User"] = reviewOwner
+
+        return reviewDict
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @drink_routes.route("/<int:id>")

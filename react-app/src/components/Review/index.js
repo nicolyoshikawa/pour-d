@@ -1,33 +1,26 @@
 import "./Review.css"
+import { useEffect, useState } from "react";
+import OpenModalButton from "../OpenModalButton";
+import { NavLink } from  "react-router-dom";
+import DeleteReview from "../DeleteReview";
+import EditReview from "../EditReview";
 import { loadDrinkById } from "../../store/drinks"
-import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react"
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
+import ManageReview from "../ManageReviews";
 
-export default function Review({user, review}) {
-    const dispatch = useDispatch()
+export default function Review({review, drink, user}) {
     const {id, content, created_at, drink_id, review_img_url, stars, user_id} = review
-    const drinks = useSelector(state => state.drinks)
-    const drink = drinks[drink_id]
-    const star = <i class="fa-solid fa-star"></i>
-    const emptyStar = <i class="fa-regular fa-star"></i>
-
-
-    useEffect(() => {
-        dispatch(loadDrinkById(drink_id))
-    }, [dispatch, drink_id])
+    const star = <i className="fa-solid fa-star"></i>
+    const emptyStar = <i className="fa-regular fa-star"></i>
+    const [showMenu, setShowMenu] = useState(true);
+    const closeMenu = () => setShowMenu(false);
 
     // Calculate full and empty stars to match review rating
     let makeRating = []
     for (let i = 0; i < stars; i++) {
         makeRating.push(1)
     }
-    if (makeRating.length < 5) {
-        // const empty = stars % 5
-        const empty = 5 - makeRating.length
-        for (let i = 0; i < empty; i++) {
-            makeRating.push(0)
-        }
+    while (makeRating.length < 5){
+        makeRating.push(0)
     }
 
     // Change date format
@@ -45,11 +38,11 @@ export default function Review({user, review}) {
                         {content}
                     </div>
                     <div className="review-rating">
-                        {makeRating?.map((rating) => {
+                        {makeRating?.map((rating, el) => {
                             if (rating === 1) {
-                                return <span className="star">{star}</span>
+                                return <span className="star" key={el}>{star}</span>
                             }
-                            return <span className="star">{emptyStar}</span>
+                            return <span className="star" key={el}>{emptyStar}</span>
                         })}
                     </div>
                 </div>
@@ -63,6 +56,9 @@ export default function Review({user, review}) {
             <div className="review-date">
                 {formatDate}
             </div>
-        </div>
+            <div>
+                <ManageReview review={review} drink={drink}/>
+            </div>
+            </div>
     )
 }
