@@ -5,6 +5,7 @@ import { NavLink } from  "react-router-dom";
 import DeleteReview from "../DeleteReview";
 import EditReview from "../EditReview";
 import { loadDrinkById } from "../../store/drinks"
+import ManageReview from "../ManageReviews";
 
 export default function Review({review, drink, user}) {
     const {id, content, created_at, drink_id, review_img_url, stars, user_id} = review
@@ -55,26 +56,9 @@ export default function Review({review, drink, user}) {
             <div className="review-date">
                 {formatDate}
             </div>
-            {showMenu && (
-                <>
-                    <div className="review-edit">
-                        <div className="review-edit-button">
-                            <OpenModalButton
-                                buttonText="Edit"
-                                onItemClick={closeMenu}
-                                modalComponent={<EditReview drink={drink} review={review}/>}
-                            />
-                        </div>
-                        <div className="review-edit-button">
-                            <OpenModalButton
-                                buttonText="Delete"
-                                onItemClick={closeMenu}
-                                modalComponent={<DeleteReview review={review}/>}
-                            />
-                        </div>
-                    </div>
-                </>
-            )}
+            <div>
+                <ManageReview review={review} drink={drink}/>
+            </div>
             </div>
     )
 }
