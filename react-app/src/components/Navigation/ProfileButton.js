@@ -43,16 +43,16 @@ function ProfileButton({ user }) {
   return (
     <div className="profile-button">
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+        <img src={user.user_img_url} alt="Profile" />
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <div className="profile-dropdown-menu">
             <li>
-              <NavLink exact to="/check-ins">Check-in History</NavLink>
+              <NavLink exact to="/drinks/new">Create a Drink</NavLink>
             </li>
             <li>
-              <NavLink exact to="/friends">Friends</NavLink>
+              <NavLink exact to="/my-drinks">Manage Drinks</NavLink>
             </li>
             <li>
               <NavLink exact to="/my-profile">My Profile</NavLink>
@@ -61,10 +61,10 @@ function ProfileButton({ user }) {
               <NavLink exact to="/edit-profile">Edit Profile</NavLink>
             </li>
             <li>
-              <NavLink exact to="/drinks/new">Create a Drink</NavLink>
+              <NavLink exact to="/friends">Friends</NavLink>
             </li>
             <li>
-              <button onClick={handleLogout}>Log Out</button>
+              <NavLink exact to="/logout" onClick={handleLogout}>Log Out</NavLink>
             </li>
           </div>
         ) : (
