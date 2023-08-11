@@ -28,7 +28,7 @@ export default function TopDrinks() {
             <div className="sections">
                 <div className="top-feed">
                     <h2>
-                        Top 25
+                        Top 25 drinks
                     </h2>
                     {drinks?.slice(0,25).map(el => (<DrinkTile key={el.id} drink={el} clickable={true}/>))}
                 </div>
