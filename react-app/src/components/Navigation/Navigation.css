@@ -39,20 +39,21 @@
 
 .navbar-inner-profile-search {
   display: flex;
+  align-items: center;
 }
 
-.nav-search {
-  border: none;
-  background-color: transparent;
+.search-input-nav {
+  width: 100%;
   font-size: 14px;
-  outline: none;
+  border: 0;
 }
 
 /* Profile button */
 
 .profile-button {
   position: relative;
-  margin-right: 150px;
+  /* margin-right: 150px; */
+  margin-right: 20px;
 }
 
 .profile-button button {

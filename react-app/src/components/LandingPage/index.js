@@ -65,7 +65,9 @@ export default function LandingPage() {
                     <img src={app_example} alt="phone-img"/>
                 </div>
             </div>
-            <SearchBar/>
+            <div className="landing-search">
+                <SearchBar classStyle={"search-input-landing"}/>
+            </div>
             <h1 className="features-header">
                 Check out our features
             </h1>
