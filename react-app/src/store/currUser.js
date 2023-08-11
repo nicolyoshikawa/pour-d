@@ -70,7 +70,7 @@ export const getUserReviews = () => async (dispatch) => {
 };
 
 export const acceptFriendRequest = (targetId) => async (dispatch) => {
-  const res = await fetch(`/api/friends/accept/${targetId}`, {
+  const res = await fetch(`/api/friend/accept/${targetId}`, {
     method: "PUT",
   });
 
@@ -83,7 +83,7 @@ export const acceptFriendRequest = (targetId) => async (dispatch) => {
 };
 
 export const rejectFriendRequest = (targetId) => async (dispatch) => {
-    const res = await fetch(`/api/friends/reject/${targetId}`, {
+    const res = await fetch(`/api/friend/reject/${targetId}`, {
         method: "DELETE",
     });
 
@@ -95,7 +95,7 @@ export const rejectFriendRequest = (targetId) => async (dispatch) => {
 };
 
 export const deleteFriend = (targetId) => async (dispatch) => {
-    const res = await fetch(`/api/friends/remove/${targetId}`, {
+    const res = await fetch(`/api/friend/remove/${targetId}`, {
         method: "DELETE",
     });
 
