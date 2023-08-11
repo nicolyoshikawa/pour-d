@@ -198,13 +198,30 @@
     display: flex;
     background-position: center center;
     background-repeat: no-repeat;
-  }
+}
 
-  .check-in-button button img {
+.check-in-button button img {
     width: 52px;
     height: 52px;
     background-color: #338632;
     background-position: center center;
     background-repeat: no-repeat;
 
-  }
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
