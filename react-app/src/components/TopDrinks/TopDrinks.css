@@ -1,0 +1,11 @@
+.top-feed {
+    margin-top: 20px;
+    width: 65%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.top-feed h2 {
+    margin-top: 0;
+}
