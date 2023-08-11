@@ -57,9 +57,9 @@ function ProfileButton({ user }) {
             <li>
               <NavLink exact to="/my-profile">My Profile</NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink exact to="/edit-profile">Edit Profile</NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink exact to="/friends">Friends</NavLink>
             </li>

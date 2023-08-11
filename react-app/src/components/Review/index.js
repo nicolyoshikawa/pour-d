@@ -34,7 +34,7 @@ export default function Review({review, drink, user}) {
                 <img src={user?.user_img_url} alt="avatar"/>
                     <div className="review-txt">
                         <div className="review-beer">
-                            <span className="review-user">{user?.first_name}</span> is drinking a <NavLink to={`/drinks/${drink?.id}`}>{drink?.name}</NavLink>:
+                            <span className="review-user">{user?.username}</span> is drinking a <NavLink to={`/drinks/${drink?.id}`}>{drink?.name}</NavLink>:
                         </div>
                         <div className="review-content">
                             {content}
