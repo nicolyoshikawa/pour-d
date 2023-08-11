@@ -31,9 +31,9 @@ function Navigation({ isLoaded }) {
               </div>
               <div className="navbar-inner-profile-search">
                 <ProfileButton user={sessionUser} />
-                <div className="nav-search">
+                
                   <SearchBar classStyle={"search-input-nav"}/>
-                </div>
+                
               </div>
             </div>
           ) : (
@@ -54,11 +54,7 @@ function Navigation({ isLoaded }) {
                   Join Now
                 </NavLink>
               </div>
-              <input
-                className="nav-search"
-                type="text"
-                placeholder="Search coming soon..."
-              />
+              <SearchBar classStyle={"search-input-nav"}/>
             </div>
           )
         ) : (
