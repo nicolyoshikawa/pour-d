@@ -225,3 +225,8 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+.check-in-button-container{
+    display: flex;
+    justify-content: end;
+    margin: 10px
+}
