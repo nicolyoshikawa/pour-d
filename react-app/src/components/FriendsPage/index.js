@@ -30,7 +30,7 @@ const FriendsPage = () => {
   };
 
   return (
-    <>
+    <div className="friends-all-container">
       <div className="pending-friends">
         <h2>Pending Friend Requests</h2>
         <ul>
@@ -54,7 +54,7 @@ const FriendsPage = () => {
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 

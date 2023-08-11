@@ -15,6 +15,7 @@ import ManageDrinks from "./components/ManageDrinks";
 import UpdateDrink from "./components/ManageDrinks/UpdateDrink";
 import FriendsPage from "./components/FriendsPage";
 import TopDrinks from "./components/TopDrinks";
+import EditProfile from "./components/EditProfile";
 
 function App() {
   const dispatch = useDispatch();
@@ -60,7 +61,7 @@ function App() {
             <ProfilePage />
           </Route>
           <Route exact path="/edit-profile">
-            <p>Edit Profile</p>
+            <EditProfile />
           </Route>
           <Route exact path="/check-ins">
             <p>Check-ins</p>
