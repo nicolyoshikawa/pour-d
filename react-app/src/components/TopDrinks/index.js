@@ -30,7 +30,7 @@ export default function TopDrinks() {
                     <h2>
                         Top 25
                     </h2>
-                    {drinks.map(el => (<DrinkTile key={el.id} drink={el} clickable={true}/>))}
+                    {drinks?.slice(0,25).map(el => (<DrinkTile key={el.id} drink={el} clickable={true}/>))}
                 </div>
                 <div className="homepage-sidebar">
                     <div className="sidebar-stats">
