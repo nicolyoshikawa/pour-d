@@ -14,11 +14,20 @@ const FriendsPage = () => {
     dispatch(userActions.getUserPendings());
   }, [dispatch]);
 
-  const handleAccept = (targetId) => {};
+  const handleAccept = async (e, targetId) => {
+    e.preventDefault();
+    dispatch(userActions.acceptFriendRequest(targetId));
+  };
 
-  const handleReject = (targetId) => {};
+  const handleReject = async (e, targetId) => {
+    e.preventDefault();
+    dispatch(userActions.rejectFriendRequest(targetId));
+  };
 
-  const handleDelete = (targetId) => {};
+  const handleDelete = async (e, targetId) => {
+    e.preventDefault();
+    dispatch(userActions.deleteFriend(targetId));
+  };
 
   return (
     <>
@@ -28,8 +37,8 @@ const FriendsPage = () => {
           {pending?.map((request) => (
             <li key={request.id}>
               {request.username} sent you a friend request.
-              <button onClick={() => handleAccept(request.id)}>Accept</button>
-              <button onClick={() => handleReject(request.id)}>Reject</button>
+              <button onClick={(e) => handleAccept(e, request.id)}>Accept</button>
+              <button onClick={(e) => handleReject(e, request.id)}>Reject</button>
             </li>
           ))}
         </ul>
@@ -40,7 +49,7 @@ const FriendsPage = () => {
           {friends?.map((friend) => (
             <li key={friend.id}>
               {friend.username}
-              <button onClick={() => handleDelete(friend.id)}>Delete</button>
+              <button onClick={(e) => handleDelete(e, friend.id)}>Delete</button>
             </li>
           ))}
         </ul>
