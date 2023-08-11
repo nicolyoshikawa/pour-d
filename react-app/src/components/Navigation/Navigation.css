@@ -3,7 +3,6 @@
 .navbar-container {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 6px 0 #ffc000;
   border-bottom: 1px solid gray;
-  width: 100%;
   display: flex;
   justify-content: center;
   padding: 15px 20px;
@@ -39,12 +38,13 @@
 
 .navbar-inner-profile-search {
   display: flex;
+  align-items: center;
 }
 
-.nav-search {
-  border: none;
-  background-color: transparent;
+.search-input-nav {
+  width: 100%;
   font-size: 14px;
+  border: 0;
   outline: none;
 }
 
@@ -52,7 +52,8 @@
 
 .profile-button {
   position: relative;
-  margin-right: 150px;
+  /* margin-right: 150px; */
+  margin-right: 20px;
 }
 
 .profile-button button {

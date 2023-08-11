@@ -6,7 +6,7 @@ import * as userActions from "../../store/currUser";
 import * as reviewActions from "../../store/reviews";
 
 
-function DeleteReview({review}) {
+function DeleteReview({review, drink}) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [errors, setErrors] = useState({});
@@ -27,7 +27,7 @@ function DeleteReview({review}) {
   }, [sessionUser?.id, review?.user_id]);
 
   const deleteClickHandler = async () => {
-    const reviewDeleted = await dispatch(reviewActions.deleteReview(reviewId))
+    const reviewDeleted = await dispatch(reviewActions.deleteReview(reviewId, drink))
     .catch(async (res) => {
         const data = await res.json();
           if (data && data.message) {

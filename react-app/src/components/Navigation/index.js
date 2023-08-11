@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
+import SearchBar from "../LandingPage/SearchBar"
 // import OpenModalButton from "../OpenModalButton";
 // import LoginFormModal from "../LoginFormModal";
 // import SignupFormModal from "../SignupFormModal";
@@ -30,11 +31,9 @@ function Navigation({ isLoaded }) {
               </div>
               <div className="navbar-inner-profile-search">
                 <ProfileButton user={sessionUser} />
-                <input
-                  className="nav-search"
-                  type="text"
-                  placeholder="Search coming soon..."
-                />
+                
+                  <SearchBar classStyle={"search-input-nav"}/>
+                
               </div>
             </div>
           ) : (
@@ -55,11 +54,7 @@ function Navigation({ isLoaded }) {
                   Join Now
                 </NavLink>
               </div>
-              <input
-                className="nav-search"
-                type="text"
-                placeholder="Search coming soon..."
-              />
+              <SearchBar classStyle={"search-input-nav"}/>
             </div>
           )
         ) : (

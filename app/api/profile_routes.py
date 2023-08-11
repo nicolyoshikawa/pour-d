@@ -37,8 +37,18 @@ def getCurrentUserFriendRequests():
     """
     A logged in user can view pending friend request to accept/reject.
     """
-    find_friends = Friend.query.all()
-    return [request.to_dict() for request in find_friends if request.friend_id == current_user.id and request.status == "pending"]
+    pending_friends = Friend.query.filter(
+        (Friend.friend_id == current_user.id) & (Friend.status == "pending")
+    ).all()
+
+    pending_friends_info = []
+    for friend_request in pending_friends:
+        if friend_request.user_id != current_user.id:
+            pending_friends_info.append(friend_request.user.to_dict())
+        elif friend_request.friend_id != current_user.id:
+            pending_friends_info.append(friend_request.friend.to_dict())
+
+    return jsonify(pending_friends_info)
 
 @profile_routes.route("/friends", methods=["GET"])
 @login_required
@@ -46,11 +56,19 @@ def getCurrentUserFriends():
     """
     A logged in user can view all friends.
     """
-    find_friends = Friend.query.all()
-    all_friends = [request.to_dict() for request in find_friends if (request.friend_id == current_user.id or request.user_id == current_user.id) and request.status == "friends"]
-    user_ids = [friend["user_id"] for friend in all_friends if friend["user_id"] != current_user.id]
-    friend_ids = [friend["friend_id"] for friend in all_friends if friend["friend_id"] != current_user.id]
-    return user_ids + friend_ids
+    confirmed_friends = Friend.query.filter(
+        ((Friend.friend_id == current_user.id) | (Friend.user_id == current_user.id)) &
+        (Friend.status == "friends")
+    ).all()
+
+    friends_info = []
+    for friend_request in confirmed_friends:
+        if friend_request.user_id != current_user.id:
+            friends_info.append(friend_request.user.to_dict())
+        elif friend_request.friend_id != current_user.id:
+            friends_info.append(friend_request.friend.to_dict())
+
+    return jsonify(friends_info)
 
 
 @profile_routes.route("/friend-activity", methods=["GET"])

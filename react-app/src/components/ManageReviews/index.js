@@ -10,7 +10,7 @@ const ManageReview = ({review, drink}) => {
     const closeMenu = () => setShowMenu(false);
 
     let ownReview = false;
-    if(user.id === review.user_id){
+    if(user?.id === review?.user_id){
         ownReview = true;
     }
 
@@ -30,7 +30,7 @@ const ManageReview = ({review, drink}) => {
                         <OpenModalButton
                             buttonText="Delete"
                             onItemClick={closeMenu}
-                            modalComponent={<DeleteReview review={review}/>}
+                            modalComponent={<DeleteReview drink={drink} review={review}/>}
                         />
                     </div>
                 </div>
