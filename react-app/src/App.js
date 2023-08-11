@@ -13,6 +13,7 @@ import ProfilePage from "./components/ProfilePage";
 import DrinkFormPage from "./components/DrinkFormPage";
 import ManageDrinks from "./components/ManageDrinks";
 import UpdateDrink from "./components/ManageDrinks/UpdateDrink";
+import TopDrinks from "./components/TopDrinks";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/drinks/top-rated">
-            <p>Top Drinks to come</p>
+            <TopDrinks />
           </Route>
           <Route path="/drinks/new">
             <DrinkFormPage/>
