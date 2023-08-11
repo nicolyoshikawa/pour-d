@@ -9,12 +9,17 @@ function ReviewModal({user, drink}) {
     return (
         <>
             { showMenu && (
-                <div className="check-in-button">
-                    <OpenModalButton
-                        buttonText={<img src={beer_icon_check} alt="Leave A Review" className="check-box"/>}
-                        onItemClick={closeMenu}
-                        modalComponent={<ReviewFormPage drink={drink} user={user}/>}
-                    />
+                <div className="check-in-button-container">
+                    <div className="check-in-button tooltip">
+                        <div className="check-in-button">
+                        <OpenModalButton
+                            buttonText={<img src={beer_icon_check} alt="Check-in this drink" className="check-box"/>}
+                            onItemClick={closeMenu}
+                            modalComponent={<ReviewFormPage drink={drink} user={user}/>}
+                        />
+                        </div>
+                        <span className="tooltiptext bottom">Check-in this drink</span>
+                    </div>
                 </div>
             )}
         </>
