@@ -49,7 +49,7 @@ export default function ProfilePage() {
     if (reviews) {
         sortedReviews = [...reviews]?.sort((a,b) => b.stars - a.stars)
         sortedTop = sortedReviews.slice(0,5).map((review) => {
-            return drinks[review.drink_id]})
+            return drinks[review?.drink_id]})
     }
 
     return (
@@ -91,7 +91,7 @@ export default function ProfilePage() {
                         Your recent reviews
                     </h2>
                     {reviews?.map((review) => {
-                        return <Review user={sessionUser} review={review} drink={allDrinks[review.drink_id]}/>
+                        return <Review user={sessionUser} review={review} drink={allDrinks[review?.drink_id]}/>
                     })}
                 </div>
                 <div className="user-top">
