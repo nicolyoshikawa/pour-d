@@ -95,7 +95,7 @@ function DrinkFormPage() {
           </div>
         )}
         <form onSubmit={handleSubmit}>
-          <div className="login-form-input-container">
+          <div className="drink-form-input-container">
             <input
               type="text"
               placeholder="Name"
@@ -104,7 +104,7 @@ function DrinkFormPage() {
               required
             />
           </div>
-          <div className="login-form-input-container">
+          <div className="drink-form-input-container">
             <input
               type="text"
               placeholder="ABV"
@@ -113,7 +113,7 @@ function DrinkFormPage() {
               required
             />
           </div>
-          <div className="login-form-input-container">
+          <div className="drink-form-input-container">
             <input
               type="text"
               placeholder="IBU"
@@ -122,7 +122,7 @@ function DrinkFormPage() {
               required
             />
           </div>
-          <div className="login-form-input-container">
+          <div className="drink-form-input-container">
             <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -131,7 +131,7 @@ function DrinkFormPage() {
                 required
             />
           </div>
-          <div className="login-form-input-container">
+          <div className="drink-form-input-container">
             <input
                 type='text'
                 onChange={(e) => setDrink_img_url(e.target.value)}
