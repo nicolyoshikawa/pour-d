@@ -32,7 +32,7 @@ const FriendsPage = () => {
   return (
     <div className="friends-all-container">
       <div className="friends-card">
-        <h2>Pending Friend Requests ({pending.length})</h2>
+        <h2>Pending Friend Requests ({pending?.length})</h2>
         <ul className="friends-list">
           {pending?.map((request) => (
             <li key={request.id}>
@@ -46,7 +46,7 @@ const FriendsPage = () => {
         </ul>
       </div>
       <div className="friends-card">
-        <h2>Current Friends ({friends.length})</h2>
+        <h2>Current Friends ({friends?.length})</h2>
         <ul className="friends-list">
           {friends?.map((friend) => (
             <li key={friend.id}>
