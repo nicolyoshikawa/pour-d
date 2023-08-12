@@ -15,7 +15,7 @@ export default function TopDrinks() {
     const drinks = useSelector(state => Object.values(state.drinks))
 
     useEffect(() => {
-        dispatch(loadAllDrinks())
+        dispatch(loadAllDrinks()) 
         dispatch(userActions.getUserDrinks())
         dispatch(userActions.getUserFriends())
         dispatch(userActions.getUserReviews())
@@ -23,20 +23,29 @@ export default function TopDrinks() {
 
     const sorted = drinks?.sort((a,b) => Number(b.review_avg) - Number(a.review_avg))
 
+    let fullWidth
+    if (!sessionUser) {
+        fullWidth = "top-feed-full"
+    } else {
+        fullWidth = "top-feed"
+    }
+
     return (
         <div className="container">
             <div className="sections">
-                <div className="top-feed">
+                <div className={fullWidth}>
                     <h2>
                         Top 25 drinks
                     </h2>
                     {sorted?.slice(0,25).map(el => (<DrinkTile key={el.id} drink={el} clickable={true}/>))}
                 </div>
+                {sessionUser && userDrinks && userReviews &&
                 <div className="homepage-sidebar">
                     <div className="sidebar-stats">
-                        {sessionUser && userDrinks && userReviews && <Stats user={sessionUser} numDrinks={userDrinks?.length} numReviews={userReviews?.length} numFriends={userFriends?.length}/>}
+                        <Stats user={sessionUser} numDrinks={userDrinks?.length} numReviews={userReviews?.length} numFriends={userFriends?.length}/>
                     </div>
                 </div>
+                }
             </div>
         </div>
     )
