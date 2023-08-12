@@ -12,7 +12,7 @@ export default function TopDrinks({drinks}) {
             {sorted.slice(0,5).map((beer, idx) => {
                 return (
                     <NavLink to={`/drinks/${beer.id}`}>
-                        <span className="top-item">
+                        <span className="top-item" key={idx}>
                             <img src={beer?.drink_img_url} alt="logo" className="top-img"/>
                             <div key={idx} className="top-name">{beer?.name}
                                 <div key={`rating-${idx}`} className="top-rating">
