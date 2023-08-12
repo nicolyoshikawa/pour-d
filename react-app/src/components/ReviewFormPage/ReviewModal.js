@@ -13,12 +13,12 @@ function ReviewModal({user, drink}) {
                     <div className="check-in-button tooltip">
                         <div className="check-in-button">
                         <OpenModalButton
-                            buttonText={<img src={beer_icon_check} alt="Check-in this drink" className="check-box"/>}
+                            buttonText={<img src={beer_icon_check} alt="Leave A Review" className="check-box"/>}
                             onItemClick={closeMenu}
                             modalComponent={<ReviewFormPage drink={drink} user={user}/>}
                         />
                         </div>
-                        <span className="tooltiptext bottom">Check-in this drink</span>
+                        <span className="tooltiptext bottom">Leave A Review</span>
                     </div>
                 </div>
             )}

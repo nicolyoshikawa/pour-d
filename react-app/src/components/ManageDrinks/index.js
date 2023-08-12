@@ -59,10 +59,11 @@ function ManageDrinks() {
                                         <div className="drinkDetails">
                                             <div>{el.abv}% ABV</div>
                                             <div className="leftBorder">{el.ibu} IBU</div>
-                                            <button onClick={()=>updateClickHandler(el)} >Edit</button>
+                                            <button className="drink-edit-button" onClick={()=>updateClickHandler(el)} >Edit</button>
                                             <OpenModalButton
                                                 buttonText="Delete"
                                                 onItemClick={closeMenu}
+                                                className="drink-edit-button"
                                                 modalComponent={<DeleteDrink drink={el}/>}
                                             />
                                         </div>
