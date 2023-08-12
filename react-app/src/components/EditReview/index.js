@@ -84,7 +84,7 @@ function EditReview({drink, review, user}) {
     <>
         <div>
         <div className="review-form-container">
-            <div className="check-in">Check-In</div>
+            <div className="check-in">Leave A Review</div>
             {hasSubmitted && errors.length > 0 && (
             <div className="review-form-container-errors">
                 <ul>
