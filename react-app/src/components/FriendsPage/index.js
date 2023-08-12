@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import * as userActions from "../../store/currUser";
 import Stats from "../Home/Stats";
@@ -8,12 +9,18 @@ import "./FriendsPage.css";
 
 const FriendsPage = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const drinks = useSelector((state) => state.drinks);
   const sessionUser = useSelector((state) => state.session.user);
   const userDrinks = useSelector((state) => state.currUser.drinks);
   const friends = useSelector((state) => state.currUser.friends);
   const userReviews = useSelector((state) => state.currUser.reviews);
   const pendings = useSelector((state) => state.currUser.pendings);
+
+  // Redirect to landing page if user not logged in
+  if (!sessionUser) {
+      history.push("/")
+  }
 
   useEffect(() => {
     dispatch(userActions.getUserDrinks());
