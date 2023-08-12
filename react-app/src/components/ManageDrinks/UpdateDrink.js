@@ -18,6 +18,7 @@ function UpdateDrink() {
   const [drink_img_url, setDrink_img_url] = useState("");
   const [errors, setErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [disableButton, setDisableButton] = useState(true);
 
   if (!user) {
     history.push("/")
@@ -68,7 +69,9 @@ function UpdateDrink() {
           const errors = [];
           errors.push(drink.errors);
           setErrors(errors);
+          setDisableButton(true)
         } else {
+          setDisableButton(false)
           reset();
           history.push(`/drinks/${drink.id}`);
           setErrors([]);
@@ -95,7 +98,7 @@ function UpdateDrink() {
               <p>DRINK SOCIALLY</p>
             </a>
           </div>
-          {hasSubmitted && errors.length > 0 && (
+          {errors.length > 0 && (
             <div className="login-form-container-errors">
               <ul>
                 {errors.map((error, idx) => (
@@ -150,7 +153,7 @@ function UpdateDrink() {
                   name='drink_img_url'
               />
             </div>
-            <button type="submit" className="login-button">UPDATE DRINK</button>
+            <button type="submit" className="login-button" disabled={disableButton}>UPDATE DRINK</button>
           </form>
         </div>
       ) : (

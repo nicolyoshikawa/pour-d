@@ -14,6 +14,7 @@ function ReviewFormPage({user, drink}) {
   const [errors, setErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const { closeModal } = useModal();
+  const [disableButton, setDisableButton] = useState(true);
 
   const user_id = user.id
   const drink_id = drink.id
@@ -46,7 +47,9 @@ function ReviewFormPage({user, drink}) {
           const errors = [];
           errors.push(review.errors);
           setErrors(errors);
+          setDisableButton(true)
         } else {
+          setDisableButton(false)
           reset();
           history.push(`/drinks/${review.drink_id}`);
           setErrors([]);
@@ -67,7 +70,7 @@ function ReviewFormPage({user, drink}) {
         <div>
         <div className="review-form-container">
             <div className="check-in">Leave A Review</div>
-            {hasSubmitted && errors.length > 0 && (
+            {errors.length > 0 && (
             <div className="review-form-container-errors">
                 <ul>
                 {errors.map((error, idx) => (
@@ -113,7 +116,7 @@ function ReviewFormPage({user, drink}) {
                 <div className="ratings StarLabel"></div>
               </div>
             </div>
-            <button type="submit" className="review-button">Confirm</button>
+            <button type="submit" className="review-button" disabled={disableButton}>Confirm</button>
             </form>
         </div>
         </div>

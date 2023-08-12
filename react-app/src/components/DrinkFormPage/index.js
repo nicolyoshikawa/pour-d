@@ -14,6 +14,7 @@ function DrinkFormPage() {
   const [drink_img_url, setDrink_img_url] = useState("");
   const [errors, setErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [disableButton, setDisableButton] = useState(true);
 
   const sessionUser = useSelector(state => state.session.user) // Get current logged in user
   // Redirect to landing page if user not logged in
@@ -48,7 +49,9 @@ function DrinkFormPage() {
           const errors = [];
           errors.push(drink.errors);
           setErrors(errors);
+          setDisableButton(true)
         } else {
+          setDisableButton(false)
           reset();
           history.push(`/drinks/${drink.id}`);
           setErrors([]);
@@ -74,7 +77,7 @@ function DrinkFormPage() {
             <p>DRINK SOCIALLY</p>
           </a>
         </div>
-        {hasSubmitted && errors.length > 0 && (
+        {errors.length > 0 && (
           <div className="login-form-container-errors">
             <ul>
               {errors.map((error, idx) => (
@@ -129,7 +132,7 @@ function DrinkFormPage() {
                 name='drink_img_url'
             />
           </div>
-          <button type="submit" className="login-button">CREATE DRINK</button>
+          <button type="submit" className="login-button" disabled={disableButton}>CREATE DRINK</button>
         </form>
       </div>
     </div>
