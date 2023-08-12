@@ -5,19 +5,12 @@
   padding: 20px;
 }
 
-.friends-column {
+.friends-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 70%;
-  margin-right: 20px;
-}
-
-.sidebar-column {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 30%;
+  padding: 20px 40px;
 }
 
 .friends-card {
@@ -86,4 +79,27 @@
 
 .friends-list li button:hover {
   background-color: rgba(128, 128, 128, 0.5);
+}
+
+.friends-sidebar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.friends-stats {
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.friends-topdrinks {
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
 }

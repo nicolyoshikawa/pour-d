@@ -41,7 +41,7 @@ const FriendsPage = () => {
 
   return (
     <div className="friends-all-container">
-      <div className="friends-column">
+      <div className="friends-container">
         <div className="friends-card">
           <h2>Pending Friend Requests ({pendings?.length})</h2>
           <ul className="friends-list">
@@ -96,8 +96,8 @@ const FriendsPage = () => {
           </ul>
         </div>
       </div>
-      <div className="sidebar-container">
-        <div className="sidebar-stats">
+      <div className="friends-sidebar-container">
+        <div className="friends-card friends-stats">
           {sessionUser && (
             <Stats
               user={sessionUser}
@@ -107,7 +107,7 @@ const FriendsPage = () => {
             />
           )}
         </div>
-        <div className="sidebar-top-drinks">
+        <div className="friends-card friends-topdrinks">
           <TopDrinks drinks={Object.values(drinks)} />
         </div>
       </div>
