@@ -42,7 +42,8 @@
 
 .stats-avatar img {
     margin-right: 20px;
-    width: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .stats-name {

@@ -25,6 +25,7 @@
 .hero-avatar {
     width: 80px;
     margin: 30px 25px;
+    border-radius: 50%;
 }
 
 .full-name {
