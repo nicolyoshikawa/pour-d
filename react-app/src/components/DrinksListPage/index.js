@@ -17,8 +17,10 @@ function AllDrinks(){
     return(
         <>
             {isLoaded && (
-                <div className="allDrinks">
-                    {allDrinks.map(el => (<DrinkTile key={el.id} drink={el} clickable={true}/>))}
+                <div className="allDrinks container">
+                        <div className="top-feed">
+                            {allDrinks.map(el => (<DrinkTile key={el.id} drink={el} clickable={true}/>))}
+                        </div>
                 </div>
             )}
         </>

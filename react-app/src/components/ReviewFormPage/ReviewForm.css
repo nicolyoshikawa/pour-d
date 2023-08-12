@@ -224,42 +224,57 @@
 
 .tooltip h3 {margin:12px 0;}
 
-.tooltip .bottom {
-    min-width:150px;
-    top:40px;
-    left:50%;
-    transform:translate(-90%, 40%);
-    padding:20px;
-    color: white;
-    background-color: black;
-    font-weight:normal;
-    font-size:13px;
-    border-radius:8px;
-    position:absolute;
-    z-index:99999999;
-    box-sizing:border-box;
-    box-shadow:0 1px 8px rgba(0,0,0,0.5);
-    display:none;
-}
 .tooltiptext .bottom span{
     font-family: Open-Sans, sans-serif;
-}
-
-.tooltip:hover .bottom {
-    display:block;
 }
 
 .tooltip .bottom img {
     width:400px;
 }
 
+.bottom::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0px;
+    right: 0;
+    top: 50%;
+    border: 15px solid transparent;
+    border-right: 0;
+    border-left: 10px solid  black;
+    transform: translate(calc(100% + 1px), -50%);
+}
+
+.tooltip .bottom {
+    min-width:175px;
+    top:50%;
+    right:100%;
+    margin-right:20px;
+    transform:translate(0, -50%);
+    padding:15px;
+    color:white;
+    background-color:black;
+    font-weight:normal;
+    font-size:15px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 1px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.tooltip:hover .bottom {
+    display:block;
+}
+
 .tooltip .bottom i {
     position:absolute;
-    bottom:100%;
-    left:50%;
-    margin-left:-12px;
-    width:24px;
-    height:12px;
+    top:50%;
+    left:100%;
+    margin-top:-12px;
+    width:12px;
+    height:24px;
     overflow:hidden;
 }
 
@@ -268,21 +283,9 @@
     position:absolute;
     width:12px;
     height:12px;
-    left:50%;
-    transform:translate(-50%,50%) rotate(45deg);
-    background-color:#EEEEEE;
-    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    left:0;
+    top:50%;
+    transform:translate(-50%,-50%) rotate(-45deg);
+    background-color: black;
+    border:1px solid;
 }
-
-.bottom::before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 0px;
-    left: 90%;
-    top: 0;
-    border: 5px solid transparent;
-    border-top: 0;
-    border-bottom: 5px solid black;
-    transform: translate(-50%, calc(-100% - 1px));
-  }
