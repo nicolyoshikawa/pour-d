@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+
 import { signUp } from "../../store/session";
-import "./SignupForm.css";
 import logo from "../../assets/logo.png";
+import "./SignupForm.css";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -19,20 +20,49 @@ function SignupFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
+  const calculateAge = (birthdate) => {
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    const birthDateUTC = new Date(birthDate.toISOString());
+
+    let age = today.getUTCFullYear() - birthDateUTC.getUTCFullYear();
+
+    if (
+      birthDateUTC.getUTCMonth() > today.getUTCMonth() ||
+      (birthDateUTC.getUTCMonth() === today.getUTCMonth() &&
+        birthDateUTC.getUTCDate() > today.getUTCDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
+
+    const userAge = calculateAge(birthday);
+    const newErrors = [];
+
+    if (userAge < 21) {
+      newErrors.push("You're not old enough to sign up.");
+    }
+
+    if (password !== confirmPassword) {
+      newErrors.push("Passwords do not match.");
+    }
+
+    if (newErrors.length > 0) {
+      setErrors(newErrors);
+    } else {
       const data = await dispatch(
         signUp(username, email, password, firstName, lastName, birthday)
       );
       if (data) {
         setErrors(data);
       }
-    } else {
-      setErrors(["Passwords do not match."]);
     }
   };
-
   return (
     <div className="signup-page-container">
       <div className="signup-form-container">
