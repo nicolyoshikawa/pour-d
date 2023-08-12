@@ -15,7 +15,11 @@ export default function SearchBar({classStyle}) {
         dispatch(loadAllDrinks())
     }, [dispatch])
 
-    
+    const onClickHandler = () => {
+        setSearchInput("")
+    }
+
+
     if (drinks) {
         // Create array of drinks with name matching current input from user
         let filterDrinks = Object.values(drinks).filter((drink) => {
@@ -23,7 +27,7 @@ export default function SearchBar({classStyle}) {
                 return drink
             }
         })
-        
+
         // Remove border if results are empty
         if (searchInput.length && filterDrinks.length) {
             hideDiv = "results"
@@ -38,13 +42,14 @@ export default function SearchBar({classStyle}) {
                         className={classStyle}
                         placeholder="Find a beer"
                         onChange={(e) => setSearchInput(e.target.value)}
+                        value={searchInput}
                     />
                 </form>
                 <div className={hideDiv}>
                     {
                         filterDrinks?.map((drink) => {
                             return (
-                                <div className="result" key={drink.id}>
+                                <div className="result" key={drink.id} onClick={onClickHandler}>
                                     <NavLink to={`/drinks/${drink.id}`}>{drink.name}</NavLink>
                                 </div>
                             )
