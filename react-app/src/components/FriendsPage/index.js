@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { loadAllDrinks } from "../../store/drinks";
 import * as userActions from "../../store/currUser";
 import Stats from "../Home/Stats";
 import TopDrinks from "../Home/TopDrinks";
@@ -17,7 +16,6 @@ const FriendsPage = () => {
   const pendings = useSelector((state) => state.currUser.pendings);
 
   useEffect(() => {
-    // dispatch(loadAllDrinks())
     dispatch(userActions.getUserDrinks());
     dispatch(userActions.getUserFriends());
     dispatch(userActions.getUserPendings());
