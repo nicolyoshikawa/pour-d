@@ -49,10 +49,10 @@ export default function ProfilePage() {
     if (reviews) {
         sortedReviews = [...reviews]?.sort((a,b) => b.stars - a.stars)
         sortedTop = sortedReviews.slice(0,5).map((review) => {
-            if (drinks[review?.drink_id] !== undefined) {
-                return drinks[review?.drink_id]}
+            if(drinks &&  drinks[review.drink_id]){
+                return drinks[review.drink_id]
             }
-        )
+        })
     }
 
     return (
