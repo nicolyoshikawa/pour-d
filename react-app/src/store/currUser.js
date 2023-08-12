@@ -24,7 +24,7 @@ const userReviews = (reviews) => ({
 });
 
 export const getUserDrinks = () => async (dispatch) => {
-  const res = await fetch(`api/currentUser/drinks`, {
+  const res = await fetch(`/api/currentUser/drinks`, {
     method: "GET",
   });
 
@@ -36,7 +36,7 @@ export const getUserDrinks = () => async (dispatch) => {
 };
 
 export const getUserFriends = () => async (dispatch) => {
-  const res = await fetch("api/currentUser/friends", {
+  const res = await fetch("/api/currentUser/friends", {
     method: "GET",
   });
 
@@ -48,7 +48,7 @@ export const getUserFriends = () => async (dispatch) => {
 };
 
 export const getUserPendings = () => async (dispatch) => {
-  const res = await fetch("api/currentUser/pending");
+  const res = await fetch("/api/currentUser/pending");
 
   if (res.ok) {
     const data = await res.json();
@@ -58,7 +58,7 @@ export const getUserPendings = () => async (dispatch) => {
 };
 
 export const getUserReviews = () => async (dispatch) => {
-  const res = await fetch("api/currentUser/reviews", {
+  const res = await fetch("/api/currentUser/reviews", {
     method: "GET",
   });
 

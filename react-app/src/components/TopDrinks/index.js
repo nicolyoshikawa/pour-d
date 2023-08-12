@@ -1,6 +1,6 @@
 import "./TopDrinks.css"
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import * as userActions from "../../store/currUser"
 import { loadAllDrinks } from "../../store/drinks"
 import Stats from "../Home/Stats"
@@ -13,7 +13,6 @@ export default function TopDrinks() {
     const userFriends = useSelector(state => state.currUser.friends)
     const userReviews = useSelector(state => state.currUser.reviews)
     const drinks = useSelector(state => Object.values(state.drinks))
-    console.log(sessionUser)
 
     useEffect(() => {
         dispatch(loadAllDrinks())
@@ -27,11 +26,16 @@ export default function TopDrinks() {
     return (
         <div className="container">
             <div className="sections">
-                <div className="top-feed-full">
+                <div className="top-feed">
                     <h2>
                         Top 25 drinks
                     </h2>
                     {sorted?.slice(0,25).map(el => (<DrinkTile key={el.id} drink={el} clickable={true}/>))}
+                </div>
+                <div className="homepage-sidebar">
+                    <div className="sidebar-stats">
+                        {sessionUser && userDrinks && userReviews && <Stats user={sessionUser} numDrinks={userDrinks?.length} numReviews={userReviews?.length} numFriends={userFriends?.length}/>}
+                    </div>
                 </div>
             </div>
         </div>
