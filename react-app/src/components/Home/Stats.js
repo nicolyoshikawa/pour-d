@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 import default_avatar from "../../assets/default_avatar.png"
 
 export default function Stats({user, numDrinks, numReviews, numFriends}) {
@@ -13,6 +14,7 @@ export default function Stats({user, numDrinks, numReviews, numFriends}) {
 
     return (
         <>
+        <NavLink to="/my-profile">
             <div className="stats-top-section">
                 <div className="stats-avatar">
                     <img src={avatar} alt="avatar"/>
@@ -22,7 +24,7 @@ export default function Stats({user, numDrinks, numReviews, numFriends}) {
                         {user?.first_name} {user?.last_name}
                     </h2>
                     <p className="stats-username">
-                        <i class="fa-solid fa-user" style={{fontSize: "8pt", color: "gray", marginRight: "5px"}}></i> {lowercase}
+                        <i className="fa-solid fa-user" style={{fontSize: "8pt", color: "gray", marginRight: "5px"}}></i> {lowercase}
                     </p>
                 </div>
             </div>
@@ -40,6 +42,7 @@ export default function Stats({user, numDrinks, numReviews, numFriends}) {
                     <div className="stats-type">FRIENDS</div>
                 </div>
             </div>
+        </NavLink>
         </>
     )
 }

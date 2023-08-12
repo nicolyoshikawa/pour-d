@@ -16,6 +16,7 @@ import UpdateDrink from "./components/ManageDrinks/UpdateDrink";
 import FriendsPage from "./components/FriendsPage";
 import TopDrinks from "./components/TopDrinks";
 import EditProfile from "./components/EditProfile";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -79,7 +80,7 @@ function App() {
             <LandingPage />
           </Route>
           <Route>
-            <h1>Page Not Found</h1>
+            <PageNotFound />
           </Route>
         </Switch>
       )}

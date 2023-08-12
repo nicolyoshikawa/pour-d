@@ -79,10 +79,11 @@
 
 .review-form-input-container textarea {
     border: none;
-    border-left: 1px solid #cccccc;
+    /* border-left: 1px solid #cccccc; */
     padding: 0px 8px;
     font-size: 16px;
-    margin: 6px 0px;
+    /* margin: 6px 0px; */
+    border-radius: 4px;
     width: 100%;
     font-family: Open-Sans, sans-serif;
 }
@@ -211,7 +212,7 @@
 
 .check-in-button-container{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin: 10px
 }
 
@@ -222,7 +223,7 @@
     text-align:left;
 }
 
-.tooltip h3 {margin:12px 0;}
+/* .tooltip h3 {margin:12px 0;} */
 
 .tooltiptext .bottom span{
     font-family: Open-Sans, sans-serif;

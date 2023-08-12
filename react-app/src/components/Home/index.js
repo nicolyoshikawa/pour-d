@@ -39,9 +39,10 @@ export default function Home() {
                     })}
                 </div>
                 <div className="homepage-sidebar">
+                {sessionUser && 
                     <div className="sidebar-stats">
-                        {sessionUser && <Stats user={sessionUser} numDrinks={userDrinks?.length} numReviews={userReviews?.length} numFriends={userFriends?.length}/>}
-                    </div>
+                        <Stats user={sessionUser} numDrinks={userDrinks?.length} numReviews={userReviews?.length} numFriends={userFriends?.length}/>
+                    </div>}
                     <div className="sidebar-top-drinks">
                         <TopDrinks drinks={Object.values(drinks)}/>
                     </div>

@@ -39,34 +39,25 @@ export default function ProfilePage() {
         dispatch(loadAllDrinks())
     }, [dispatch])
 
+    reviews?.sort((a,b) => new Date(b.created_at) - new Date(a.created_at))
 
     const totalDrinks = drinks?.length
     const totalFriends = friends?.length
     const totalReviews = reviews?.length
 
-    // Grab top user's top drinks
     let sortedReviews
-    let topFive = []
+    let sortedTop
     if (reviews) {
-        sortedReviews = [...reviews]
-        sortedReviews.sort((a,b) => b.stars - a.stars)
-        sortedReviews.filter((item, index) => sortedReviews.indexOf(item) === index)
-        const drinkIds = sortedReviews.map((review) => {
-            return review.drink_id
+        sortedReviews = [...reviews]?.sort((a,b) => b.stars - a.stars)
+        sortedTop = sortedReviews.map((review) => {
+            if(drinks &&  allDrinks[review.drink_id]){
+                return allDrinks[review.drink_id]
+            }
         })
-
-        function removeDuplicates(arr) {
-            return [...new Set(arr)];
-        }
-
-        const removed = removeDuplicates(drinkIds)
-
-        removed.slice(0,5).forEach((id) => topFive.push(drinks?.find((drink) => drink.id === id)))
     }
 
-
     return (
-        <div className="container">
+        <>
             <div className="user-hero">
                     <img src={avatar} alt="avatar" className="hero-avatar"/>
                 <div className="user-info">
@@ -75,7 +66,7 @@ export default function ProfilePage() {
                             {sessionUser?.first_name} {sessionUser?.last_name}
                         </h1>
                         <p className="username">
-                            {lowercase}
+                        <i className="fa-solid fa-user" style={{fontSize: "10pt", color: "white", marginRight: "10px"}}></i>{lowercase}
                         </p>
                     </div>
                     <div className="stats">
@@ -97,37 +88,36 @@ export default function ProfilePage() {
                     </div>
                 </div>
             </div>
+        <div className="container">
             <div className="sections">
                 <div className="user-feed">
                     <h2>
                         Your recent reviews
                     </h2>
                     {reviews?.map((review) => {
-                        return <Review user={sessionUser} review={review} drink={allDrinks[review.drink_id]}/>
+                        return <Review user={sessionUser} review={review} drink={allDrinks[review?.drink_id]}/>
                     })}
                 </div>
                 <div className="user-top">
                     <h2>
-                        Your top beers
+                        Your top drinks
                     </h2>
                     <div className="top-list">
-                        {topFive.filter((drink) => {
-                            if (drink !== undefined) {
-                                return drink
-                            }
-                        }).map((beer, idx) => {
-                        return (
-                            <NavLink to={`/drinks/${beer.id}`}>
+                        {reviews && drinks && sortedTop?.slice(0,5).map((beer, idx) => {
+                            if (beer !== undefined) {
+                            return (
+                                <NavLink to={`/drinks/${beer?.id}`}>
                                 <span className="top-item">
                                 <img src={beer?.drink_img_url} alt="logo" className="top-img"/>
                                 <div key={idx} className="top-name">{beer?.name}</div>
                                 </span>
                             </NavLink>
-                        )
+                        )}
                         })}
                     </div>
                 </div>
             </div>
         </div>
+        </>
     )
 }

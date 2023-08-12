@@ -1,16 +1,16 @@
-.editprofile-container {
+.pagenotfound-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
 }
 
-.editprofile-container .friends-card {
+.pagenotfound-container .friends-card {
   max-width: 50%;
   text-align: center;
   margin-top: 40px;
 }
 
-.editprofile-container h1 {
+.pagenotfound-container h1 {
   font-size: 2rem;
 }

@@ -36,7 +36,7 @@ function ManageDrinks() {
             {isLoaded && showMenu && (
                 <>
                     <div className="allDrinks container">
-                    <div className="top-feed">
+                    <div className="top-feed-full">
                     <h1 className="top-title">Manage Drinks</h1>
                         <div className="top-list">
                         {drinks.length > 0 ? (
@@ -59,10 +59,11 @@ function ManageDrinks() {
                                         <div className="drinkDetails">
                                             <div>{el.abv}% ABV</div>
                                             <div className="leftBorder">{el.ibu} IBU</div>
-                                            <button onClick={()=>updateClickHandler(el)} >Edit</button>
+                                            <button className="drink-edit-button" onClick={()=>updateClickHandler(el)} >Edit</button>
                                             <OpenModalButton
                                                 buttonText="Delete"
                                                 onItemClick={closeMenu}
+                                                className="drink-edit-button"
                                                 modalComponent={<DeleteDrink drink={el}/>}
                                             />
                                         </div>
