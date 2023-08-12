@@ -34,7 +34,7 @@ export default function TopDrinks() {
                 </div>
                 <div className="homepage-sidebar">
                     <div className="sidebar-stats">
-                        {sessionUser && <Stats user={sessionUser} numDrinks={userDrinks?.length} numReviews={userReviews?.length} numFriends={userFriends?.length}/>}
+                        {sessionUser && userDrinks && userReviews && <Stats user={sessionUser} numDrinks={userDrinks?.length} numReviews={userReviews?.length} numFriends={userFriends?.length}/>}
                     </div>
                 </div>
             </div>

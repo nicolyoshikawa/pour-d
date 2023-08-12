@@ -44,26 +44,13 @@ export default function ProfilePage() {
     const totalFriends = friends?.length
     const totalReviews = reviews?.length
 
-    // Grab top user's top drinks
     let sortedReviews
-    let topFive = []
+    let sortedTop
     if (reviews) {
-        sortedReviews = [...reviews]
-        sortedReviews.sort((a,b) => b.stars - a.stars)
-        sortedReviews.filter((item, index) => sortedReviews.indexOf(item) === index)
-        const drinkIds = sortedReviews.map((review) => {
-            return review.drink_id
-        })
-
-        function removeDuplicates(arr) {
-            return [...new Set(arr)];
-        }
-
-        const removed = removeDuplicates(drinkIds)
-
-        removed.slice(0,5).forEach((id) => topFive.push(drinks?.find((drink) => drink.id === id)))
+        sortedReviews = [...reviews]?.sort((a,b) => b.stars - a.stars)
+        sortedTop = sortedReviews.slice(0,5).map((review) => {
+            return drinks[review?.drink_id]})
     }
-
 
     return (
         <>
@@ -104,27 +91,24 @@ export default function ProfilePage() {
                         Your recent reviews
                     </h2>
                     {reviews?.map((review) => {
-                        return <Review user={sessionUser} review={review} drink={allDrinks[review.drink_id]}/>
+                        return <Review user={sessionUser} review={review} drink={allDrinks[review?.drink_id]}/>
                     })}
                 </div>
                 <div className="user-top">
                     <h2>
-                        Your top beers
+                        Your top drinks
                     </h2>
                     <div className="top-list">
-                        {topFive.filter((drink) => {
-                            if (drink !== undefined) {
-                                return drink
-                            }
-                        }).map((beer, idx) => {
-                        return (
-                            <NavLink to={`/drinks/${beer.id}`}>
+                        {reviews && drinks && sortedTop?.slice(0,5).map((beer, idx) => {
+                            if (beer !== undefined) {
+                            return (
+                                <NavLink to={`/drinks/${beer?.id}`}>
                                 <span className="top-item">
                                 <img src={beer?.drink_img_url} alt="logo" className="top-img"/>
                                 <div key={idx} className="top-name">{beer?.name}</div>
                                 </span>
                             </NavLink>
-                        )
+                        )}
                         })}
                     </div>
                 </div>
