@@ -66,7 +66,7 @@ export default function ProfilePage() {
 
 
     return (
-        <div className="container">
+        <>
             <div className="user-hero">
                     <img src={avatar} alt="avatar" className="hero-avatar"/>
                 <div className="user-info">
@@ -97,6 +97,7 @@ export default function ProfilePage() {
                     </div>
                 </div>
             </div>
+        <div className="container">
             <div className="sections">
                 <div className="user-feed">
                     <h2>
@@ -129,5 +130,6 @@ export default function ProfilePage() {
                 </div>
             </div>
         </div>
+        </>
     )
 }

@@ -18,7 +18,8 @@ function AllDrinks(){
         <>
             {isLoaded && (
                 <div className="allDrinks container">
-                        <div className="top-feed">
+                        <div className="top-feed-full">
+                            <h2>All drinks</h2>
                             {allDrinks.map(el => (<DrinkTile key={el.id} drink={el} clickable={true}/>))}
                         </div>
                 </div>

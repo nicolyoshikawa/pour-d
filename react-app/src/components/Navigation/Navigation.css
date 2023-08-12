@@ -13,8 +13,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1080px;
-  width: 100%;
+  /* max-width: 1080px; */
+  width: 95%;
 }
 
 .nav-logo {
