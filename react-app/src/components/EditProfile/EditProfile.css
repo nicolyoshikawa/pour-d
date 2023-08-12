@@ -1,3 +1,16 @@
-.edit-profile-container {
-    height: 100vh;
+.editprofile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.editprofile-container .friends-card {
+  max-width: 50%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.editprofile-container h1 {
+  font-size: 2rem;
 }
