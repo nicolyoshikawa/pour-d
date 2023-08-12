@@ -31,9 +31,9 @@ function Navigation({ isLoaded }) {
               </div>
               <div className="navbar-inner-profile-search">
                 <ProfileButton user={sessionUser} />
-                
+                <div className="nav-search">
                   <SearchBar classStyle={"search-input-nav"}/>
-                
+                </div>
               </div>
             </div>
           ) : (
