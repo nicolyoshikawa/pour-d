@@ -56,6 +56,13 @@ function UpdateDrink() {
         errors.push("Image URL needs to be under 255 characters");
     }
     setErrors(errors);
+
+    if(errors.length > 0){
+      setDisableButton(true)
+    } else {
+      setDisableButton(false)
+    }
+
   }, [name, abv, ibu, description, drink_img_url, hasSubmitted, user?.id, drink?.user_id]);
 
   const handleSubmit = async (e) => {
@@ -86,6 +93,7 @@ function UpdateDrink() {
     setDrink_img_url("");
     setErrors([]);
     setHasSubmitted(false);
+    setDisableButton(true);
   };
 
   return (

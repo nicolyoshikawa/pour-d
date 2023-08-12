@@ -36,6 +36,12 @@ function DrinkFormPage() {
         errors.push("Image URL needs to be under 255 characters");
     }
     setErrors(errors);
+
+    if(errors.length > 0){
+      setDisableButton(true)
+    } else {
+      setDisableButton(false)
+    }
   }, [name, abv, ibu, description, drink_img_url, hasSubmitted]);
 
   const handleSubmit = async (e) => {
@@ -66,6 +72,7 @@ function DrinkFormPage() {
     setDrink_img_url("");
     setErrors([]);
     setHasSubmitted(false);
+    setDisableButton(true);
   };
 
   return (
