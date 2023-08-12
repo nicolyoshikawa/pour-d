@@ -1,10 +1,16 @@
 .pagenotfound-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .pagenotfound-container h1 {
-    font-size: 2rem;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.pagenotfound-container .friends-card {
+  max-width: 50%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.pagenotfound-container h1 {
+  font-size: 2rem;
+}

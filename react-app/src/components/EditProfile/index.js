@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./EditProfile.css";
 
@@ -12,8 +13,16 @@ const EditProfile = () => {
   if (!sessionUser) {
     history.push("/");
   }
-
-  return <div className="edit-profile-container">Edit Profile coming soon!</div>;
+  return (
+    <div className="editprofile-container">
+      <div className="friends-card">
+        <h1>Edit Profile coming soon!</h1>
+        <p>
+          Go back <NavLink to="/home">home</NavLink>
+        </p>
+      </div>
+    </div>
+  );
 };
 
 export default EditProfile;
