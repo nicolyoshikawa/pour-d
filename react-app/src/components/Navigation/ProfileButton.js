@@ -45,7 +45,7 @@ function ProfileButton({ user }) {
       <button onClick={openMenu}>
         <img src={user.user_img_url} alt="Profile" />
       </button>
-      <ul className={ulClassName} ref={ulRef}>
+      <ul className={ulClassName} ref={ulRef} onClick={closeMenu}>
         {user ? (
           <div className="profile-dropdown-menu">
             <li>
