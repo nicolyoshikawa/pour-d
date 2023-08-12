@@ -49,7 +49,6 @@ export default function ProfilePage() {
     let sortedTop
     if (reviews) {
         sortedReviews = [...reviews]?.sort((a,b) => b.stars - a.stars)
-        console.log(sortedReviews)
         sortedTop = sortedReviews.map((review) => {
             if(drinks &&  allDrinks[review.drink_id]){
                 return allDrinks[review.drink_id]
