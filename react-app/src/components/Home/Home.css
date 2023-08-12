@@ -11,6 +11,7 @@
     border-radius: 15px;
     list-style: none;
     height: max-content;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-stats a {
@@ -32,6 +33,7 @@
     border-radius: 15px;
     list-style: none;
     height: max-content;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .stats-top-section {

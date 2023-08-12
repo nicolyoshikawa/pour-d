@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import * as drinkActions from "../../store/drinks";
+import "../LoginFormModal/LoginForm.css"
 
 function DrinkFormPage() {
   const dispatch = useDispatch();

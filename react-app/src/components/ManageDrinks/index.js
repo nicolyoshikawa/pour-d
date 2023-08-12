@@ -36,7 +36,7 @@ function ManageDrinks() {
             {isLoaded && showMenu && (
                 <>
                     <div className="allDrinks container">
-                    <div className="top-feed">
+                    <div className="top-feed-full">
                     <h1 className="top-title">Manage Drinks</h1>
                         <div className="top-list">
                         {drinks.length > 0 ? (
