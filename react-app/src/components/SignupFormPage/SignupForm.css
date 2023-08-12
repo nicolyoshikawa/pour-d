@@ -179,6 +179,7 @@
   font-weight: bold;
   padding: 10px;
   width: 100%;
+  transition: background-color 0.5s ease;
 }
 
 .signup-form-container button.signup-button {
