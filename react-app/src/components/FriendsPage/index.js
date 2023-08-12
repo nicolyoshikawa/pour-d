@@ -88,7 +88,7 @@ const FriendsPage = () => {
                     <div className="friend-username">{friend.username}</div>
                   </div>
                 </div>
-                <button onClick={(e) => handleDelete(e, friend.id)}>Delete</button>
+                <button onClick={(e) => handleDelete(e, friend.id)}>Unfriend</button>
               </li>
             ))}
           </ul>
