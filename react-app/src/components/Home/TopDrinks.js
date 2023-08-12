@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 
 export default function TopDrinks({drinks}) {
-    const sorted = drinks?.sort((a,b) => b.review_avg - a.review_avg)
+    const sorted = drinks?.sort((a,b) => Number(b.review_avg).toFixed(2) - Number(a.review_avg).toFixed(2))
 
     return (
         <>
@@ -16,7 +16,7 @@ export default function TopDrinks({drinks}) {
                             <img src={beer?.drink_img_url} alt="logo" className="top-img"/>
                             <div key={idx} className="top-name">{beer?.name}
                                 <div key={`rating-${idx}`} className="top-rating">
-                                    AVG: {beer?.review_avg}
+                                    AVG: {Number(beer?.review_avg).toFixed(2)}
                                 </div>
                             </div>
                         </span>

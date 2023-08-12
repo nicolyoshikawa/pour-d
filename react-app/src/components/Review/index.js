@@ -1,18 +1,18 @@
 import "./Review.css"
-import { useEffect, useState } from "react";
-import OpenModalButton from "../OpenModalButton";
+// import { useEffect, useState } from "react";
+// import OpenModalButton from "../OpenModalButton";
 import { NavLink } from  "react-router-dom";
-import DeleteReview from "../DeleteReview";
-import EditReview from "../EditReview";
-import { loadDrinkById } from "../../store/drinks"
+// import DeleteReview from "../DeleteReview";
+// import EditReview from "../EditReview";
+// import { loadDrinkById } from "../../store/drinks"
 import ManageReview from "../ManageReviews";
 
 export default function Review({review, drink, user}) {
     const {id, content, created_at, drink_id, review_img_url, stars, user_id} = review
     const star = <i className="fa-solid fa-star"></i>
     const emptyStar = <i className="fa-regular fa-star"></i>
-    const [showMenu, setShowMenu] = useState(true);
-    const closeMenu = () => setShowMenu(false);
+    // const [showMenu, setShowMenu] = useState(true);
+    // const closeMenu = () => setShowMenu(false);
 
     // Calculate full and empty stars to match review rating
     let makeRating = []
