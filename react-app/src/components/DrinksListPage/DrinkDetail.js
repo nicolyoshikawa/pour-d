@@ -34,7 +34,7 @@ const DrinkDetail = () => {
                           <div className="friends-card">
                             <h1>Drink Not Found</h1>
                             <p>
-                              Go back the <NavLink to="/drinks">Drinks List</NavLink>
+                              Go back to the <NavLink to="/drinks">Drinks List</NavLink>
                             </p>
                           </div>
                         </div>
