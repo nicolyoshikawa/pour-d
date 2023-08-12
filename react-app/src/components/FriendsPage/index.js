@@ -31,24 +31,26 @@ const FriendsPage = () => {
 
   return (
     <div className="friends-all-container">
-      <div className="pending-friends">
-        <h2>Pending Friend Requests</h2>
-        <ul>
+      <div className="friends-card">
+        <h2>Pending Friend Requests ({pending.length})</h2>
+        <ul className="friends-list">
           {pending?.map((request) => (
             <li key={request.id}>
-              {request.username} sent you a friend request.
-              <button onClick={(e) => handleAccept(e, request.id)}>Accept</button>
-              <button onClick={(e) => handleReject(e, request.id)}>Reject</button>
+              <span>{request.username} sent you a friend request.</span>
+              <div>
+                <button onClick={(e) => handleAccept(e, request.id)}>Accept</button>
+                <button onClick={(e) => handleReject(e, request.id)}>Reject</button>
+              </div>
             </li>
           ))}
         </ul>
       </div>
-      <div className="current-friends">
-        <h2>Current Friends</h2>
-        <ul>
+      <div className="friends-card">
+        <h2>Current Friends ({friends.length})</h2>
+        <ul className="friends-list">
           {friends?.map((friend) => (
             <li key={friend.id}>
-              {friend.username}
+              <span>{friend.username}</span>
               <button onClick={(e) => handleDelete(e, friend.id)}>Delete</button>
             </li>
           ))}

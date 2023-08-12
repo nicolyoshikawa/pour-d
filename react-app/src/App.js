@@ -63,9 +63,6 @@ function App() {
           <Route exact path="/edit-profile">
             <EditProfile />
           </Route>
-          <Route exact path="/check-ins">
-            <p>Check-ins</p>
-          </Route>
           <Route path="/login">
             <LoginFormPage />
           </Route>
