@@ -23,8 +23,8 @@ def seed_friends():
     friend4 = Friend(user=user1, friend=user4, status='friends')
     # User1 is friends with User5
     friend7 = Friend(user=user1, friend=user5, status='friends')
-    # User1 has pending friend request to User7
-    friend12 = Friend(user=user1, friend=user7, status='pending')
+    # User7 has pending friend request to User1
+    friend12 = Friend(user=user7, friend=user1, status='pending')
     # User8 has pending friend request to User1
     friend15 = Friend(user=user8, friend=user1, status='pending')
     # User9 has pending friend request to User1
