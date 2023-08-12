@@ -11,7 +11,7 @@ def seed_users():
         first_name='User',
         last_name='One',
         birthday=date(1990, 1, 1),
-        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+        user_img_url='https://i1.wp.com/assets.untappd.com/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1',
     )
 
     marnie = User(
@@ -21,7 +21,7 @@ def seed_users():
         first_name='User',
         last_name='Two',
         birthday=date(1990, 1, 2),
-        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+        user_img_url='https://i1.wp.com/assets.untappd.com/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1',
     )
 
     bobbie = User(
@@ -31,7 +31,7 @@ def seed_users():
         first_name='User',
         last_name='Three',
         birthday=date(1990, 1, 3),
-        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+        user_img_url='https://i1.wp.com/assets.untappd.com/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1',
     )
 
     user4 = User(
@@ -41,7 +41,7 @@ def seed_users():
         first_name='User',
         last_name='Four',
         birthday=date(1990, 1, 4),
-        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+        user_img_url='https://i1.wp.com/assets.untappd.com/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1',
     )
 
     user5 = User(
@@ -51,7 +51,7 @@ def seed_users():
         first_name='User',
         last_name='Five',
         birthday=date(1990, 1, 5),
-        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+        user_img_url='https://i1.wp.com/assets.untappd.com/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1',
     )
 
     user6 = User(
@@ -61,7 +61,7 @@ def seed_users():
         first_name='User',
         last_name='Six',
         birthday=date(1990, 1, 6),
-        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+        user_img_url='https://i1.wp.com/assets.untappd.com/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1',
     )
 
     user7 = User(
@@ -71,7 +71,7 @@ def seed_users():
         first_name='User',
         last_name='Seven',
         birthday=date(1990, 1, 7),
-        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+        user_img_url='https://i1.wp.com/assets.untappd.com/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1',
     )
 
     user8 = User(
@@ -81,7 +81,7 @@ def seed_users():
         first_name='User',
         last_name='Eight',
         birthday=date(1990, 1, 8),
-        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+        user_img_url='https://i1.wp.com/assets.untappd.com/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1',
     )
 
     user9 = User(
@@ -91,7 +91,7 @@ def seed_users():
         first_name='User',
         last_name='Nine',
         birthday=date(1990, 1, 9),
-        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+        user_img_url='https://i1.wp.com/assets.untappd.com/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1',
     )
 
     user10 = User(
@@ -101,7 +101,7 @@ def seed_users():
         first_name='User',
         last_name='Ten',
         birthday=date(1990, 1, 10),
-        user_img_url='https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png',
+        user_img_url='https://i1.wp.com/assets.untappd.com/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1',
     )
 
     db.session.add(demo)
