@@ -64,7 +64,7 @@ def sign_up():
     if form.validate_on_submit():        
         user_img_url = form.data["user_img_url"]
         if not user_img_url:
-            user_img_url = "https://gravatar.com/avatar/a7f767aec38bdd1bc32e3f73a570accc?size=125&d=https%3A%2F%2Fassets.untappd.com%2Fsite%2Fassets%2Fimages%2Fdefault_avatar_v3_gravatar.jpg%3Fv%3D2"
+            user_img_url = "https://i1.wp.com/assets.untappd.com/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1"
         
         user = User(
             first_name=form.data["first_name"],
