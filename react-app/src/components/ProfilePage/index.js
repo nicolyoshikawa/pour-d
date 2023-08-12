@@ -101,7 +101,7 @@ export default function ProfilePage() {
                     <div className="top-list">
                         {reviews && drinks && sortedTop?.slice(0,5).map((beer, idx) => {
                         return (
-                            <NavLink to={`/drinks/${beer.id}`}>
+                            <NavLink to={`/drinks/${beer?.id}`}>
                                 <span className="top-item">
                                 <img src={beer?.drink_img_url} alt="logo" className="top-img"/>
                                 <div key={idx} className="top-name">{beer?.name}</div>
