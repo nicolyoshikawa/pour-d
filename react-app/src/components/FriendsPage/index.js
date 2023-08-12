@@ -7,7 +7,7 @@ import "./FriendsPage.css";
 const FriendsPage = () => {
   const dispatch = useDispatch();
   const friends = useSelector((state) => state.currUser.friends);
-  const pending = useSelector((state) => state.currUser.pendings);
+  const pendings = useSelector((state) => state.currUser.pendings);
 
   useEffect(() => {
     dispatch(userActions.getUserFriends());
@@ -32,14 +32,20 @@ const FriendsPage = () => {
   return (
     <div className="friends-all-container">
       <div className="friends-card">
-        <h2>Pending Friend Requests ({pending?.length})</h2>
+        <h2>Pending Friend Requests ({pendings?.length})</h2>
         <ul className="friends-list">
-          {pending?.map((request) => (
-            <li key={request.id}>
-              <span>{request.username} sent you a friend request.</span>
-              <div>
-                <button onClick={(e) => handleAccept(e, request.id)}>Accept</button>
-                <button onClick={(e) => handleReject(e, request.id)}>Reject</button>
+          {pendings?.map((pending) => (
+            <li key={pending.id}>
+              <div className="friend-info">
+                <img src={pending.user_img_url} alt={pending.username} className="friend-img" />
+                <div className="friend-details">
+                  <div className="friend-name">{pending.first_name} {pending.last_name}</div>
+                  <div className="friend-username">{pending.username}</div>
+                </div>
+              </div>
+              <div className="friend-buttons">
+                <button onClick={(e) => handleAccept(e, pending.id)}>Accept</button>
+                <button onClick={(e) => handleReject(e, pending.id)}>Reject</button>
               </div>
             </li>
           ))}
@@ -50,7 +56,13 @@ const FriendsPage = () => {
         <ul className="friends-list">
           {friends?.map((friend) => (
             <li key={friend.id}>
-              <span>{friend.username}</span>
+              <div className="friend-info">
+                <img src={friend.user_img_url} alt={friend.username} className="friend-img" />
+                <div className="friend-details">
+                  <div className="friend-name">{friend.first_name} {friend.last_name}</div>
+                  <div className="friend-username">{friend.username}</div>
+                </div>
+              </div>
               <button onClick={(e) => handleDelete(e, friend.id)}>Delete</button>
             </li>
           ))}
