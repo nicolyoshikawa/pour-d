@@ -21,7 +21,7 @@ export default function TopDrinks() {
         dispatch(userActions.getUserReviews())
     }, [dispatch])
 
-    drinks?.sort((a,b) => b.avg_review - a.avg_review)
+    const sorted = drinks?.sort((a,b) => Number(b.review_avg) - Number(a.review_avg))
 
     return (
         <div className="container">
@@ -30,7 +30,7 @@ export default function TopDrinks() {
                     <h2>
                         Top 25 drinks
                     </h2>
-                    {drinks?.slice(0,25).map(el => (<DrinkTile key={el.id} drink={el} clickable={true}/>))}
+                    {sorted?.slice(0,25).map(el => (<DrinkTile key={el.id} drink={el} clickable={true}/>))}
                 </div>
                 <div className="homepage-sidebar">
                     <div className="sidebar-stats">
