@@ -31,7 +31,7 @@ const DrinkTile = ({drink, clickable}) => {
             <div className="drinkInfo">
                 {clickable ? (
                     <p className="drinkName"><Link to={`/drinks/${drink.id}`}> {drink.name}</Link></p>
-                    ) : <p>{drink.name}</p>
+                    ) : <p className="drinkName">{drink.name}</p>
                 }
                 <p>{drink.description}</p>
             </div>

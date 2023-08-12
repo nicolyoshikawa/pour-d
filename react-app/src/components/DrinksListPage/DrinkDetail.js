@@ -22,9 +22,11 @@ const DrinkDetail = () => {
             {isLoaded && (
                 <>
                     {drink ? (
-                    <div className="drinkDetailPage">
-                        <DrinkTile drink={drink} clickable={false}/>
-                        <ReviewsForDrink drink={drink}/>
+                    <div className="drinkDetailPage container">
+                        <div className="top-feed">
+                            <DrinkTile drink={drink} clickable={false}/>
+                            <ReviewsForDrink drink={drink}/>
+                        </div>
                     </div>
                     ) :
                     <h1>Drink Not Found</h1>

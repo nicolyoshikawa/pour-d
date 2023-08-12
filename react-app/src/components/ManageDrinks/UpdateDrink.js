@@ -44,8 +44,8 @@ function UpdateDrink() {
     const errors = [];
     if(user?.id !== drink?.user_id) errors.push("You do not have access to edit this drink.");
     if(name && name.length > 50) errors.push("Drink name needs to be under 50 characters");
-    if(abv && (abv > 100 || abv < 0)) errors.push("ABV needs to be between 0 and 100");
-    if(ibu && (ibu > 130 || ibu < 0)) errors.push("IBU needs to be between 0 and 130");
+    if(abv && (abv > 100 || abv < 1)) errors.push("ABV needs to be between 1 and 100");
+    if(ibu && (ibu > 130 || ibu < 1)) errors.push("IBU needs to be between 1 and 130");
     if(description && description.length > 255) errors.push("Description needs to be less than 255 characters");
     if(drink_img_url && (!drink_img_url.endsWith(".png") &&
         !drink_img_url.endsWith(".jpg") && !drink_img_url.endsWith(".jpeg"))) {

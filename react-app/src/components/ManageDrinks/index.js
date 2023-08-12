@@ -35,8 +35,10 @@ function ManageDrinks() {
         <>
             {isLoaded && showMenu && (
                 <>
-                    <h1>Manage Drinks</h1>
-                    <div className="allDrinks">
+                    <div className="allDrinks container">
+                    <div className="top-feed">
+                    <h1 className="top-title">Manage Drinks</h1>
+                        <div className="top-list">
                         {drinks.length > 0 ? (
                             drinks.map(el => {
                                 return (
@@ -70,6 +72,8 @@ function ManageDrinks() {
                         ) : (
                             <NavLink exact to="/drinks/new">Create A Drink</NavLink>
                         )}
+                        </div>
+                    </div>
                     </div>
                 </>
             )}
