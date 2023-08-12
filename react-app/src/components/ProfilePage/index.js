@@ -66,7 +66,7 @@ export default function ProfilePage() {
                             {sessionUser?.first_name} {sessionUser?.last_name}
                         </h1>
                         <p className="username">
-                        <i class="fa-solid fa-user" style={{fontSize: "10pt", color: "white", marginRight: "10px"}}></i>{lowercase}
+                        <i className="fa-solid fa-user" style={{fontSize: "10pt", color: "white", marginRight: "10px"}}></i>{lowercase}
                         </p>
                     </div>
                     <div className="stats">

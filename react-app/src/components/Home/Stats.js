@@ -24,7 +24,7 @@ export default function Stats({user, numDrinks, numReviews, numFriends}) {
                         {user?.first_name} {user?.last_name}
                     </h2>
                     <p className="stats-username">
-                        <i class="fa-solid fa-user" style={{fontSize: "8pt", color: "gray", marginRight: "5px"}}></i> {lowercase}
+                        <i className="fa-solid fa-user" style={{fontSize: "8pt", color: "gray", marginRight: "5px"}}></i> {lowercase}
                     </p>
                 </div>
             </div>
