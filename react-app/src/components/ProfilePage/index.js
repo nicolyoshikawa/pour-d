@@ -39,6 +39,7 @@ export default function ProfilePage() {
         dispatch(loadAllDrinks())
     }, [dispatch])
 
+    reviews?.sort((a,b) => new Date(b.created_at) - new Date(a.created_at))
 
     const totalDrinks = drinks?.length
     const totalFriends = friends?.length
@@ -48,9 +49,9 @@ export default function ProfilePage() {
     let sortedTop
     if (reviews) {
         sortedReviews = [...reviews]?.sort((a,b) => b.stars - a.stars)
-        sortedTop = sortedReviews.slice(0,5).map((review) => {
-            if(drinks &&  drinks[review.drink_id]){
-                return drinks[review.drink_id]
+        sortedTop = sortedReviews.map((review) => {
+            if(drinks &&  allDrinks[review.drink_id]){
+                return allDrinks[review.drink_id]
             }
         })
     }
