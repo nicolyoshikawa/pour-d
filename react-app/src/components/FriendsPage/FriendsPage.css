@@ -98,6 +98,16 @@
   width: 100%;
 }
 
+.friends-stats a {
+  color: black;
+  cursor: pointer;
+}
+
+.friends-stats a:hover {
+  color: black;
+  cursor: pointer;
+}
+
 .friends-topdrinks {
   box-sizing: border-box;
   padding: 20px;

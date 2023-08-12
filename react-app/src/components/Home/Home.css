@@ -13,6 +13,16 @@
     height: max-content;
 }
 
+.sidebar-stats a {
+    color: black;
+    cursor: pointer;
+}
+
+.sidebar-stats a:hover {
+    color: black;
+    cursor: pointer;
+}
+
 .sidebar-top-drinks {
     width: 100%;
     box-sizing: border-box;
