@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import DrinkTile from './DrinkTile';
 import ReviewsForDrink from "../ReviewsForDrink";
 import * as drinkActions from "../../store/drinks";
@@ -29,7 +29,16 @@ const DrinkDetail = () => {
                         </div>
                     </div>
                     ) :
-                    <h1>Drink Not Found</h1>
+                    (
+                        <div className="editprofile-container">
+                          <div className="friends-card">
+                            <h1>Drink Not Found</h1>
+                            <p>
+                              Go back to the <NavLink to="/drinks">Drinks List</NavLink>
+                            </p>
+                          </div>
+                        </div>
+                      )
                     }
                 </>
             )}
