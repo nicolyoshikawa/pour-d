@@ -35,7 +35,7 @@ def seed_reviews():
                     stars=random.randint(1, 5),
                     user_id=user_id,
                     drink_id=drink_id,
-                    review_img_url='https://www.kark.com/wp-content/uploads/sites/85/2022/12/GettyImages-1300799299-1.jpg?w=960&h=540&crop=1'
+                    review_img_url='https://www.kark.com/wp-content/uploads/sites/85/2022/12/GettyImages-1300799299-1.jpg'
                 )
                 db.session.add(review)
                 user_reviews[user_id].add(drink_id)
