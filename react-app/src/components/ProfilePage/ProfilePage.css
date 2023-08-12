@@ -120,3 +120,13 @@
     width: 50px;
     margin-right: 15px;
 }
+
+.stat-title a {
+    color: white;
+}
+
+.stat-title a:hover {
+    color: white;
+    cursor: pointer;
+    text-decoration: underline;
+}

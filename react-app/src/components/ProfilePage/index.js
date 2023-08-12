@@ -72,7 +72,7 @@ export default function ProfilePage() {
                     <div className="stats">
                         <div className="stat">
                             <h3 className="stat-title">
-                                <span className="number">{totalDrinks}</span> DRINKS
+                                <span className="number">{totalDrinks}</span> <NavLink to="/my-drinks">DRINKS</NavLink>
                             </h3>
                         </div>
                         <div className="stat">
@@ -82,7 +82,7 @@ export default function ProfilePage() {
                         </div>
                         <div className="stat">
                             <h3 className="stat-title">
-                                <span className="number">{totalFriends}</span> FRIENDS
+                                <span className="number">{totalFriends}</span> <NavLink to="/friends">FRIENDS</NavLink>
                             </h3>
                         </div>
                     </div>
