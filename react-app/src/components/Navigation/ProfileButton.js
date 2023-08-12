@@ -45,9 +45,9 @@ function ProfileButton({ user }) {
       <button onClick={openMenu}>
         <img src={user.user_img_url} alt="Profile" />
       </button>
-      <ul className={ulClassName} ref={ulRef} onClick={closeMenu}>
+      <ul className={ulClassName} ref={ulRef}>
         {user ? (
-          <div className="profile-dropdown-menu">
+          <div className="profile-dropdown-menu" onClick={closeMenu}>
             <li>
               <NavLink exact to="/drinks/new">Create a Drink</NavLink>
             </li>
