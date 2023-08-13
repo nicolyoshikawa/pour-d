@@ -12,7 +12,7 @@
 
 ### 🏠 [Homepage](https://pourd.onrender.com/home)
 
-## Table of Contents (Reorganize/Nest items?)
+## Table of Contents (Need to reorganize)
 
  - Features
  - React Components
