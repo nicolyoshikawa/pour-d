@@ -25,7 +25,7 @@
 	- Frontend Routes
 	- API Routes
 	- Redux Store Tree
-- To-Dos/Future Features
+- [To-Dos/Future Features](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#to-dos-future-features)
 - Technical Implementation Details
 	- Challenges
 	- Code Snippets
