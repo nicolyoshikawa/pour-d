@@ -1,19 +1,16 @@
 
-# Project Name
+# Pour'd
+[Pour'd](https://pourd.onrender.com/) is a clone of Untappd created by Eric Kinder, Nicol Yoshikawa, and Huey Nguyen. This is a work in progress because creativity is at an all-time low after completing this project.
+![image](https://github.com/nicolyoshikawa/pour-d/assets/78172054/c4d9ef19-e79c-4fe0-8804-e1164b621846)
 
-Replace this with the name of your project.
+## Table of Contents
 
-## Live Site
+ - List item
 
-Provide a link to the live site where users can access and interact with your project.
+## Technical Implementation Details
 
-## Backend Repository
+Explain any complex or interesting technical details of your project.
 
-If you have a separate backend repository, provide a link to it here.
-
-## Summary
-
-A brief overview of what your project is and what it does.
 
 ## Screenshots
 
@@ -56,10 +53,6 @@ Provide a detailed explanation of your Redux store structure.
 ## To-Dos/Future Features
 
 List any features or improvements you plan to add in the future.
-
-## Technical Implementation Details
-
-Explain any complex or interesting technical details of your project.
 
 ## Challenges
 
