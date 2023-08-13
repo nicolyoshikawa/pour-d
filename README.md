@@ -56,19 +56,13 @@ Pour'd was built using the following technologies:
 - React
 - Redux
 
-## Wiki Documents (Link)
-
-### Features
-
-### React Components
-
-### Database Schema
-
-### Frontend Routes
-
-### API Routes
-
-### Redux Store Tree
+## [Wiki Documents](https://github.com/nicolyoshikawa/pour-d/wiki)
+- [Features](https://github.com/nicolyoshikawa/pour-d/wiki/Feature-List)
+- [React Components](https://github.com/nicolyoshikawa/pour-d/wiki/React-Components)
+- [Database Schema](https://github.com/nicolyoshikawa/pour-d/wiki/Database-Schema)
+- [Frontend Routes](https://github.com/nicolyoshikawa/pour-d/wiki/Frontend-Routes)
+- [API Routes](https://github.com/nicolyoshikawa/pour-d/wiki/Backend-Routes)
+- [Redux Store Tree](https://github.com/nicolyoshikawa/pour-d/wiki/Redux-Store-Tree)
 
 
 ## To-Dos/Future Features
