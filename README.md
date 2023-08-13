@@ -32,8 +32,8 @@ test command here
 👤 **Eric Kidner, Nicol Yoshikawa, and Huey Nguyen**
 
 * Eric's Github/LinkedIn: [@etkndr](https://github.com/etkndr) [@nothere.com](https://linkedin.com/in/nothere.com)
-* Nicol's Github/LinkedIn: [@nicolyoshikawa](https://github.com/nicolyoshikawa) [@NicolYoshikawa]((https://www.linkedin.com/in/nicol-yoshikawa/))
-* Huey's Github/LinkedIn: [@Syndux](https://github.com/Syndux) [@HueyNguyen]((https://www.linkedin.com/in/huey-nguyen/))
+* Nicol's Github/LinkedIn: [@nicolyoshikawa](https://github.com/nicolyoshikawa) [@NicolYoshikawa](https://www.linkedin.com/in/nicol-yoshikawa/)
+* Huey's Github/LinkedIn: [@Syndux](https://github.com/Syndux) [@HueyNguyen](https://www.linkedin.com/in/huey-nguyen/)
 
 
 ## Show your support
