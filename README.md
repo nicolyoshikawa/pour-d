@@ -3,9 +3,6 @@
   <a href="https://github.com/nicolyoshikawa/pour-d/wiki" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
-  <a href="https://twitter.com/test.com" target="_blank">
-    <img alt="Twitter: test.com" src="https://img.shields.io/twitter/follow/test.com.svg?style=social" />
-  </a>
 </p>
 
 > [Pour'd](https://pourd.onrender.com/) is a clone of Untappd created by Eric Kinder, Nicol Yoshikawa, and Huey Nguyen. This is a work in progress because creativity is at an all-time low after completing this project. (Summary of what the project is and what it does)
@@ -15,7 +12,7 @@
 ## Install
 
 ```sh
-test command here
+install command here
 ```
 
 ## Usage
@@ -30,14 +27,14 @@ usage command/instruction here
 test command here
 ```
 
-## Author
+## Authors
 
-👤 **Eric Kidner, Nicol Yoshikawa, Huey Nguyen**
+👤 **Eric Kidner, Nicol Yoshikawa, and Huey Nguyen**
 
-* Website: test.com
-* Twitter: [@test.com](https://twitter.com/test.com)
-* Github: [@etkndr, nicolyoshikaway, Syndux](https://github.com/etkndr, nicolyoshikaway, Syndux)
-* LinkedIn: [@test.com](https://linkedin.com/in/test.com)
+* Eric's Github/LinkedIn: [@etkndr](https://github.com/etkndr) [@nothere.com](https://linkedin.com/in/nothere.com)
+* Nicol's Github/LinkedIn: [@nicolyoshikaway](https://github.com/nicolyoshikawa) [@NicolYoshikawa]((https://www.linkedin.com/in/nicol-yoshikawa/))
+* Huey's Github/LinkedIn: [@Syndux](https://github.com/Syndux) [@HueyNguyen]((https://www.linkedin.com/in/huey-nguyen/))
+
 
 ## Show your support
 
