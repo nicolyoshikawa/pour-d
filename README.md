@@ -25,12 +25,12 @@
 	- Frontend Routes
 	- API Routes
 	- Redux Store Tree
-- [To-Dos/Future Features](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#to-dos-future-features)
-- Technical Implementation Details
+- [To-Dos/Future Features](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#to-dosfuture-features)
+- [Technical Implementation Details](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#technical-implementation-details)
 	- Challenges
 	- Code Snippets
-- Authors
-- Show your support
+- [Authors](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#authors)
+- [Show your support](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#show-your-support)
 
 ## Installation 
 Provide step-by-step instructions on how to install and run your project locally.
