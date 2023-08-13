@@ -14,8 +14,8 @@
 
 ## Table of Contents
 
- - Installing/Getting Started
-	 - Initial Configuration
+ - [Installing/Getting Started](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#installation)
+	 - [Initial Configuration](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#initial-configuration)
 - Screenshots
 - Technologies Used
 - Wiki Documents
