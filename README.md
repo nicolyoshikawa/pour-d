@@ -20,13 +20,13 @@
 - [Technologies Used](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#technologies-used)
 - [Wiki Documents](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#wiki-documents)
 	- API Routes
- - Database Schema
- - Features
- - Frontend Routes
- - React Components
- - Redux Store Tree
- - User Stories
- - Wireframes 
+ 	- Database Schema
+ 	- Features
+ 	- Frontend Routes
+ 	- React Components
+ 	- Redux Store Tree
+	- User Stories
+	- Wireframes 
 - [To-Dos/Future Features](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#to-dosfuture-features)
 - [Technical Implementation Details](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#technical-implementation-details)
 	- Challenges
