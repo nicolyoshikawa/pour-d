@@ -16,9 +16,9 @@
 
  - [Installing/Getting Started](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#installation)
 	 - [Initial Configuration](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#initial-configuration)
-- Screenshots
-- Technologies Used
-- Wiki Documents
+- [Screenshots](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#screenshots)
+- [Technologies Used](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#technologies-used)
+- [Wiki Documents](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#wiki-documents)
 	- Features
 	- React Components
 	- Database Schema
