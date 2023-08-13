@@ -46,7 +46,15 @@ Include screenshots or GIFs showcasing your application's features.
 
 ## Technologies Used
 
-List the technologies, languages, plugins, and APIs that you used in your project.
+Pour'd was built using the following technologies:
+
+- Python
+- Flask
+- SQLAlchemy/Alembic
+- WTForms
+- JavaScript
+- React
+- Redux
 
 ## Wiki Documents (Link)
 
@@ -65,7 +73,11 @@ List the technologies, languages, plugins, and APIs that you used in your projec
 
 ## To-Dos/Future Features
 
-List any features or improvements you plan to add in the future.
+The project is fully functional in its current state, but some other features we would like to implement in the future include:
+
+- Ability to upload images for drinks and reviews with AWS
+- Fully featured friends system with ability to view other users profiles and send friend requests
+- "Load more" style pagination when viewing all drinks or reviews
 
 ## Technical Implementation Details
 
