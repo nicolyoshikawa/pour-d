@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to pour-d 👋</h1>
+<h1 align="center">Welcome to Pour'd 👋</h1>
 <p>
   <a href="https://github.com/nicolyoshikawa/pour-d/wiki" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -11,7 +11,7 @@
 
 ### ✨ [Demo](https://pourd.onrender.com/)
 
-## Author
+## Authors
 
 👤 **Eric Kidner, Nicol Yoshikawa, Huey Nguyen**
 
