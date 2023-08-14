@@ -60,10 +60,9 @@ Reviews
 
 https://github.com/nicolyoshikawa/pour-d/assets/112415366/3ff2f7db-c294-492e-876d-f9dd486bb05f
 
-
-
 Friends
 
+https://github.com/nicolyoshikawa/pour-d/assets/112415366/5e72eff5-64e3-4592-a758-d030d5945de2
 
 
 ## Technologies Used
