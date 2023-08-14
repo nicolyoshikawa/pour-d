@@ -29,7 +29,6 @@ Pour'd was built using the following technologies:
  - [Installing/Getting Started](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#installation)
 	 - [Initial Configuration](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#initial-configuration)
 - [Screenshots](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#screenshots)
-- [Technologies Used](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#technologies-used)
 - [Wiki Documents](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#wiki-documents)
 	- API Routes
  	- Database Schema
