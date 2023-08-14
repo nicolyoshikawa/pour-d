@@ -50,14 +50,15 @@ Login
 
 Profile
 
-Drinks
+![ezgif com-video-to-gif (2)](https://github.com/nicolyoshikawa/pour-d/assets/112415366/85e58696-5e13-43b7-a6cf-e30275b48221)
 
+
+Drinks
 
 https://github.com/nicolyoshikawa/pour-d/assets/112415366/f89fecdf-d4a3-4b8c-854e-49713ac7fb34
 
-
-
 Reviews
+
 Friends
 
 
