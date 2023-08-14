@@ -50,8 +50,7 @@ Login
 
 Profile
 
-![ezgif com-video-to-gif (2)](https://github.com/nicolyoshikawa/pour-d/assets/112415366/85e58696-5e13-43b7-a6cf-e30275b48221)
-
+![ezgif com-gif-maker](https://github.com/nicolyoshikawa/pour-d/assets/112415366/411fb169-c4b6-4530-b77c-d4d6473de871)
 
 Drinks
 
