@@ -7,6 +7,18 @@
 </p>
 
 > [Pour'd](https://pourd.onrender.com/) is a clone of Untappd created by Eric Kinder, Nicol Yoshikawa, and Huey Nguyen. This is a work in progress because creativity is at an all-time low after completing this project. (Summary of what the project is and what it does)
+>
+> ## Technologies Used
+
+Pour'd was built using the following technologies:
+
+- Python
+- Flask
+- SQLAlchemy/Alembic
+- WTForms
+- JavaScript
+- React
+- Redux
 
 ![image](https://github.com/nicolyoshikawa/pour-d/assets/78172054/c4d9ef19-e79c-4fe0-8804-e1164b621846)
 
@@ -60,19 +72,6 @@ Reviews
 
 Friends
 
-
-
-## Technologies Used
-
-Pour'd was built using the following technologies:
-
-- Python
-- Flask
-- SQLAlchemy/Alembic
-- WTForms
-- JavaScript
-- React
-- Redux
 
 ## [Wiki Documents](https://github.com/nicolyoshikawa/pour-d/wiki)
 - [API Routes](https://github.com/nicolyoshikawa/pour-d/wiki/Backend-Routes)
