@@ -155,12 +155,6 @@ The project is fully functional in its current state, but some other features we
 
 ## Technical Implementation Details
 
-Explain any complex or interesting technical details of your project.
-
-### Challenges
-
-Describe any challenges you faced during the development process and how you overcame them.
-
 ### Code Snippets
 
 **Search box component**
@@ -201,7 +195,7 @@ Describe any challenges you faced during the development process and how you ove
 
 ## Authors
 
-👤 **Eric Kidner, Nicol Yoshikawa, and Huey Nguyen**
+👤 **Eric Kinder, Nicol Yoshikawa, and Huey Nguyen**
 
 * Eric's [Github](https://github.com/etkndr) and [LinkedIn](https://www.linkedin.com/in/eric-kinder-799097288/)
 * Nicol's [Github](https://github.com/nicolyoshikawa) and [LinkedIn](https://www.linkedin.com/in/nicol-yoshikawa/)
