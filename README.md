@@ -109,7 +109,7 @@ Include code snippets to showcase specific parts of your project.
 
 👤 **Eric Kidner, Nicol Yoshikawa, and Huey Nguyen**
 
-* Eric's [Github](https://github.com/etkndr) and [LinkedIn(missing)](https://linkedin.com/in/missing)
+* Eric's [Github](https://github.com/etkndr) and [LinkedIn](https://www.linkedin.com/in/eric-kinder-799097288/)
 * Nicol's [Github](https://github.com/nicolyoshikawa) and [LinkedIn](https://www.linkedin.com/in/nicol-yoshikawa/)
 * Huey's [Github](https://github.com/Syndux) and [LinkedIn](https://www.linkedin.com/in/huey-nguyen/)
 
