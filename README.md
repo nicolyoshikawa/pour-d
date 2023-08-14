@@ -103,13 +103,47 @@ Describe any challenges you faced during the development process and how you ove
 
 ### Code Snippets
 
-Include code snippets to showcase specific parts of your project.
+**Search box component**
+```javascript
+    const dispatch = useDispatch()
+
+    const drinks = useSelector(state => state.drinks) // Load all drinks for search bar to query
+    const [searchInput, setSearchInput] = useState("") // Set current query to user's input
+    let hideDiv // Used for removing border if search results are empty
+
+    useEffect(() => {
+        dispatch(loadAllDrinks())
+    }, [dispatch])
+
+    const onClickHandler = () => {
+        setSearchInput("")
+    }
+
+
+    if (drinks) {
+        // Create array of drinks with name matching current input from user
+        let filterDrinks = Object.values(drinks).filter((drink) => {
+            if (searchInput.length && drink.name.toLowerCase().includes(searchInput.toLowerCase())) {
+                return drink
+            }
+        })
+
+        // Remove border if results are empty
+        if (searchInput.length && filterDrinks.length) {
+            hideDiv = "results"
+        } else {
+            hideDiv = "results-hide"
+        }
+    return (
+	...
+	)}
+```
 
 ## Authors
 
 👤 **Eric Kidner, Nicol Yoshikawa, and Huey Nguyen**
 
-* Eric's [Github](https://github.com/etkndr) and [LinkedIn(missing)](https://linkedin.com/in/missing)
+* Eric's [Github](https://github.com/etkndr) and [LinkedIn](https://www.linkedin.com/in/eric-kinder-799097288/)
 * Nicol's [Github](https://github.com/nicolyoshikawa) and [LinkedIn](https://www.linkedin.com/in/nicol-yoshikawa/)
 * Huey's [Github](https://github.com/Syndux) and [LinkedIn](https://www.linkedin.com/in/huey-nguyen/)
 
