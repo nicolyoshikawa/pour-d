@@ -8,7 +8,7 @@
 
 > [Pour'd](https://pourd.onrender.com/) is a clone of Untappd created by Eric Kinder, Nicol Yoshikawa, and Huey Nguyen. This is a work in progress because creativity is at an all-time low after completing this project. (Summary of what the project is and what it does)
 >
-> ## Technologies Used
+## Technologies Used
 
 Pour'd was built using the following technologies:
 
