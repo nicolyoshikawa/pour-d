@@ -43,10 +43,20 @@ install command here
 
 ## Screenshots
 Include screenshots or GIFs showcasing your application's features.
+
 Login
+
 ![image](https://github.com/nicolyoshikawa/pour-d/assets/78172054/ac0d5485-27b7-440e-a824-28df365977e4)
+
 Profile
+
 Drinks
+
+
+https://github.com/nicolyoshikawa/pour-d/assets/112415366/f89fecdf-d4a3-4b8c-854e-49713ac7fb34
+
+
+
 Reviews
 Friends
 
