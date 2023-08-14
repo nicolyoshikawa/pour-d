@@ -34,25 +34,70 @@
 - [Authors](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#authors)
 - [Show your support](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#show-your-support)
 
-## Installation 
-Provide step-by-step instructions on how to install and run your project locally.
-```sh
-install command here
-```
+## Installation
+
 ### Initial Configuration
+#### Flask
+To install and run this project locally, start off with your backend server.
+
+1. Clone this repository
+    ```bash
+    git clone https://github.com/nicolyoshikawa/pour-d.git
+    ```
+
+2. Install dependencies
+    ```bash
+    pipenv install -r requirements.txt
+    ```
+
+3. Create a **.env** file based on the example with proper settings for your
+   development environment
+    - Make sure the SQLite3 database connection URL is in the **.env** file
+    - The env example organizes all tables inside the `flask_schema` schema, defined
+        by the `SCHEMA` environment variable.  Replace the value for
+        `SCHEMA` with a unique name, **making sure you use the snake_case
+        convention**.
+    <br></br>
+
+4. Get into your pipenv, migrate your database, seed your database, and run your Flask app
+
+   ```bash
+   pipenv shell
+   ```
+   and then
+   ```bash
+   flask db upgrade &&
+   flask seed all &&
+   flask run
+   ```
+
+5. Now that you have your backend Flask server running. You need to run the React App in development in a different terminal instance.
+
+#### React
+1. Make sure you have a new terminal instance seperate from your terminal for your backend. Navigate into the pour'd project folder and then into react-app folder.
+    ```bash
+    cd react-app
+    ```
+
+2. Install all your dependencies before starting up the application.
+    ```bash
+    npm install &&
+    npm start
+    ```
+
+3. Now that you have both your Flask backend and React App frontend running, enjoy using Pour'd. Cheers!
 
 ## Screenshots
-Include screenshots or GIFs showcasing your application's features.
 
-Login
+### Login
 
 ![image](https://github.com/nicolyoshikawa/pour-d/assets/78172054/ac0d5485-27b7-440e-a824-28df365977e4)
 
-Profile
+### Profile
 
 ![ezgif com-gif-maker](https://github.com/nicolyoshikawa/pour-d/assets/112415366/411fb169-c4b6-4530-b77c-d4d6473de871)
 
-Drinks
+### Drinks
 
 https://github.com/nicolyoshikawa/pour-d/assets/112415366/f89fecdf-d4a3-4b8c-854e-49713ac7fb34
 
