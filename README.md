@@ -98,6 +98,20 @@ To install and run this project locally, start off with your backend server.
 
 3. Now that you have both your Flask backend and React App frontend running, enjoy using Pour'd. Cheers!
 
+### Operating
+To run the application, navigate into the project folder in two separate terminal windows.
+
+1. Ensure that the database has already been migrated and seeded. If it hasn't been done yet, refer to [Intitial Configuration](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#initial-configuration)
+
+2. In one terminal, go into pipenv and run the Flask app
+    ```bash
+    pipenv shell && flask run
+    ```
+
+3. In the other terminal, start the React app.
+
+4. Pour'd will open in your browser and you can now enjoy using Pour'd. Cheers!
+
 ## Screenshots
 
 ### Login
