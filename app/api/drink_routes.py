@@ -153,13 +153,18 @@ def new_drink():
     if drink_name_exists:
         return {'errors': "A drink with that name already exisits"}, 401
     form['csrf_token'].data = request.cookies['csrf_token']
+
     if form.validate_on_submit():
+        drink_img_url = form.data["drink_img_url"]
+        if not drink_img_url:
+            drink_img_url = "https://logo.com/image-cdn/images/kts928pd/production/741108a9e226cae00df034a9f65cf34cac9baffe-375x368.png"
+
         drink = Drink(
             name=form.data["name"],
             abv=form.data["abv"],
             ibu=form.data["ibu"],
             description=form.data["description"],
-            drink_img_url=form.data["drink_img_url"],
+            drink_img_url=drink_img_url,
             user_id = current_user.id
         )
         db.session.add(drink)
