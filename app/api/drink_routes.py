@@ -46,10 +46,6 @@ def createAReview(id):
         return {'errors': "Cannot create a review for a drink that you created"}, 400
 
     if form.validate_on_submit():
-        review_img_url = form.data["review_img_url"]
-        if not review_img_url:
-            review_img_url = "https://logo.com/image-cdn/images/kts928pd/production/741108a9e226cae00df034a9f65cf34cac9baffe-375x368.png"
-        
         review = Review(
             content= form.data["content"],
             stars= form.data["stars"],
