@@ -12,25 +12,27 @@
 
 ### 🏠 [Homepage](https://pourd.onrender.com/home)
 
-## Table of Contents (Reorganize/Nest items?)
+## Table of Contents
 
- - Installing/Getting Started
-	 - Initial Configuration
-- Screenshots
-- Technologies Used
-- Wiki Documents
-	- Features
-	- React Components
-	- Database Schema
-	- Frontend Routes
+ - [Installing/Getting Started](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#installation)
+	 - [Initial Configuration](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#initial-configuration)
+- [Screenshots](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#screenshots)
+- [Technologies Used](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#technologies-used)
+- [Wiki Documents](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#wiki-documents)
 	- API Routes
-	- Redux Store Tree
-- To-Dos/Future Features
-- Technical Implementation Details
+ 	- Database Schema
+ 	- Features
+ 	- Frontend Routes
+ 	- React Components
+ 	- Redux Store Tree
+	- User Stories
+	- Wireframes 
+- [To-Dos/Future Features](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#to-dosfuture-features)
+- [Technical Implementation Details](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#technical-implementation-details)
 	- Challenges
 	- Code Snippets
-- Authors
-- Show your support
+- [Authors](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#authors)
+- [Show your support](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#show-your-support)
 
 ## Installation 
 Provide step-by-step instructions on how to install and run your project locally.
@@ -46,26 +48,34 @@ Include screenshots or GIFs showcasing your application's features.
 
 ## Technologies Used
 
-List the technologies, languages, plugins, and APIs that you used in your project.
+Pour'd was built using the following technologies:
 
-## Wiki Documents (Link)
+- Python
+- Flask
+- SQLAlchemy/Alembic
+- WTForms
+- JavaScript
+- React
+- Redux
 
-### Features
-
-### React Components
-
-### Database Schema
-
-### Frontend Routes
-
-### API Routes
-
-### Redux Store Tree
+## [Wiki Documents](https://github.com/nicolyoshikawa/pour-d/wiki)
+- [API Routes](https://github.com/nicolyoshikawa/pour-d/wiki/Backend-Routes)
+- [Database Schema](https://github.com/nicolyoshikawa/pour-d/wiki/Database-Schema)
+- [Features](https://github.com/nicolyoshikawa/pour-d/wiki/Feature-List)
+- [Frontend Routes](https://github.com/nicolyoshikawa/pour-d/wiki/Frontend-Routes)
+- [React Components](https://github.com/nicolyoshikawa/pour-d/wiki/React-Components)
+- [Redux Store Tree](https://github.com/nicolyoshikawa/pour-d/wiki/Redux-Store-Tree)
+- [User Stories](https://github.com/nicolyoshikawa/pour-d/wiki/User-Stories)
+- [Wireframes](https://github.com/nicolyoshikawa/pour-d/wiki/Wireframes)
 
 
 ## To-Dos/Future Features
 
-List any features or improvements you plan to add in the future.
+The project is fully functional in its current state, but some other features we would like to implement in the future include:
+
+- Ability to upload images for drinks and reviews with AWS
+- Fully featured friends system with ability to view other users profiles and send friend requests
+- "Load more" style pagination when viewing all drinks or reviews
 
 ## Technical Implementation Details
 
