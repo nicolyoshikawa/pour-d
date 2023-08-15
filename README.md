@@ -26,10 +26,10 @@ Pour'd was built using the following technologies:
 
 ## Table of Contents
 
- - [Installing/Getting Started](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#installation)
-	 - [Initial Configuration](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#initial-configuration)
-- [Screenshots](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#screenshots)
-- [Wiki Documents](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#wiki-documents)
+ - [Installing/Getting Started](https://github.com/nicolyoshikawa/pour-d/blob/main/README.md#installation)
+	 - [Initial Configuration](https://github.com/nicolyoshikawa/pour-d/blob/main/README.md#initial-configuration)
+- [Screenshots](https://github.com/nicolyoshikawa/pour-d/blob/main/README.md#screenshots)
+- [Wiki Documents](https://github.com/nicolyoshikawa/pour-d/blob/main/README.md#wiki-documents)
 	- API Routes
  	- Database Schema
  	- Features
@@ -38,12 +38,12 @@ Pour'd was built using the following technologies:
  	- Redux Store Tree
 	- User Stories
 	- Wireframes 
-- [To-Dos/Future Features](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#to-dosfuture-features)
-- [Technical Implementation Details](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#technical-implementation-details)
+- [To-Dos/Future Features](https://github.com/nicolyoshikawa/pour-d/blob/main/README.md#to-dosfuture-features)
+- [Technical Implementation Details](https://github.com/nicolyoshikawa/pour-d/blob/main/README.md#technical-implementation-details)
 	- Challenges
 	- Code Snippets
-- [Authors](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#authors)
-- [Show your support](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#show-your-support)
+- [Authors](https://github.com/nicolyoshikawa/pour-d/blob/main/README.md#authors)
+- [Show your support](https://github.com/nicolyoshikawa/pour-d/blob/main/README.md#show-your-support)
 
 ## Installation
 
@@ -101,7 +101,7 @@ To install and run this project locally, start off with your backend server.
 ### Operating
 To run the application, navigate into the project folder in two separate terminal windows.
 
-1. Ensure that the database has already been migrated and seeded. If it hasn't been done yet, refer to [Intitial Configuration](https://github.com/nicolyoshikawa/pour-d/blob/huey-readme-edit/README.md#initial-configuration)
+1. Ensure that the database has already been migrated and seeded. If it hasn't been done yet, refer to [Intitial Configuration](https://github.com/nicolyoshikawa/pour-d/blob/main/README.md#initial-configuration)
 
 2. In one terminal, go into pipenv and run the Flask app
     ```bash
