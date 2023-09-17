@@ -17,6 +17,7 @@ import FriendsPage from "./components/FriendsPage";
 import TopDrinks from "./components/TopDrinks";
 import EditProfile from "./components/EditProfile";
 import PageNotFound from "./components/PageNotFound";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   const dispatch = useDispatch();
@@ -78,6 +79,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <LandingPage />
+          </Route>
+          <Route exact path="/about-us">
+            <AboutUs />
           </Route>
           <Route>
             <PageNotFound />
