@@ -5,7 +5,8 @@ import { NavLink, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { login } from "../../store/session"
 import SearchBar from "./SearchBar"
-import { useEffect } from "react"
+import { useEffect } from "react";
+import AboutUs from "../AboutUs"
 
 export default function LandingPage() {
     const dispatch = useDispatch()
@@ -111,6 +112,7 @@ export default function LandingPage() {
                             JOIN POUR'D
                         </button>
                     </NavLink>
+                    <NavLink to="/about-us" className="about-us">Meet the team</NavLink>
                 </div>
             </div>
         </>
