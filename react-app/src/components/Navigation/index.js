@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
-import SearchBar from "../LandingPage/SearchBar"
+import SearchBar from "../LandingPage/SearchBar";
 // import OpenModalButton from "../OpenModalButton";
 // import LoginFormModal from "../LoginFormModal";
 // import SignupFormModal from "../SignupFormModal";
@@ -27,6 +27,9 @@ function Navigation({ isLoaded }) {
                 </NavLink>
                 <NavLink exact to="/drinks/top-rated">
                   Top Drinks
+                </NavLink>
+                <NavLink exact to="/about-us">
+                  About us
                 </NavLink>
               </div>
               <div className="navbar-inner-profile-search">
