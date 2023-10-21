@@ -63,9 +63,9 @@ function ProfileButton({ user }) {
             <li>
               <NavLink exact to="/friends">Friends</NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink exact to="/about-us">About Us</NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink exact to="/logout" onClick={handleLogout}>Log Out</NavLink>
             </li>
